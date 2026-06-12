@@ -1,0 +1,6921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiniela Mundial 2026 · La Peña</title>
+<meta name="description" content="Tablas de la quiniela del Mundial 2026: apuestas al campeón, pronósticos de la fase de grupos, resultados, puntos y clasificación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1019; --ink-2:#121a27; --ink-3:#1b2536;
+  --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+  --paper:#f6f5f0; --paper-2:#fffdf8; --paper-line:#e6e2d6;
+  --txt:#0d1117; --txt-soft:#5b6473; --txt-on-dark:#eef2f7; --txt-on-dark-soft:#9aa6b8;
+  --grass:#15b86a; --grass-deep:#0a7a44;
+  --gold:#f6b419; --gold-deep:#c98a06;
+  --red:#e5483d; --blue:#2f7df0;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--ink); color:var(--txt);
+  font-family:"Inter",system-ui,sans-serif; -webkit-font-smoothing:antialiased;
+  font-feature-settings:"tnum" 1,"cv01" 1;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-feature-settings:"tnum" 1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+/* ---------- SCOREBOARD HEADER ---------- */
+header.board{
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(21,184,106,.16), transparent 55%),
+    radial-gradient(120% 120% at 100% 0%, rgba(246,180,25,.14), transparent 55%),
+    var(--ink);
+  border-bottom:1px solid var(--line);
+  position:relative; overflow:hidden;
+}
+header.board::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.015) 38px 39px);
+}
+.board-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 6px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.crest{
+  width:46px;height:46px;flex:none;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(160deg,var(--grass),var(--grass-deep));
+  box-shadow:0 6px 22px rgba(21,184,106,.35); font-size:24px;
+}
+.brand h1{
+  font-family:"Anton",sans-serif;font-weight:400;letter-spacing:.5px;line-height:.92;
+  color:var(--txt-on-dark);margin:0;font-size:clamp(26px,4.4vw,42px);text-transform:uppercase;
+}
+.brand h1 b{color:var(--gold);font-weight:400}
+.brand .sub{color:var(--txt-on-dark-soft);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;font-weight:600}
+.live{display:inline-flex;align-items:center;gap:7px;color:var(--txt-on-dark-soft);font-size:12px;font-weight:600;letter-spacing:.05em;
+  border:1px solid var(--line);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.03)}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--grass);box-shadow:0 0 0 0 rgba(21,184,106,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(21,184,106,.5)}70%{box-shadow:0 0 0 9px rgba(21,184,106,0)}100%{box-shadow:0 0 0 0 rgba(21,184,106,0)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:16px 0 22px}
+.stat{background:var(--ink-2);padding:14px 16px;min-width:0}
+.stat .k{color:var(--txt-on-dark-soft);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.stat .v{color:var(--txt-on-dark);font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(18px,2.4vw,26px);margin-top:5px;display:flex;align-items:center;gap:8px;line-height:1}
+.stat .v small{font-size:13px;color:var(--gold);font-weight:700}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- TABS ---------- */
+nav.tabs{position:sticky;top:0;z-index:40;background:rgba(11,16,25,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tabs-row{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs-row::-webkit-scrollbar{display:none}
+.tab{
+  appearance:none;border:0;background:transparent;color:var(--txt-on-dark-soft);
+  font-family:"Archivo",sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.02em;
+  padding:16px 16px 14px;cursor:pointer;white-space:nowrap;position:relative;display:flex;align-items:center;gap:8px;
+  border-bottom:3px solid transparent;transition:color .15s
+}
+.tab .ico{font-size:15px}
+.tab:hover{color:var(--txt-on-dark)}
+.tab.active{color:#fff;border-bottom-color:var(--gold)}
+
+/* ---------- CONTENT / PAPER ---------- */
+main{background:var(--paper);min-height:60vh;padding:30px 0 70px;
+  background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.04) 1px,transparent 0);background-size:22px 22px}
+.panel{display:none;animation:fade .35s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grass-deep)}
+.panel h2{font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.4px;
+  font-size:clamp(24px,3.6vw,34px);margin:6px 0 4px;color:var(--txt)}
+.lead{color:var(--txt-soft);max-width:62ch;margin:0 0 22px;font-size:14.5px;line-height:1.55}
+
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 18px}
+.search{position:relative;flex:1;min-width:200px;max-width:340px}
+.search input{width:100%;border:1px solid var(--paper-line);background:var(--paper-2);border-radius:999px;
+  padding:11px 14px 11px 38px;font:inherit;font-size:14px;color:var(--txt);outline:none}
+.search input:focus{border-color:var(--grass);box-shadow:0 0 0 3px rgba(21,184,106,.15)}
+.search .mag{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--txt-soft);font-size:14px}
+.seg{display:inline-flex;background:var(--paper-2);border:1px solid var(--paper-line);border-radius:999px;padding:3px}
+.seg button{appearance:none;border:0;background:transparent;font:inherit;font-weight:700;font-size:13px;
+  color:var(--txt-soft);padding:8px 15px;border-radius:999px;cursor:pointer;font-family:"Archivo",sans-serif}
+.seg button.on{background:var(--ink);color:#fff}
+select.pick{appearance:none;border:1px solid var(--paper-line);background:var(--paper-2);border-radius:999px;
+  padding:9px 34px 9px 15px;font:inherit;font-weight:700;font-size:13px;font-family:"Archivo",sans-serif;color:var(--txt);cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%235b6473' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center}
+
+/* ---------- CARDS / TABLES ---------- */
+.card{background:var(--paper-2);border:1px solid var(--paper-line);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 1px 0 rgba(0,0,0,.02),0 10px 30px -22px rgba(0,0,0,.4)}
+.card+.card{margin-top:18px}
+.card-h{padding:14px 18px;border-bottom:1px solid var(--paper-line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card-h h3{margin:0;font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;letter-spacing:.01em;display:flex;align-items:center;gap:9px}
+.card-h .tag{font-family:"Archivo",sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--txt-soft);background:var(--paper);border:1px solid var(--paper-line);padding:5px 10px;border-radius:999px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--paper-line);white-space:nowrap}
+thead th{position:sticky;top:0;background:var(--ink);color:var(--txt-on-dark);font-family:"Archivo",sans-serif;
+  font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;z-index:2;border-bottom:0}
+tbody tr:hover{background:#fbf9f2}
+tbody tr:nth-child(even){background:rgba(0,0,0,.012)}
+tbody tr:nth-child(even):hover{background:#fbf9f2}
+.flag{font-size:18px;margin-right:8px;vertical-align:-2px}
+.team{font-weight:600}
+.num{font-family:"JetBrains Mono",monospace;font-weight:700;text-align:center}
+td.pos,th.pos{text-align:center;color:var(--txt-soft);font-family:"JetBrains Mono",monospace;font-weight:800;width:42px}
+.medal{font-size:15px}
+.sticky-l{position:sticky;left:0;background:var(--paper-2);z-index:1;box-shadow:1px 0 0 var(--paper-line)}
+thead .sticky-l{background:var(--ink);z-index:3}
+tbody tr:hover .sticky-l{background:#fbf9f2}
+
+/* odds chip */
+.odds{display:inline-block;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:13px;
+  background:var(--ink);color:var(--gold);padding:5px 10px;border-radius:8px;min-width:54px;text-align:center}
+.odds.est{background:var(--paper);color:var(--txt-soft);border:1px dashed var(--paper-line)}
+.est-badge{font-size:10px;font-weight:700;color:var(--gold-deep);letter-spacing:.06em;text-transform:uppercase}
+.pub-badge{font-size:10px;font-weight:700;color:var(--grass-deep);letter-spacing:.06em;text-transform:uppercase}
+
+/* 1X2 chip */
+.q{display:inline-grid;grid-auto-flow:column;gap:3px}
+.q b{width:22px;height:24px;display:grid;place-items:center;border-radius:6px;font-family:"JetBrains Mono",monospace;
+  font-weight:800;font-size:12px;color:var(--txt-soft);background:var(--paper);border:1px solid var(--paper-line)}
+.q b.on{color:#fff}
+.q b.on[data-s="1"]{background:var(--grass);border-color:var(--grass)}
+.q b.on[data-s="X"]{background:var(--gold-deep);border-color:var(--gold-deep)}
+.q b.on[data-s="2"]{background:var(--red);border-color:var(--red)}
+.score{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:14px;color:var(--txt);letter-spacing:1px}
+.score .sep{color:var(--txt-soft);margin:0 2px}
+.muted{color:var(--txt-soft)}
+.dash{color:#c7c1b2;font-weight:700}
+
+/* champion pick cards */
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.pick{background:var(--paper-2);border:1px solid var(--paper-line);border-radius:12px;padding:13px 15px;display:flex;align-items:center;gap:12px}
+.pick .who{font-family:"Archivo",sans-serif;font-weight:800;font-size:13px;letter-spacing:.02em}
+.pick .what{color:var(--txt-soft);font-size:12.5px;font-weight:600;margin-top:2px}
+.pick .bigflag{font-size:30px;line-height:1}
+
+/* vote bars */
+.votes{display:flex;flex-direction:column;gap:11px}
+.vote{display:grid;grid-template-columns:140px 1fr 34px;align-items:center;gap:12px}
+.vote .lbl{font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:7px}
+.vote .bar{height:12px;background:var(--paper);border:1px solid var(--paper-line);border-radius:999px;overflow:hidden}
+.vote .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--grass),var(--grass-deep));border-radius:999px}
+.vote .cnt{font-family:"JetBrains Mono",monospace;font-weight:800;text-align:right}
+@media(max-width:520px){.vote{grid-template-columns:96px 1fr 28px;gap:8px}.vote .lbl{font-size:12px}}
+
+.empty{padding:40px 20px;text-align:center;color:var(--txt-soft)}
+.empty .em-ico{font-size:30px;display:block;margin-bottom:8px;opacity:.5}
+
+footer{background:var(--ink);color:var(--txt-on-dark-soft);font-size:12.5px;padding:26px 0;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--gold);text-decoration:none}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--txt-soft);font-size:12px;margin:14px 2px 0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:13px;height:13px;border-radius:4px;display:inline-block}
+:focus-visible{outline:3px solid var(--grass);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+<header class="board">
+  <div class="wrap">
+    <div class="board-top">
+      <div class="brand">
+        <div class="crest">🏆</div>
+        <div>
+          <h1>Quiniela <b>Mundial 2026</b></h1>
+          <div class="sub">La Peña · Fase de grupos</div>
+        </div>
+      </div>
+      <div class="live"><span class="dot"></span> Tablas en directo</div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <div class="tabs-row" id="tabsRow"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <section class="panel" id="p-campeon"></section>
+    <section class="panel" id="p-apuestas"></section>
+    <section class="panel" id="p-resultados"></section>
+    <section class="panel" id="p-puntos"></section>
+    <section class="panel" id="p-clasificacion"></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Quiniela Mundial 2026 · 10 participantes · Datos del libro <b>Mundial2026_v4</b></span>
+    <span>Hecho para consultar — <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">volver arriba ↑</a></span>
+  </div>
+</footer>
+
+<script>
+/* ===== DATA (inyectado) ===== */
+const DATA = {
+ "CAMPEON": {
+  "cuotas": [
+   {
+    "pos": 1,
+    "seleccion": "España",
+    "cuota": "5.50",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 2,
+    "seleccion": "Francia",
+    "cuota": "6.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 3,
+    "seleccion": "Inglaterra",
+    "cuota": "7.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 4,
+    "seleccion": "Argentina",
+    "cuota": "9.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 5,
+    "seleccion": "Brasil",
+    "cuota": "9.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 6,
+    "seleccion": "Portugal",
+    "cuota": "11.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 7,
+    "seleccion": "Alemania",
+    "cuota": "15.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 8,
+    "seleccion": "Países Bajos",
+    "cuota": "21.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 9,
+    "seleccion": "Noruega",
+    "cuota": "26.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 10,
+    "seleccion": "Bélgica",
+    "cuota": "34.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 11,
+    "seleccion": "Colombia",
+    "cuota": "34.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 12,
+    "seleccion": "Marruecos",
+    "cuota": "51.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 13,
+    "seleccion": "Japón",
+    "cuota": "51.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 14,
+    "seleccion": "Estados Unidos",
+    "cuota": "67.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 15,
+    "seleccion": "Uruguay",
+    "cuota": "67.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 16,
+    "seleccion": "Croacia",
+    "cuota": "81.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 17,
+    "seleccion": "México",
+    "cuota": "81.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 18,
+    "seleccion": "Suiza",
+    "cuota": "81.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 19,
+    "seleccion": "Turquía",
+    "cuota": "81.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 20,
+    "seleccion": "Senegal",
+    "cuota": "101.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 21,
+    "seleccion": "Ecuador",
+    "cuota": "101.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 22,
+    "seleccion": "Suecia",
+    "cuota": "126.00",
+    "estado": "Publicada"
+   },
+   {
+    "pos": 23,
+    "seleccion": "Dinamarca",
+    "cuota": "~150",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 24,
+    "seleccion": "Austria",
+    "cuota": "~175",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 25,
+    "seleccion": "Paraguay",
+    "cuota": "~200",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 26,
+    "seleccion": "Canadá",
+    "cuota": "~200",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 27,
+    "seleccion": "República Checa",
+    "cuota": "~250",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 28,
+    "seleccion": "Bosnia y Herzegovina",
+    "cuota": "~250",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 29,
+    "seleccion": "Escocia",
+    "cuota": "~300",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 30,
+    "seleccion": "Corea del Sur",
+    "cuota": "~300",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 31,
+    "seleccion": "Uzbekistán",
+    "cuota": "~350",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 32,
+    "seleccion": "Malí",
+    "cuota": "~350",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 33,
+    "seleccion": "Costa de Marfil",
+    "cuota": "~400",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 34,
+    "seleccion": "Panamá",
+    "cuota": "~400",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 35,
+    "seleccion": "Australia",
+    "cuota": "~400",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 36,
+    "seleccion": "Arabia Saudí",
+    "cuota": "~500",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 37,
+    "seleccion": "Ghana",
+    "cuota": "~500",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 38,
+    "seleccion": "Nigeria",
+    "cuota": "~500",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 39,
+    "seleccion": "Cabo Verde",
+    "cuota": "~600",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 40,
+    "seleccion": "Irán",
+    "cuota": "~600",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 41,
+    "seleccion": "Jordania",
+    "cuota": "~750",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 42,
+    "seleccion": "Haití",
+    "cuota": "~1000",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 43,
+    "seleccion": "Irak",
+    "cuota": "~1000",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 44,
+    "seleccion": "Surinam",
+    "cuota": "~1000",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 45,
+    "seleccion": "R.D. del Congo",
+    "cuota": "~1500",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 46,
+    "seleccion": "Jamaica",
+    "cuota": "~1500",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 47,
+    "seleccion": "Curazao",
+    "cuota": "~2000",
+    "estado": "Estimada"
+   },
+   {
+    "pos": 48,
+    "seleccion": "Nueva Caledonia",
+    "cuota": "~5000",
+    "estado": "Estimada"
+   }
+  ],
+  "apuestas": [
+   {
+    "participante": "FRANCESC",
+    "apuesta": "ESPAÑA"
+   },
+   {
+    "participante": "ALEJANDRO",
+    "apuesta": "PORTUGAL"
+   },
+   {
+    "participante": "GERMÁN",
+    "apuesta": "FRANCIA"
+   },
+   {
+    "participante": "IGNASI",
+    "apuesta": "INGLATERRA"
+   },
+   {
+    "participante": "SERGI",
+    "apuesta": "ESPAÑA"
+   },
+   {
+    "participante": "BÀRBARA",
+    "apuesta": "ARGENTINA"
+   },
+   {
+    "participante": "XAVI",
+    "apuesta": "ESPAÑA"
+   },
+   {
+    "participante": "EDI",
+    "apuesta": "FRANCIA"
+   },
+   {
+    "participante": "ROGER.P",
+    "apuesta": "PORTUGAL"
+   },
+   {
+    "participante": "DAVID.T",
+    "apuesta": "FRANCIA"
+   }
+  ],
+  "ranking": [
+   {
+    "pais": "FRANCIA",
+    "votos": 3
+   },
+   {
+    "pais": "ESPAÑA",
+    "votos": 3
+   },
+   {
+    "pais": "PORTUGAL",
+    "votos": 2
+   },
+   {
+    "pais": "INGLATERRA",
+    "votos": 1
+   },
+   {
+    "pais": "ARGENTINA",
+    "votos": 1
+   }
+  ]
+ },
+ "APUESTA-GRUPOS": {
+  "participants": [
+   "FRANCESC",
+   "ALEJANDRO",
+   "GERMÁN",
+   "IGNASI",
+   "SERGI",
+   "BÀRBARA",
+   "XAVI",
+   "EDI",
+   "ROGER.P",
+   "DAVID.T"
+  ],
+  "jornadas": [
+   {
+    "nombre": "JORNADA 1",
+    "partidos": [
+     {
+      "local": "MEXICO",
+      "visitante": "SUDAFRICA",
+      "preds": [
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "COREA DEL SUR",
+      "visitante": "CHEQUIA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "CANADA",
+      "visitante": "BOSNIA-HERZ.",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "QATAR",
+      "visitante": "SUIZA",
+      "preds": [
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "BRASIL",
+      "visitante": "MARRUECOS",
+      "preds": [
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       },
+       {
+        "local": "2",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "3",
+        "visit": "2",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "HAITI",
+      "visitante": "ESCOCIA",
+      "preds": [
+       {
+        "local": "0",
+        "visit": "4",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "4",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "ESTADOS UNIDOS",
+      "visitante": "PARAGUAY",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "AUSTRALIA",
+      "visitante": "TURQUIA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "ALEMANIA",
+      "visitante": "CURAZAO",
+      "preds": [
+       {
+        "local": "5",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "5",
+        "visit": "2",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "5",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "6",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "COSTA DE MARFIL",
+      "visitante": "ECUADOR",
+      "preds": [
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "PAISES BAJOS",
+      "visitante": "JAPON",
+      "preds": [
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "TUNEZ",
+      "visitante": "SUECIA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       }
+      ]
+     },
+     {
+      "local": "BELGICA",
+      "visitante": "EGIPTO",
+      "preds": [
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "IRAN",
+      "visitante": "NUEVA ZELANDA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "0",
+        "quiniela": "X"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "ESPAÑA",
+      "visitante": "CABO VERDE",
+      "preds": [
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "5",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "0",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "ARABIA SAUDI",
+      "visitante": "URUGUAY",
+      "preds": [
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "FRANCIA",
+      "visitante": "SENEGAL",
+      "preds": [
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "NORUEGA",
+      "visitante": "IRAQ",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       }
+      ]
+     },
+     {
+      "local": "ARGENTINA",
+      "visitante": "ARGELIA",
+      "preds": [
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "5",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "AUSTRIA",
+      "visitante": "JORDANIA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "PORTUGAL",
+      "visitante": "DR CONGO",
+      "preds": [
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "5",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "5",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "4",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "3",
+        "visit": "0",
+        "quiniela": "1"
+       }
+      ]
+     },
+     {
+      "local": "UZBEKISTAN",
+      "visitante": "COLOMBIA",
+      "preds": [
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "1",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       }
+      ]
+     },
+     {
+      "local": "PANAMA",
+      "visitante": "GHANA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "2",
+        "visit": "0",
+        "quiniela": "1"
+       },
+       {
+        "local": "0",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       }
+      ]
+     },
+     {
+      "local": "CROACIA",
+      "visitante": "INGLATERRA",
+      "preds": [
+       {
+        "local": "1",
+        "visit": "1",
+        "quiniela": "X"
+       },
+       {
+        "local": "2",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "3",
+        "quiniela": "2"
+       },
+       {
+        "local": "3",
+        "visit": "3",
+        "quiniela": "X"
+       },
+       {
+        "local": "0",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "2",
+        "quiniela": "X"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "1",
+        "visit": "2",
+        "quiniela": "2"
+       },
+       {
+        "local": "2",
+        "visit": "1",
+        "quiniela": "1"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nombre": "JORNADA 2",
+    "partidos": [
+     {
+      "local": "MEXICO",
+      "visitante": "COREA DEL SUR",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "SUDAFRICA",
+      "visitante": "CHEQUIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "CANADA",
+      "visitante": "QATAR",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "SUIZA",
+      "visitante": "BOSNIA-HERZ.",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "BRASIL",
+      "visitante": "HAITI",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ESCOCIA",
+      "visitante": "MARRUECOS",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ESTADOS UNIDOS",
+      "visitante": "AUSTRALIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "PARAGUAY",
+      "visitante": "TURQUIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ALEMANIA",
+      "visitante": "COSTA DE MARFIL",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "CURAZAO",
+      "visitante": "ECUADOR",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "PAISES BAJOS",
+      "visitante": "TUNEZ",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "JAPON",
+      "visitante": "SUECIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "BELGICA",
+      "visitante": "IRAN",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "EGIPTO",
+      "visitante": "NUEVA ZELANDA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ESPAÑA",
+      "visitante": "ARABIA SAUDI",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "CABO VERDE",
+      "visitante": "URUGUAY",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "FRANCIA",
+      "visitante": "NORUEGA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "SENEGAL",
+      "visitante": "IRAQ",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ARGENTINA",
+      "visitante": "AUSTRIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ARGELIA",
+      "visitante": "JORDANIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "PORTUGAL",
+      "visitante": "UZBEKISTAN",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "DR CONGO",
+      "visitante": "COLOMBIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "PANAMA",
+      "visitante": "CROACIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "INGLATERRA",
+      "visitante": "GHANA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nombre": "JORNADA 3",
+    "partidos": [
+     {
+      "local": "CHEQUIA",
+      "visitante": "MEXICO",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "COREA DEL SUR",
+      "visitante": "SUDAFRICA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "BOSNIA-HERZ.",
+      "visitante": "CANADA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "QATAR",
+      "visitante": "SUIZA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "MARRUECOS",
+      "visitante": "HAITI",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ESCOCIA",
+      "visitante": "BRASIL",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "TURQUIA",
+      "visitante": "ESTADOS UNIDOS",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "AUSTRALIA",
+      "visitante": "PARAGUAY",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "ECUADOR",
+      "visitante": "ALEMANIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "COSTA DE MARFIL",
+      "visitante": "CURAZAO",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "SUECIA",
+      "visitante": "PAISES BAJOS",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "TUNEZ",
+      "visitante": "JAPON",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "NUEVA ZELANDA",
+      "visitante": "BELGICA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "IRAN",
+      "visitante": "EGIPTO",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "URUGUAY",
+      "visitante": "ESPAÑA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "CABO VERDE",
+      "visitante": "ARABIA SAUDI",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "IRAQ",
+      "visitante": "FRANCIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "NORUEGA",
+      "visitante": "SENEGAL",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "JORDANIA",
+      "visitante": "ARGENTINA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "AUSTRIA",
+      "visitante": "ARGELIA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "COLOMBIA",
+      "visitante": "PORTUGAL",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "DR CONGO",
+      "visitante": "UZBEKISTAN",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "GHANA",
+      "visitante": "PANAMA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     },
+     {
+      "local": "CROACIA",
+      "visitante": "INGLATERRA",
+      "preds": [
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       },
+       {
+        "local": "",
+        "visit": "",
+        "quiniela": ""
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "RESULTADO-GRUPOS": {
+  "jornadas": [
+   {
+    "nombre": "JORNADA 1",
+    "partidos": [
+     {
+      "local": "MEXICO",
+      "visitante": "SUDAFRICA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "COREA DEL SUR",
+      "visitante": "CHEQUIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CANADA",
+      "visitante": "BOSNIA-HERZ.",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "QATAR",
+      "visitante": "SUIZA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "BRASIL",
+      "visitante": "MARRUECOS",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "HAITI",
+      "visitante": "ESCOCIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ESTADOS UNIDOS",
+      "visitante": "PARAGUAY",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "AUSTRALIA",
+      "visitante": "TURQUIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ALEMANIA",
+      "visitante": "CURAZAO",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "COSTA DE MARFIL",
+      "visitante": "ECUADOR",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PAISES BAJOS",
+      "visitante": "JAPON",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "TUNEZ",
+      "visitante": "SUECIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "BELGICA",
+      "visitante": "EGIPTO",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "IRAN",
+      "visitante": "NUEVA ZELANDA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ESPAÑA",
+      "visitante": "CABO VERDE",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ARABIA SAUDI",
+      "visitante": "URUGUAY",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "FRANCIA",
+      "visitante": "SENEGAL",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "NORUEGA",
+      "visitante": "IRAQ",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ARGENTINA",
+      "visitante": "ARGELIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "AUSTRIA",
+      "visitante": "JORDANIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PORTUGAL",
+      "visitante": "DR CONGO",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "UZBEKISTAN",
+      "visitante": "COLOMBIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PANAMA",
+      "visitante": "GHANA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CROACIA",
+      "visitante": "INGLATERRA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     }
+    ]
+   },
+   {
+    "nombre": "JORNADA 2",
+    "partidos": [
+     {
+      "local": "MEXICO",
+      "visitante": "COREA DEL SUR",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "SUDAFRICA",
+      "visitante": "CHEQUIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CANADA",
+      "visitante": "QATAR",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "SUIZA",
+      "visitante": "BOSNIA-HERZ.",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "BRASIL",
+      "visitante": "HAITI",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ESCOCIA",
+      "visitante": "MARRUECOS",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ESTADOS UNIDOS",
+      "visitante": "AUSTRALIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PARAGUAY",
+      "visitante": "TURQUIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ALEMANIA",
+      "visitante": "COSTA DE MARFIL",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CURAZAO",
+      "visitante": "ECUADOR",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PAISES BAJOS",
+      "visitante": "TUNEZ",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "JAPON",
+      "visitante": "SUECIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "BELGICA",
+      "visitante": "IRAN",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "EGIPTO",
+      "visitante": "NUEVA ZELANDA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ESPAÑA",
+      "visitante": "ARABIA SAUDI",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CABO VERDE",
+      "visitante": "URUGUAY",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "FRANCIA",
+      "visitante": "NORUEGA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "SENEGAL",
+      "visitante": "IRAQ",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ARGENTINA",
+      "visitante": "AUSTRIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ARGELIA",
+      "visitante": "JORDANIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PORTUGAL",
+      "visitante": "UZBEKISTAN",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "DR CONGO",
+      "visitante": "COLOMBIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "PANAMA",
+      "visitante": "CROACIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "INGLATERRA",
+      "visitante": "GHANA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     }
+    ]
+   },
+   {
+    "nombre": "JORNADA 3",
+    "partidos": [
+     {
+      "local": "CHEQUIA",
+      "visitante": "MEXICO",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "COREA DEL SUR",
+      "visitante": "SUDAFRICA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "BOSNIA-HERZ.",
+      "visitante": "CANADA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "QATAR",
+      "visitante": "SUIZA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "MARRUECOS",
+      "visitante": "HAITI",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ESCOCIA",
+      "visitante": "BRASIL",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "TURQUIA",
+      "visitante": "ESTADOS UNIDOS",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "AUSTRALIA",
+      "visitante": "PARAGUAY",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "ECUADOR",
+      "visitante": "ALEMANIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "COSTA DE MARFIL",
+      "visitante": "CURAZAO",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "SUECIA",
+      "visitante": "PAISES BAJOS",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "TUNEZ",
+      "visitante": "JAPON",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "NUEVA ZELANDA",
+      "visitante": "BELGICA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "IRAN",
+      "visitante": "EGIPTO",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "URUGUAY",
+      "visitante": "ESPAÑA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CABO VERDE",
+      "visitante": "ARABIA SAUDI",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "IRAQ",
+      "visitante": "FRANCIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "NORUEGA",
+      "visitante": "SENEGAL",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "JORDANIA",
+      "visitante": "ARGENTINA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "AUSTRIA",
+      "visitante": "ARGELIA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "COLOMBIA",
+      "visitante": "PORTUGAL",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "DR CONGO",
+      "visitante": "UZBEKISTAN",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "GHANA",
+      "visitante": "PANAMA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     },
+     {
+      "local": "CROACIA",
+      "visitante": "INGLATERRA",
+      "golesL": "",
+      "golesV": "",
+      "quiniela": ""
+     }
+    ]
+   }
+  ]
+ },
+ "PUNTOS-GRUPOS": {
+  "participants": [
+   "FRANCESC",
+   "ALEJANDRO",
+   "GERMÁN",
+   "IGNASI",
+   "SERGI",
+   "BÀRBARA",
+   "XAVI",
+   "EDI",
+   "ROGER.P",
+   "DAVID.T"
+  ],
+  "jornadas": [
+   {
+    "nombre": "JORNADA 1",
+    "subtotales": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    "partidos": [
+     {
+      "local": "MEXICO",
+      "visitante": "SUDAFRICA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "COREA DEL SUR",
+      "visitante": "CHEQUIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CANADA",
+      "visitante": "BOSNIA-HERZ.",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "QATAR",
+      "visitante": "SUIZA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "BRASIL",
+      "visitante": "MARRUECOS",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "HAITI",
+      "visitante": "ESCOCIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ESTADOS UNIDOS",
+      "visitante": "PARAGUAY",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "AUSTRALIA",
+      "visitante": "TURQUIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ALEMANIA",
+      "visitante": "CURAZAO",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "COSTA DE MARFIL",
+      "visitante": "ECUADOR",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PAISES BAJOS",
+      "visitante": "JAPON",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "TUNEZ",
+      "visitante": "SUECIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "BELGICA",
+      "visitante": "EGIPTO",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "IRAN",
+      "visitante": "NUEVA ZELANDA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ESPAÑA",
+      "visitante": "CABO VERDE",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ARABIA SAUDI",
+      "visitante": "URUGUAY",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "FRANCIA",
+      "visitante": "SENEGAL",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "NORUEGA",
+      "visitante": "IRAQ",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ARGENTINA",
+      "visitante": "ARGELIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "AUSTRIA",
+      "visitante": "JORDANIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PORTUGAL",
+      "visitante": "DR CONGO",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "UZBEKISTAN",
+      "visitante": "COLOMBIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PANAMA",
+      "visitante": "GHANA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CROACIA",
+      "visitante": "INGLATERRA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     }
+    ]
+   },
+   {
+    "nombre": "JORNADA 2",
+    "subtotales": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    "partidos": [
+     {
+      "local": "MEXICO",
+      "visitante": "COREA DEL SUR",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "SUDAFRICA",
+      "visitante": "CHEQUIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CANADA",
+      "visitante": "QATAR",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "SUIZA",
+      "visitante": "BOSNIA-HERZ.",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "BRASIL",
+      "visitante": "HAITI",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ESCOCIA",
+      "visitante": "MARRUECOS",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ESTADOS UNIDOS",
+      "visitante": "AUSTRALIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PARAGUAY",
+      "visitante": "TURQUIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ALEMANIA",
+      "visitante": "COSTA DE MARFIL",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CURAZAO",
+      "visitante": "ECUADOR",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PAISES BAJOS",
+      "visitante": "TUNEZ",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "JAPON",
+      "visitante": "SUECIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "BELGICA",
+      "visitante": "IRAN",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "EGIPTO",
+      "visitante": "NUEVA ZELANDA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ESPAÑA",
+      "visitante": "ARABIA SAUDI",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CABO VERDE",
+      "visitante": "URUGUAY",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "FRANCIA",
+      "visitante": "NORUEGA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "SENEGAL",
+      "visitante": "IRAQ",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ARGENTINA",
+      "visitante": "AUSTRIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ARGELIA",
+      "visitante": "JORDANIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PORTUGAL",
+      "visitante": "UZBEKISTAN",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "DR CONGO",
+      "visitante": "COLOMBIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "PANAMA",
+      "visitante": "CROACIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "INGLATERRA",
+      "visitante": "GHANA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     }
+    ]
+   },
+   {
+    "nombre": "JORNADA 3",
+    "subtotales": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    "partidos": [
+     {
+      "local": "CHEQUIA",
+      "visitante": "MEXICO",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "COREA DEL SUR",
+      "visitante": "SUDAFRICA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "BOSNIA-HERZ.",
+      "visitante": "CANADA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "QATAR",
+      "visitante": "SUIZA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "MARRUECOS",
+      "visitante": "HAITI",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ESCOCIA",
+      "visitante": "BRASIL",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "TURQUIA",
+      "visitante": "ESTADOS UNIDOS",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "AUSTRALIA",
+      "visitante": "PARAGUAY",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "ECUADOR",
+      "visitante": "ALEMANIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "COSTA DE MARFIL",
+      "visitante": "CURAZAO",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "SUECIA",
+      "visitante": "PAISES BAJOS",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "TUNEZ",
+      "visitante": "JAPON",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "NUEVA ZELANDA",
+      "visitante": "BELGICA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "IRAN",
+      "visitante": "EGIPTO",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "URUGUAY",
+      "visitante": "ESPAÑA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CABO VERDE",
+      "visitante": "ARABIA SAUDI",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "IRAQ",
+      "visitante": "FRANCIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "NORUEGA",
+      "visitante": "SENEGAL",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "JORDANIA",
+      "visitante": "ARGENTINA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "AUSTRIA",
+      "visitante": "ARGELIA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "COLOMBIA",
+      "visitante": "PORTUGAL",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "DR CONGO",
+      "visitante": "UZBEKISTAN",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "GHANA",
+      "visitante": "PANAMA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     },
+     {
+      "local": "CROACIA",
+      "visitante": "INGLATERRA",
+      "vals": [
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     }
+    ]
+   }
+  ],
+  "resumen": [
+   {
+    "label": "TOTAL",
+    "sub": "",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "MARCADOR",
+    "sub": "3 J1",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "",
+    "sub": "3 J2",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "",
+    "sub": "3 J3",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "",
+    "sub": "3 TOTAL",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "QUINIELA",
+    "sub": "XJ1",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "",
+    "sub": "XJ2",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "",
+    "sub": "XJ3",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   {
+    "label": "",
+    "sub": "X TOTAL",
+    "vals": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   }
+  ]
+ },
+ "QUALY-GRUPOS": [
+  {
+   "pos": 1,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 2,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 3,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 4,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 5,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 6,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 7,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 8,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 9,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 10,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  },
+  {
+   "pos": 11,
+   "jugador": "FRANCESC",
+   "puntos": "0"
+  }
+ ]
+};
+
+/* ===== FLAGS ===== */
+const FLAGS = {
+ "ESPANA":"🇪🇸","FRANCIA":"🇫🇷","INGLATERRA":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","ARGENTINA":"🇦🇷","BRASIL":"🇧🇷","PORTUGAL":"🇵🇹",
+ "ALEMANIA":"🇩🇪","PAISESBAJOS":"🇳🇱","NORUEGA":"🇳🇴","BELGICA":"🇧🇪","COLOMBIA":"🇨🇴","MARRUECOS":"🇲🇦",
+ "JAPON":"🇯🇵","ESTADOSUNIDOS":"🇺🇸","URUGUAY":"🇺🇾","CROACIA":"🇭🇷","MEXICO":"🇲🇽","SUIZA":"🇨🇭",
+ "TURQUIA":"🇹🇷","SENEGAL":"🇸🇳","ECUADOR":"🇪🇨","SUECIA":"🇸🇪","DINAMARCA":"🇩🇰","AUSTRIA":"🇦🇹",
+ "PARAGUAY":"🇵🇾","CANADA":"🇨🇦","REPUBLICACHECA":"🇨🇿","CHEQUIA":"🇨🇿","BOSNIAYHERZEGOVINA":"🇧🇦","BOSNIAHERZ":"🇧🇦",
+ "ESCOCIA":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","COREADELSUR":"🇰🇷","UZBEKISTAN":"🇺🇿","MALI":"🇲🇱","COSTADEMARFIL":"🇨🇮","PANAMA":"🇵🇦",
+ "AUSTRALIA":"🇦🇺","ARABIASAUDI":"🇸🇦","GHANA":"🇬🇭","NIGERIA":"🇳🇬","CABOVERDE":"🇨🇻","IRAN":"🇮🇷",
+ "JORDANIA":"🇯🇴","HAITI":"🇭🇹","IRAK":"🇮🇶","IRAQ":"🇮🇶","SURINAM":"🇸🇷","RDDELCONGO":"🇨🇩","DRCONGO":"🇨🇩",
+ "JAMAICA":"🇯🇲","CURAZAO":"🇨🇼","NUEVACALEDONIA":"🇳🇨","SUDAFRICA":"🇿🇦","QATAR":"🇶🇦","NUEVAZELANDA":"🇳🇿",
+ "EGIPTO":"🇪🇬","TUNEZ":"🇹🇳","ARGELIA":"🇩🇿"
+};
+function norm(s){return (s||"").toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^A-Z]/g,"");}
+function flag(name){return FLAGS[norm(name)]||"🏳️";}
+function teamHTML(name){return '<span class="flag">'+flag(name)+'</span><span class="team">'+title(name)+'</span>';}
+function title(s){return (s||"").toString().toLowerCase().replace(/(^|\s|-)\S/g,c=>c.toUpperCase()).replace(/\bDe\b/g,"de").replace(/\bDel\b/g,"del").replace(/\bY\b/g,"y").replace(/Herz\./i,"Herz.");}
+function person(s){return title(s).replace(/\.([a-z])/i,(m,c)=>"."+c.toUpperCase());}
+
+/* ===== HELPERS ===== */
+const $=(s,r=document)=>r.querySelector(s);
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function qChip(v){
+  const opts=["1","X","2"];
+  return '<span class="q">'+opts.map(o=>'<b data-s="'+o+'" class="'+(String(v)===o?"on":"")+'">'+o+'</b>').join("")+'</span>';
+}
+function scoreHTML(l,v){
+  if(l===""&&v==="")return '<span class="dash">—</span>';
+  return '<span class="score">'+(l||"·")+'<span class="sep">-</span>'+(v||"·")+'</span>';
+}
+
+/* ===== STATS HEADER ===== */
+function renderStats(){
+  const parts=DATA["APUESTA-GRUPOS"].participants.length;
+  const partidos=DATA["RESULTADO-GRUPOS"].jornadas.reduce((a,j)=>a+j.partidos.length,0);
+  const fav=DATA["CAMPEON"].cuotas[0];
+  const top=[...DATA["CAMPEON"].ranking].sort((a,b)=>b.votos-a.votos)[0];
+  const html=[
+    ["Participantes",parts,""],
+    ["Partidos fase grupos",partidos,""],
+    ["Favorito (bet365)",flag(fav.seleccion)+" "+title(fav.seleccion),"<small>"+fav.cuota+"</small>"],
+    ["Más votado campeón",flag(top.pais)+" "+title(top.pais),"<small>"+top.votos+" votos</small>"]
+  ].map(([k,v,x])=>'<div class="stat"><div class="k">'+k+'</div><div class="v">'+v+' '+x+'</div></div>').join("");
+  $("#stats").innerHTML=html;
+}
+
+/* ===== TABS ===== */
+const TABS=[
+  {id:"campeon",ico:"🏆",label:"Campeón",fn:renderCampeon},
+  {id:"apuestas",ico:"📝",label:"Apuestas grupos",fn:renderApuestas},
+  {id:"resultados",ico:"⚽",label:"Resultados",fn:renderResultados},
+  {id:"puntos",ico:"🔢",label:"Puntos",fn:renderPuntos},
+  {id:"clasificacion",ico:"🥇",label:"Clasificación",fn:renderClasificacion},
+];
+let active="campeon";
+function buildTabs(){
+  const row=$("#tabsRow");
+  TABS.forEach(t=>{
+    const b=el("button","tab"+(t.id===active?" active":""),'<span class="ico">'+t.ico+'</span>'+t.label);
+    b.onclick=()=>setTab(t.id);
+    b.id="tab-"+t.id;
+    row.appendChild(b);
+  });
+}
+function setTab(id){
+  active=id;
+  TABS.forEach(t=>{
+    $("#tab-"+t.id).classList.toggle("active",t.id===id);
+    $("#p-"+t.id).classList.toggle("active",t.id===id);
+  });
+  const p=$("#p-"+id);
+  if(!p.dataset.rendered){TABS.find(t=>t.id===id).fn(p);p.dataset.rendered="1";}
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(history.replaceState)history.replaceState(null,"","#"+id);
+}
+
+/* ===== 1. CAMPEÓN ===== */
+function renderCampeon(p){
+  p.innerHTML='<div class="eyebrow">Hoja · Campeón</div><h2>Apuestas al campeón</h2>'+
+    '<p class="lead">Cuotas de bet365 para levantar la copa y la quiniela de cada participante. '+
+    'Cinco selecciones reparten todos los votos de la peña.</p>';
+
+  // picks
+  const picks=el("div","card");
+  picks.innerHTML='<div class="card-h"><h3>🎯 La apuesta de cada uno</h3><span class="tag">'+DATA.CAMPEON.apuestas.length+' participantes</span></div>';
+  const grid=el("div","picks");grid.style.padding="16px";
+  DATA.CAMPEON.apuestas.forEach(a=>{
+    grid.appendChild(el("div","pick",
+      '<div class="bigflag">'+flag(a.apuesta)+'</div>'+
+      '<div><div class="who">'+person(a.participante)+'</div><div class="what">'+title(a.apuesta)+'</div></div>'));
+  });
+  picks.appendChild(grid);
+  p.appendChild(picks);
+
+  // votes
+  const votes=el("div","card");
+  votes.innerHTML='<div class="card-h"><h3>📊 Selecciones más votadas</h3></div>';
+  const vbox=el("div","votes");vbox.style.padding="18px";
+  const max=Math.max(...DATA.CAMPEON.ranking.map(r=>r.votos));
+  [...DATA.CAMPEON.ranking].sort((a,b)=>b.votos-a.votos).forEach(r=>{
+    vbox.appendChild(el("div","vote",
+      '<div class="lbl"><span class="flag">'+flag(r.pais)+'</span>'+title(r.pais)+'</div>'+
+      '<div class="bar"><i style="width:'+(r.votos/max*100)+'%"></i></div>'+
+      '<div class="cnt">'+r.votos+'</div>'));
+  });
+  votes.appendChild(vbox);
+  p.appendChild(votes);
+
+  // odds table
+  const oc=el("div","card");
+  oc.innerHTML='<div class="card-h"><h3>💷 Cuotas al campeón · bet365</h3>'+
+    '<div class="search"><span class="mag">🔍</span><input id="oddsSearch" placeholder="Buscar selección…" aria-label="Buscar selección"></div></div>';
+  const sc=el("div","scroll");
+  const tb=el("table");
+  tb.innerHTML='<thead><tr><th class="pos">#</th><th>Selección</th><th>Cuota</th><th>Estado</th></tr></thead><tbody></tbody>';
+  const body=tb.querySelector("tbody");
+  function fillOdds(q){
+    body.innerHTML="";
+    const f=norm(q);
+    const rows=DATA.CAMPEON.cuotas.filter(c=>!f||norm(c.seleccion).includes(f));
+    if(!rows.length){body.innerHTML='<tr><td colspan="4"><div class="empty"><span class="em-ico">🔍</span>Sin resultados para «'+q+'»</div></td></tr>';return;}
+    rows.forEach(c=>{
+      const est=/Estim/i.test(c.estado);
+      body.appendChild(el("tr",null,
+        '<td class="pos">'+c.pos+'</td>'+
+        '<td>'+teamHTML(c.seleccion)+'</td>'+
+        '<td><span class="odds'+(est?' est':'')+'">'+c.cuota+'</span></td>'+
+        '<td>'+(est?'<span class="est-badge">Estimada</span>':'<span class="pub-badge">Publicada</span>')+'</td>'));
+    });
+  }
+  fillOdds("");
+  sc.appendChild(tb);oc.appendChild(sc);p.appendChild(oc);
+  $("#oddsSearch").addEventListener("input",e=>fillOdds(e.target.value));
+}
+
+/* ===== 2. APUESTAS GRUPOS ===== */
+function renderApuestas(p){
+  const A=DATA["APUESTA-GRUPOS"];
+  p.innerHTML='<div class="eyebrow">Hoja · Apuesta-Grupos</div><h2>Pronósticos de la fase de grupos</h2>'+
+    '<p class="lead">El marcador y la quiniela (1·X·2) que firmó cada participante para los 72 partidos. '+
+    'Elige jornada y, si quieres, céntrate en una sola persona.</p>';
+
+  const st={jor:0,who:"__all__",q:""};
+  const tools=el("div","toolbar");
+  tools.innerHTML=
+    '<div class="seg" id="jorSeg">'+A.jornadas.map((j,i)=>'<button class="'+(i===0?'on':'')+'" data-j="'+i+'">'+j.nombre.replace("JORNADA","J")+'</button>').join("")+'</div>'+
+    '<select class="pick" id="whoPick"><option value="__all__">Todos los participantes</option>'+
+      A.participants.map(n=>'<option value="'+n+'">'+person(n)+'</option>').join("")+'</select>'+
+    '<div class="search"><span class="mag">🔍</span><input id="apSearch" placeholder="Buscar selección…" aria-label="Buscar"></div>';
+  p.appendChild(tools);
+
+  const card=el("div","card");
+  card.appendChild(el("div","card-h",'<h3 id="apTitle"></h3><span class="tag" id="apTag"></span>'));
+  const sc=el("div","scroll");const tbl=el("table");sc.appendChild(tbl);card.appendChild(sc);
+  p.appendChild(card);
+
+  const legend=el("div","legend",
+    '<span><i style="background:var(--grass)"></i>1 · gana local</span>'+
+    '<span><i style="background:var(--gold-deep)"></i>X · empate</span>'+
+    '<span><i style="background:var(--red)"></i>2 · gana visitante</span>');
+  p.appendChild(legend);
+
+  function draw(){
+    const J=A.jornadas[st.jor];
+    const single=st.who!=="__all__";
+    const idx=single?A.participants.indexOf(st.who):-1;
+    const f=norm(st.q);
+    const matches=J.partidos.filter(m=>!f||norm(m.local).includes(f)||norm(m.visitante).includes(f));
+    $("#apTitle").innerHTML='📝 '+J.nombre+(single?' · '+person(st.who):'');
+    $("#apTag").textContent=matches.length+" partidos";
+
+    let head='<thead><tr><th class="sticky-l">Partido</th>';
+    const cols=single?[st.who]:A.participants;
+    cols.forEach(n=>head+='<th style="text-align:center">'+person(n)+'</th>');
+    head+='</tr></thead>';
+
+    let rows="";
+    if(!matches.length){
+      rows='<tbody><tr><td class="sticky-l" colspan="'+(cols.length+1)+'"><div class="empty"><span class="em-ico">🔍</span>Sin partidos para «'+st.q+'»</div></td></tr></tbody>';
+    }else{
+      rows='<tbody>';
+      matches.forEach(m=>{
+        rows+='<tr><td class="sticky-l">'+
+          '<div style="display:flex;flex-direction:column;gap:2px;font-size:13px">'+
+          '<span>'+teamHTML(m.local)+'</span><span class="muted">'+teamHTML(m.visitante)+'</span></div></td>';
+        cols.forEach(n=>{
+          const i=single?idx:A.participants.indexOf(n);
+          const pr=m.preds[i]||{local:"",visit:"",quiniela:""};
+          rows+='<td style="text-align:center"><div style="display:flex;flex-direction:column;align-items:center;gap:6px">'+
+            scoreHTML(pr.local,pr.visit)+qChip(pr.quiniela)+'</div></td>';
+        });
+        rows+='</tr>';
+      });
+      rows+='</tbody>';
+    }
+    tbl.innerHTML=head+rows;
+  }
+  draw();
+  $("#jorSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    $("#jorSeg").querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");st.jor=+b.dataset.j;draw();});
+  $("#whoPick").addEventListener("change",e=>{st.who=e.target.value;draw();});
+  $("#apSearch").addEventListener("input",e=>{st.q=e.target.value;draw();});
+}
+
+/* ===== 3. RESULTADOS ===== */
+function renderResultados(p){
+  const R=DATA["RESULTADO-GRUPOS"];
+  const played=R.jornadas.flatMap(j=>j.partidos).filter(m=>m.golesL!==""||m.golesV!=="").length;
+  p.innerHTML='<div class="eyebrow">Hoja · Resultado-Grupos</div><h2>Resultados de los partidos</h2>'+
+    '<p class="lead">Marcador real y resultado 1·X·2 de cada encuentro. '+
+    (played===0?'Aún no se ha jugado ningún partido — la tabla se irá rellenando con el torneo.':'Partidos jugados: '+played+'.')+'</p>';
+
+  const st={jor:0,q:""};
+  const tools=el("div","toolbar");
+  tools.innerHTML='<div class="seg" id="rJorSeg">'+R.jornadas.map((j,i)=>'<button class="'+(i===0?'on':'')+'" data-j="'+i+'">'+j.nombre.replace("JORNADA","J")+'</button>').join("")+'</div>'+
+    '<div class="search"><span class="mag">🔍</span><input id="rSearch" placeholder="Buscar selección…" aria-label="Buscar"></div>';
+  p.appendChild(tools);
+
+  const card=el("div","card");
+  card.appendChild(el("div","card-h",'<h3 id="rTitle"></h3><span class="tag" id="rTag"></span>'));
+  const sc=el("div","scroll");const tbl=el("table");sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  function draw(){
+    const J=R.jornadas[st.jor];const f=norm(st.q);
+    const ms=J.partidos.filter(m=>!f||norm(m.local).includes(f)||norm(m.visitante).includes(f));
+    $("#rTitle").innerHTML='⚽ '+J.nombre;$("#rTag").textContent=ms.length+" partidos";
+    let h='<thead><tr><th>Local</th><th style="text-align:center">Resultado</th><th>Visitante</th><th style="text-align:center">1·X·2</th></tr></thead><tbody>';
+    if(!ms.length){h+='<tr><td colspan="4"><div class="empty"><span class="em-ico">🔍</span>Sin partidos para «'+st.q+'»</div></td></tr>';}
+    ms.forEach(m=>{
+      const jugado=m.golesL!==""||m.golesV!=="";
+      h+='<tr><td style="text-align:right">'+title(m.local)+' <span class="flag">'+flag(m.local)+'</span></td>'+
+        '<td style="text-align:center">'+scoreHTML(m.golesL,m.golesV)+'</td>'+
+        '<td><span class="flag">'+flag(m.visitante)+'</span> '+title(m.visitante)+'</td>'+
+        '<td style="text-align:center">'+(jugado?qChip(m.quiniela):'<span class="dash">—</span>')+'</td></tr>';
+    });
+    h+='</tbody>';tbl.innerHTML=h;
+  }
+  draw();
+  $("#rJorSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    $("#rJorSeg").querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");st.jor=+b.dataset.j;draw();});
+  $("#rSearch").addEventListener("input",e=>{st.q=e.target.value;draw();});
+}
+
+/* ===== 4. PUNTOS ===== */
+function renderPuntos(p){
+  const P=DATA["PUNTOS-GRUPOS"];
+  p.innerHTML='<div class="eyebrow">Hoja · Puntos-Grupos</div><h2>Puntos por partido</h2>'+
+    '<p class="lead">Lo que suma cada participante partido a partido, con los subtotales por jornada y el marcador global. '+
+    'Se actualiza a medida que se juega el Mundial.</p>';
+
+  // summary scoreboard first
+  const sumCard=el("div","card");
+  sumCard.innerHTML='<div class="card-h"><h3>🧮 Marcador global</h3><span class="tag">Resumen</span></div>';
+  const ssc=el("div","scroll");const stb=el("table");
+  let sh='<thead><tr><th class="sticky-l">Concepto</th>'+P.participants.map(n=>'<th style="text-align:center">'+person(n)+'</th>').join("")+'</tr></thead><tbody>';
+  P.resumen.forEach(r=>{
+    const label=(r.label?r.label+' ':'')+(r.sub||'');
+    const isTotal=/TOTAL/i.test(r.label)||/TOTAL/i.test(r.sub);
+    sh+='<tr'+(isTotal?' style="background:#fbf6e6"':'')+'><td class="sticky-l"'+(isTotal?' style="background:#fbf6e6;font-weight:800"':'')+'>'+label.trim()+'</td>'+
+      r.vals.map(v=>'<td class="num"'+(isTotal?' style="color:var(--gold-deep)"':'')+'>'+(v||'0')+'</td>').join("")+'</tr>';
+  });
+  sh+='</tbody>';stb.innerHTML=sh;ssc.appendChild(stb);sumCard.appendChild(ssc);p.appendChild(sumCard);
+
+  // per-jornada detail
+  const st={jor:0};
+  const tools=el("div","toolbar");
+  tools.innerHTML='<div class="seg" id="ptSeg">'+P.jornadas.map((j,i)=>'<button class="'+(i===0?'on':'')+'" data-j="'+i+'">'+j.nombre.replace("JORNADA","J")+'</button>').join("")+'</div>';
+  p.appendChild(tools);
+  const card=el("div","card");
+  card.appendChild(el("div","card-h",'<h3 id="ptTitle"></h3><span class="tag" id="ptTag"></span>'));
+  const sc=el("div","scroll");const tbl=el("table");sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  function draw(){
+    const J=P.jornadas[st.jor];
+    $("#ptTitle").innerHTML='🔢 '+J.nombre+' · detalle';
+    $("#ptTag").textContent="Subtotal incluido";
+    let h='<thead><tr><th class="sticky-l">Partido</th>'+P.participants.map(n=>'<th style="text-align:center">'+person(n)+'</th>').join("")+'</tr></thead><tbody>';
+    h+='<tr style="background:#fbf6e6"><td class="sticky-l" style="background:#fbf6e6;font-weight:800">Subtotal jornada</td>'+
+      J.subtotales.map(v=>'<td class="num" style="color:var(--gold-deep)">'+(v||'0')+'</td>').join("")+'</tr>';
+    J.partidos.forEach(m=>{
+      h+='<tr><td class="sticky-l"><div style="display:flex;flex-direction:column;gap:1px;font-size:12.5px"><span>'+teamHTML(m.local)+'</span><span class="muted">'+teamHTML(m.visitante)+'</span></div></td>'+
+        m.vals.map(v=>'<td class="num">'+(v===""?'<span class="dash">·</span>':v)+'</td>').join("")+'</tr>';
+    });
+    h+='</tbody>';tbl.innerHTML=h;
+  }
+  draw();
+  $("#ptSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    $("#ptSeg").querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");st.jor=+b.dataset.j;draw();});
+}
+
+/* ===== 5. CLASIFICACIÓN ===== */
+function renderClasificacion(p){
+  const P=DATA["PUNTOS-GRUPOS"];
+  const totalRow=P.resumen.find(r=>/TOTAL/i.test(r.label)&&!r.sub)||P.resumen.find(r=>/TOTAL/i.test(r.label));
+  const totals=P.participants.map((n,i)=>({n,pts:parseInt((totalRow?totalRow.vals[i]:"0")||"0",10)}));
+  const champ=Object.fromEntries(DATA.CAMPEON.apuestas.map(a=>[norm(a.participante),a.apuesta]));
+  totals.sort((a,b)=>b.pts-a.pts||a.n.localeCompare(b.n));
+
+  p.innerHTML='<div class="eyebrow">Hoja · Qualy-Grupos</div><h2>Clasificación general</h2>'+
+    '<p class="lead">La tabla de la liga: participantes ordenados por puntos totales de la fase de grupos. '+
+    'Empezamos todos a cero — que gane el mejor pronosticador.</p>';
+
+  const card=el("div","card");
+  card.innerHTML='<div class="card-h"><h3>🥇 Clasificación de la peña</h3><span class="tag">'+totals.length+' jugadores</span></div>';
+  const sc=el("div","scroll");const tbl=el("table");
+  const medals=["🥇","🥈","🥉"];
+  const started=totals.some(t=>t.pts>0);
+  let h='<thead><tr><th class="pos">#</th><th>Participante</th><th style="text-align:center">Puntos</th><th>Su campeón</th></tr></thead><tbody>';
+  totals.forEach((t,i)=>{
+    const cp=champ[norm(t.n)];
+    h+='<tr><td class="pos">'+((started&&i<3)?'<span class="medal">'+medals[i]+'</span>':(i+1))+'</td>'+
+      '<td><span class="team" style="font-family:Archivo,sans-serif;font-weight:800">'+person(t.n)+'</span></td>'+
+      '<td class="num" style="font-size:16px;color:'+(i===0?'var(--gold-deep)':'var(--txt)')+'">'+t.pts+'</td>'+
+      '<td>'+(cp?'<span class="flag">'+flag(cp)+'</span>'+title(cp):'<span class="muted">—</span>')+'</td></tr>';
+  });
+  h+='</tbody>';tbl.innerHTML=h;sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  const note=el("div","legend");
+  note.innerHTML='<span>ℹ️ Los puntos se calculan en la hoja <b>Puntos-Grupos</b> y se reflejan aquí automáticamente.</span>';
+  p.appendChild(note);
+}
+
+/* ===== INIT ===== */
+renderStats();
+buildTabs();
+const hash=(location.hash||"").replace("#","");
+setTab(TABS.some(t=>t.id===hash)?hash:"campeon");
+</script>
+</body>
+</html>
