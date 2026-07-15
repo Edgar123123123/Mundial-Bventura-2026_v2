@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiniela Mundial 2026 · La Peña</title>
+<meta name="description" content="Tablas de la quiniela del Mundial 2026: apuestas al campeón, pronósticos de la fase de grupos, resultados, puntos y clasificación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Mundial 2026 · United 26 — rojo Canadá, verde México, azul EE. UU. */
+  --ink:#0d1030; --ink-2:#151a40; --ink-3:#1e2450;
+  --line:rgba(255,255,255,.12); --line-soft:rgba(255,255,255,.06);
+  --paper:#f5f5f1; --paper-2:#fffefa; --paper-line:#e5e3d9;
+  --txt:#0e1120; --txt-soft:#5b6473; --txt-on-dark:#f2f4fd; --txt-on-dark-soft:#9ba4c9;
+  --grass:#00a651; --grass-deep:#007a3d;
+  --gold:#ffc72c; --gold-deep:#cf9a00;
+  --red:#e8112d; --blue:#1f6ef2;
+  --purple:#7c3aed; --purple-deep:#6d28d9;
+  --tri:linear-gradient(90deg,var(--red) 0 33.33%,var(--grass) 33.33% 66.66%,var(--blue) 66.66% 100%);
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--ink); color:var(--txt);
+  font-family:"Inter",system-ui,sans-serif; -webkit-font-smoothing:antialiased;
+  font-feature-settings:"tnum" 1,"cv01" 1;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-feature-settings:"tnum" 1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+/* ---------- SCOREBOARD HEADER (estilo Mundial 26) ---------- */
+.tri-band{height:6px;background:var(--tri)}
+header.board{
+  background:
+    radial-gradient(90% 140% at 88% -20%, rgba(31,110,242,.30), transparent 55%),
+    radial-gradient(80% 130% at 6% 115%, rgba(0,166,81,.24), transparent 55%),
+    radial-gradient(70% 120% at 42% -30%, rgba(232,17,45,.22), transparent 60%),
+    var(--ink);
+  border-bottom:1px solid var(--line);
+  position:relative; overflow:hidden;
+}
+header.board::before{
+  content:"26";position:absolute;right:-14px;top:-52px;z-index:0;
+  font-family:"Anton",sans-serif;font-size:clamp(150px,24vw,270px);line-height:1;
+  color:rgba(255,255,255,.028);-webkit-text-stroke:2px rgba(255,255,255,.09);
+  letter-spacing:-6px;pointer-events:none;user-select:none;
+}
+header.board::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.055) 1px,transparent 0);
+  background-size:15px 15px;
+  -webkit-mask-image:linear-gradient(112deg,transparent 58%,#000);
+  mask-image:linear-gradient(112deg,transparent 58%,#000);
+}
+.ribbons{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ribbons i{position:absolute;top:-35%;bottom:-35%;width:46px;border-radius:80px;transform:rotate(20deg)}
+.ribbons i:nth-child(1){left:37%;background:var(--red);opacity:.13}
+.ribbons i:nth-child(2){left:43%;background:var(--grass);opacity:.11}
+.ribbons i:nth-child(3){left:49%;background:var(--blue);opacity:.14}
+@media(max-width:760px){.ribbons i{width:26px}.ribbons i:nth-child(1){left:60%}.ribbons i:nth-child(2){left:70%}.ribbons i:nth-child(3){left:80%}}
+header.board .wrap{position:relative;z-index:1}
+.board-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 6px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.crest{
+  width:52px;height:52px;flex:none;border-radius:13px;display:grid;place-items:center;position:relative;
+  background:linear-gradient(165deg,#171c46,#0a0d28);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 10px 28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.12);
+  font-family:"Anton",sans-serif;font-size:23px;color:#fff;letter-spacing:.5px;padding-bottom:6px;
+}
+.crest::after{content:"";position:absolute;left:9px;right:9px;bottom:7px;height:3.5px;border-radius:99px;background:var(--tri)}
+.badges{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.hosts{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.03);font-size:15px;line-height:1}
+.hosts small{color:var(--txt-on-dark-soft);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.brand h1{
+  font-family:"Anton",sans-serif;font-weight:400;letter-spacing:.5px;line-height:.92;
+  color:var(--txt-on-dark);margin:0;font-size:clamp(26px,4.4vw,42px);text-transform:uppercase;
+}
+.brand h1 b{color:var(--gold);font-weight:400}
+.brand .sub{color:var(--txt-on-dark-soft);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;font-weight:600}
+.live{display:inline-flex;align-items:center;gap:7px;color:var(--txt-on-dark-soft);font-size:12px;font-weight:600;letter-spacing:.05em;
+  border:1px solid var(--line);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.03)}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--grass);box-shadow:0 0 0 0 rgba(21,184,106,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(21,184,106,.5)}70%{box-shadow:0 0 0 9px rgba(21,184,106,0)}100%{box-shadow:0 0 0 0 rgba(21,184,106,0)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:16px 0 22px}
+.stat{background:rgba(13,16,48,.72);backdrop-filter:blur(3px);padding:14px 16px;min-width:0;position:relative}
+.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.stat:nth-child(1)::before{background:var(--red)}
+.stat:nth-child(2)::before{background:var(--grass)}
+.stat:nth-child(3)::before{background:var(--gold)}
+.stat:nth-child(4)::before{background:var(--blue)}
+.stat .k{color:var(--txt-on-dark-soft);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.stat .v{color:var(--txt-on-dark);font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(18px,2.4vw,26px);margin-top:5px;display:flex;align-items:center;gap:8px;line-height:1}
+.stat .v small{font-size:13px;color:var(--gold);font-weight:700}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- TABS ---------- */
+nav.tabs{position:sticky;top:0;z-index:40;background:rgba(13,16,48,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tabs-row{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs-row::-webkit-scrollbar{display:none}
+.tab{
+  appearance:none;border:0;background:transparent;color:var(--txt-on-dark-soft);
+  font-family:"Archivo",sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.02em;
+  padding:16px 16px 14px;cursor:pointer;white-space:nowrap;position:relative;display:flex;align-items:center;gap:8px;
+  border-bottom:3px solid transparent;transition:color .15s
+}
+.tab .ico{font-size:15px}
+.tab:hover{color:var(--txt-on-dark)}
+.tab.active{color:#fff;border-image:var(--tri) 1;border-bottom:3px solid}
+
+/* ---------- CONTENT / PAPER ---------- */
+main{background:var(--paper);min-height:60vh;padding:30px 0 70px;
+  background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.04) 1px,transparent 0);background-size:22px 22px}
+.panel{display:none;animation:fade .35s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grass-deep)}
+.panel h2{font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.4px;
+  font-size:clamp(24px,3.6vw,34px);margin:6px 0 4px;color:var(--txt)}
+.panel h2::after{content:"";display:block;width:66px;height:4px;border-radius:99px;background:var(--tri);margin-top:8px}
+.lead{color:var(--txt-soft);max-width:62ch;margin:0 0 22px;font-size:14.5px;line-height:1.55}
+
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 18px}
+.search{position:relative;flex:1;min-width:200px;max-width:340px}
+.search input{width:100%;border:1px solid var(--paper-line);background:var(--paper-2);border-radius:999px;
+  padding:11px 14px 11px 38px;font:inherit;font-size:14px;color:var(--txt);outline:none}
+.search input:focus{border-color:var(--grass);box-shadow:0 0 0 3px rgba(21,184,106,.15)}
+.search .mag{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--txt-soft);font-size:14px}
+.seg{display:inline-flex;background:var(--paper-2);border:1px solid var(--paper-line);border-radius:999px;padding:3px}
+.seg button{appearance:none;border:0;background:transparent;font:inherit;font-weight:700;font-size:13px;
+  color:var(--txt-soft);padding:8px 15px;border-radius:999px;cursor:pointer;font-family:"Archivo",sans-serif}
+.seg button.on{background:var(--ink);color:#fff}
+select.pick{appearance:none;border:1px solid var(--paper-line);background:var(--paper-2);border-radius:999px;
+  padding:9px 34px 9px 15px;font:inherit;font-weight:700;font-size:13px;font-family:"Archivo",sans-serif;color:var(--txt);cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%235b6473' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center}
+
+/* ---------- CARDS / TABLES ---------- */
+.card{background:var(--paper-2);border:1px solid var(--paper-line);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 1px 0 rgba(0,0,0,.02),0 10px 30px -22px rgba(0,0,0,.4)}
+.card+.card{margin-top:18px}
+.card-h{padding:14px 18px;border-bottom:1px solid var(--paper-line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card-h h3{margin:0;font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;letter-spacing:.01em;display:flex;align-items:center;gap:9px}
+.card-h .tag{font-family:"Archivo",sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--txt-soft);background:var(--paper);border:1px solid var(--paper-line);padding:5px 10px;border-radius:999px}
+.scroll{overflow-x:auto}
+.scroll-frozen{max-height:74vh;overflow:auto}
+.scroll-frozen td,.scroll-frozen th{padding-left:9px;padding-right:9px}
+.bleed{width:min(95vw,1360px);margin-left:calc(50% - min(47.5vw,680px));margin-right:calc(50% - min(47.5vw,680px))}
+@media(max-width:900px){.bleed{width:auto;margin-left:0;margin-right:0}}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--paper-line);white-space:nowrap}
+thead th{position:sticky;top:0;background:var(--ink);color:var(--txt-on-dark);font-family:"Archivo",sans-serif;
+  font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;z-index:2;border-bottom:0}
+tbody tr:hover{background:#fbf9f2}
+tbody tr:nth-child(even){background:rgba(0,0,0,.012)}
+tbody tr:nth-child(even):hover{background:#fbf9f2}
+.flag{font-size:18px;margin-right:8px;vertical-align:-2px}
+.team{font-weight:600}
+.num{font-family:"JetBrains Mono",monospace;font-weight:700;text-align:center}
+td.pos,th.pos{text-align:center;color:var(--txt-soft);font-family:"JetBrains Mono",monospace;font-weight:800;width:42px}
+.medal{font-size:15px}
+.sticky-l{position:sticky;left:0;background:var(--paper-2);z-index:1;box-shadow:1px 0 0 var(--paper-line)}
+thead .sticky-l{background:var(--ink);z-index:3}
+tbody tr:hover .sticky-l{background:#fbf9f2}
+
+/* odds chip */
+.odds{display:inline-block;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:13px;
+  background:var(--ink);color:var(--gold);padding:5px 10px;border-radius:8px;min-width:54px;text-align:center}
+.odds.est{background:var(--paper);color:var(--txt-soft);border:1px dashed var(--paper-line)}
+.est-badge{font-size:10px;font-weight:700;color:var(--gold-deep);letter-spacing:.06em;text-transform:uppercase}
+.pub-badge{font-size:10px;font-weight:700;color:var(--grass-deep);letter-spacing:.06em;text-transform:uppercase}
+
+/* 1X2 chip */
+.q{display:inline-grid;grid-auto-flow:column;gap:3px}
+.q b{width:22px;height:24px;display:grid;place-items:center;border-radius:6px;font-family:"JetBrains Mono",monospace;
+  font-weight:800;font-size:12px;color:var(--txt-soft);background:var(--paper);border:1px solid var(--paper-line)}
+.q b.on{color:#fff}
+.q b.on[data-s="1"]{background:var(--grass);border-color:var(--grass)}
+.q b.on[data-s="X"]{background:var(--gold-deep);border-color:var(--gold-deep)}
+.q b.on[data-s="2"]{background:var(--red);border-color:var(--red)}
+.score{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:14px;color:var(--txt);letter-spacing:1px}
+.score .sep{color:var(--txt-soft);margin:0 2px}
+.muted{color:var(--txt-soft)}
+.dash{color:#c7c1b2;font-weight:700}
+
+/* acierto highlighting (apuestas) */
+.cell{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;border-radius:10px;padding:4px 2px}
+.cell.ok{background:rgba(21,184,106,.10);box-shadow:inset 0 0 0 1px rgba(21,184,106,.35)}
+.cell.exact{background:rgba(124,58,237,.15);box-shadow:inset 0 0 0 1px rgba(109,40,217,.55)}
+.cell.miss{opacity:.5}
+.hit{position:absolute;top:-7px;right:-3px;font-size:12px}
+.pts-pill{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:10px;padding:1px 6px;border-radius:999px}
+.pts-pill.p3{background:var(--purple-deep);color:#fff}
+.pts-pill.p1{background:var(--grass);color:#fff}
+.pts-pill.p0{background:var(--paper);color:var(--txt-soft);border:1px solid var(--paper-line)}
+
+/* note banner */
+.note-card{display:flex;gap:12px;align-items:flex-start;background:#fffaf0;border:1px solid #f0e2c0;border-radius:12px;padding:13px 16px;margin:0 0 18px;font-size:13.5px;color:#6b5a2e;line-height:1.5}
+.note-card .ni{font-size:17px;line-height:1.3}
+.note-card b{color:#8a6d1e}
+
+/* result strip */
+.results-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:0 0 6px}
+.rcard{background:var(--ink);color:#fff;border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.rcard .side{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;min-width:0}
+.rcard .side .flag{font-size:20px}
+.rcard .sc{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:20px;color:var(--gold);background:rgba(255,255,255,.06);padding:4px 12px;border-radius:8px;white-space:nowrap}
+.rcard .ft{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-on-dark-soft);font-weight:700;margin-top:3px}
+
+/* champion pick cards */
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.pick{background:var(--paper-2);border:1px solid var(--paper-line);border-radius:12px;padding:13px 15px;display:flex;align-items:center;gap:12px}
+.pick .who{font-family:"Archivo",sans-serif;font-weight:800;font-size:13px;letter-spacing:.02em}
+.pick .what{color:var(--txt-soft);font-size:12.5px;font-weight:600;margin-top:2px}
+.pick .bigflag{font-size:30px;line-height:1}
+
+/* vote bars */
+.votes{display:flex;flex-direction:column;gap:11px}
+.vote{display:grid;grid-template-columns:140px 1fr 34px;align-items:center;gap:12px}
+.vote .lbl{font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:7px}
+.vote .bar{height:12px;background:var(--paper);border:1px solid var(--paper-line);border-radius:999px;overflow:hidden}
+.vote .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--grass),var(--grass-deep));border-radius:999px}
+.vote .cnt{font-family:"JetBrains Mono",monospace;font-weight:800;text-align:right}
+@media(max-width:520px){.vote{grid-template-columns:96px 1fr 28px;gap:8px}.vote .lbl{font-size:12px}}
+
+.empty{padding:40px 20px;text-align:center;color:var(--txt-soft)}
+.empty .em-ico{font-size:30px;display:block;margin-bottom:8px;opacity:.5}
+
+/* bump chart (evolución de posiciones) */
+.bumpwrap{padding:14px 14px 6px}
+.bump{width:100%;height:auto;display:block;overflow:visible;font-family:"Archivo",sans-serif}
+.bump .series{transition:opacity .15s}
+.bump .series polyline.ln{transition:stroke-width .15s}
+.bumpwrap:hover .series:not(:hover){opacity:.16}
+.bump .series:hover polyline.ln{stroke-width:4.5}
+.bump .series:hover .nm{font-weight:800}
+.bump .grid{stroke:var(--paper-line);stroke-width:1}
+.bump .axlbl{fill:var(--txt-soft);font-size:11px;font-weight:700}
+.bump .xlbl{fill:var(--txt);font-size:12.5px;font-weight:800}
+.bump .nm{font-size:12px;font-weight:700}
+.bump .pt{font-family:"JetBrains Mono",monospace;fill:var(--txt-soft);font-size:10.5px}
+
+/* records / stats */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.statcard{background:var(--paper-2);border:1px solid var(--paper-line);border-radius:12px;padding:15px 16px}
+.statcard .ic{font-size:20px}
+.statcard .lb{color:var(--txt-soft);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-top:8px}
+.statcard .vl{font-family:"Archivo",sans-serif;font-weight:800;font-size:19px;margin-top:3px;display:flex;align-items:center;gap:7px;line-height:1.15}
+.statcard .sub2{color:var(--txt-soft);font-size:12.5px;margin-top:3px}
+
+/* duelo */
+.duelbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:16px}
+.duelbar .side{text-align:center}
+.duelbar .nm2{font-family:"Archivo",sans-serif;font-weight:800;font-size:17px}
+.duelbar .big{font-family:"Archivo",sans-serif;font-weight:900;font-size:40px;line-height:1;margin-top:4px}
+.duelbar .vs{color:var(--txt-soft);font-weight:800;font-family:"Archivo",sans-serif}
+.duelbar .win{color:var(--gold-deep)}
+.duelhead{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+
+/* eliminatorias / bracket */
+.kogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:12px}
+.ko-tie{background:var(--paper-2);border:1px solid var(--paper-line);border-radius:11px;overflow:hidden;position:relative}
+.ko-tie .ko-mno{position:absolute;top:9px;right:11px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--txt-soft);font-weight:700}
+.ko-slot{padding:11px 13px;font-family:"Archivo",sans-serif;font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:9px}
+.ko-slot.first{border-bottom:1px solid var(--paper-line)}
+.ko-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.ko-dot.p1pos{background:var(--grass)}
+.ko-dot.p2pos{background:var(--blue)}
+.ko-dot.p3pos{background:#c98a06}
+.ko-dot.gan{background:var(--txt-soft)}
+.ko-final .ko-tie{border-color:var(--gold-deep);box-shadow:0 0 0 1px var(--gold-deep)}
+.ko-final .ko-slot{font-size:15px}
+.brk{display:block;width:100%;min-width:1080px;height:auto}
+
+/* selector de fase */
+.phasebar{background:linear-gradient(180deg,#141a44,#0d1030);border-bottom:1px solid rgba(255,255,255,.08)}
+.phaseswitch{display:flex;gap:8px;padding:10px 0}
+.phase{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:11px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#ccd4f2;font-family:"Archivo",sans-serif;font-weight:800;font-size:14.5px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.phase:hover{background:rgba(255,255,255,.1)}
+.phase.on{background:var(--gold);color:#1a1205;border-color:var(--gold)}
+.phase .pico{font-size:17px}
+.pbadge{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase}
+.pbadge.done{background:rgba(255,255,255,.16);color:#dfe7e0}
+.phase.on .pbadge.done{background:rgba(0,0,0,.16);color:#3a2c08}
+.pbadge.live{background:var(--grass);color:#fff}
+@media(max-width:560px){.phase .ptxt{display:none}.phase{font-size:13px}}
+
+/* podio top 3 */
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;padding:22px 16px 10px}
+.pod{flex:1;max-width:185px;text-align:center}
+.pod .who{margin-bottom:9px}
+.pod .medal2{font-size:27px;display:block;line-height:1}
+.pod .pname{font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;margin-top:3px}
+.pod .ppts{font-family:"Anton",sans-serif;font-size:23px;letter-spacing:.5px;margin-top:1px}
+.pod .pchamp{font-size:12px;color:var(--txt-soft);margin-top:2px}
+.pod .stand{border-radius:11px 11px 0 0;display:flex;align-items:center;justify-content:center;font-family:"Anton",sans-serif;color:#fff;font-size:30px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.13)}
+.pod.p1 .stand{height:122px;background:linear-gradient(180deg,#f6c945,#dca326)}
+.pod.p1 .ppts{color:var(--gold-deep)}
+.pod.p2 .stand{height:90px;background:linear-gradient(180deg,#ced3da,#a7aeb8)}
+.pod.p3 .stand{height:66px;background:linear-gradient(180deg,#d99c6c,#b87842)}
+.chg{font-size:11px;color:#b45309;font-weight:700;white-space:nowrap;margin-left:4px}
+
+/* ===== APUESTAS ÉPICAS (semis · 3.º/4.º · final) ===== */
+.epic-wrap{margin-top:6px}
+.epic-head{font-family:"Anton",sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--txt-soft);font-size:13px;margin:2px 4px 12px}
+.epic{position:relative;border-radius:20px;padding:24px 20px 20px;margin:0 0 20px;overflow:hidden;color:#fff;
+  background:radial-gradient(130% 150% at 50% -30%,#20265c 0%,#0c0f2c 62%);
+  border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 60px rgba(0,0,0,.42)}
+.epic-glow{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(60% 70% at 50% -8%,rgba(255,199,44,.20),transparent 60%),
+  radial-gradient(80% 60% at 50% 120%,rgba(31,110,242,.16),transparent 60%)}
+.epic-semi{border-color:rgba(130,165,255,.42)}
+.epic-third{border-color:rgba(205,127,50,.5)}
+.epic-final{border-color:rgba(255,199,44,.55);box-shadow:0 0 40px rgba(207,154,0,.28),0 22px 60px rgba(0,0,0,.5)}
+.epic-final .epic-glow{background:
+  radial-gradient(65% 80% at 50% -10%,rgba(255,199,44,.34),transparent 62%),
+  radial-gradient(90% 60% at 50% 125%,rgba(255,199,44,.12),transparent 60%)}
+.epic>*{position:relative;z-index:1}
+.epic-top{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px}
+.epic-crown{font-size:26px;line-height:1}
+.epic-final .epic-crown{font-size:34px;filter:drop-shadow(0 3px 12px rgba(255,199,44,.65))}
+.epic-label{font-family:"Anton",sans-serif;letter-spacing:2.5px;text-transform:uppercase;font-size:15px;color:var(--gold)}
+.epic-semi .epic-label{color:#a9c2ff}
+.epic-third .epic-label{color:#e6a76e}
+.epic-mu{display:flex;align-items:center;justify-content:center;gap:18px;margin:12px 0 4px}
+.epic-team{flex:1;max-width:240px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.epic-team .et-flag{font-size:36px;line-height:1}
+.epic-team .fimg{width:58px;height:auto;border-radius:5px;box-shadow:0 5px 16px rgba(0,0,0,.55);display:block}
+.epic-team .et-name{font-family:"Archivo",sans-serif;font-weight:800;font-size:26px;color:#fff;letter-spacing:.3px}
+.epic-final .epic-team .et-flag{font-size:42px}
+.epic-final .epic-team .fimg{width:70px}
+.epic-final .epic-team .et-name{font-size:31px}
+.epic-team .et-q{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:"Anton",sans-serif;font-size:22px;color:#6d78b8;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.25)}
+.epic-team .et-tbd{font-size:12px;color:var(--txt-on-dark-soft);letter-spacing:.04em}
+.epic-vs{font-family:"Anton",sans-serif;font-size:20px;color:var(--gold);opacity:.85;flex:none}
+.epic-real{text-align:center;font-family:"Archivo",sans-serif;font-weight:800;color:var(--gold);margin:8px auto 2px;font-size:15px}
+.epic-real b{font-family:"JetBrains Mono",monospace}
+.epic-pending{text-align:center;color:var(--txt-on-dark-soft);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin:8px 0 2px}
+.epic-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:16px}
+.epic-pred{width:104px;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:9px 6px 8px;text-align:center}
+.epic-pred .ep-name{font-size:11px;color:var(--txt-on-dark-soft);font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.epic-pred .ep-sc{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:16px;margin-bottom:5px;color:#fff}
+.ep-q{display:inline-block;min-width:22px;padding:1px 7px;border-radius:7px;font-family:"Archivo",sans-serif;font-weight:800;font-size:12px}
+.ep-q-none{background:rgba(255,255,255,.08);color:var(--txt-on-dark-soft)}
+.epic-pred.e-exact{background:rgba(0,166,81,.20);border-color:rgba(0,166,81,.55)}
+.epic-pred.e-ok{background:rgba(255,199,44,.15);border-color:rgba(255,199,44,.45)}
+.epic-pred.e-miss{opacity:.5}
+@media(max-width:640px){.epic-team .et-name{font-size:21px}.epic-final .epic-team .et-name{font-size:23px}.epic-team .fimg{width:48px}.epic-final .epic-team .fimg{width:54px}}
+
+footer{background:var(--ink);color:var(--txt-on-dark-soft);font-size:12.5px;padding:26px 0;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--gold);text-decoration:none}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--txt-soft);font-size:12px;margin:14px 2px 0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:13px;height:13px;border-radius:4px;display:inline-block}
+:focus-visible{outline:3px solid var(--grass);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="tri-band" aria-hidden="true"></div>
+<header class="board">
+  <div class="ribbons" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="board-top">
+      <div class="brand">
+        <div class="crest" aria-hidden="true">26</div>
+        <div>
+          <h1>Quiniela <b>Mundial 2026</b></h1>
+          <div class="sub" id="subtitle">La Peña · Fase de grupos</div>
+        </div>
+      </div>
+      <div class="badges">
+        <div class="hosts" title="Canadá · Estados Unidos · México">🇨🇦🇺🇸🇲🇽 <small>United 26</small></div>
+        <div class="live"><span class="dot"></span> Tablas en directo</div>
+      </div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<div class="phasebar"><div class="wrap">
+  <div class="phaseswitch">
+    <button id="ph-grupos" class="phase on" onclick="setPhase('grupos')"><span class="pico">⚽</span><span class="ptxt">Fase de grupos</span><span class="pbadge done">Final</span></button>
+    <button id="ph-ko" class="phase" onclick="setPhase('ko')"><span class="pico">🏆</span><span class="ptxt">Fase eliminatoria</span><span class="pbadge live">En juego</span></button>
+  </div>
+</div></div>
+
+<nav class="tabs">
+  <div class="wrap">
+    <div class="tabs-row" id="tabsRow"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <section class="panel active" id="panel"></section>
+  </div>
+</main>
+
+<div class="tri-band" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <span>Quiniela Mundial 2026 · 🇨🇦🇺🇸🇲🇽 · 10 participantes · Datos del libro <b>Mundial2026_v4</b></span>
+    <span>Hecho para consultar — <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">volver arriba ↑</a></span>
+  </div>
+</footer>
+
+<script>
+/* ===== DATA (inyectado) ===== */
+const DATA_GRUPOS = {"CAMPEON": {"cuotas": [{"pos": 1, "seleccion": "España", "cuota": "5.50", "estado": "Publicada"}, {"pos": 2, "seleccion": "Francia", "cuota": "6.00", "estado": "Publicada"}, {"pos": 3, "seleccion": "Inglaterra", "cuota": "7.00", "estado": "Publicada"}, {"pos": 4, "seleccion": "Argentina", "cuota": "9.00", "estado": "Publicada"}, {"pos": 5, "seleccion": "Brasil", "cuota": "9.00", "estado": "Publicada"}, {"pos": 6, "seleccion": "Portugal", "cuota": "11.00", "estado": "Publicada"}, {"pos": 7, "seleccion": "Alemania", "cuota": "15.00", "estado": "Publicada"}, {"pos": 8, "seleccion": "Países Bajos", "cuota": "21.00", "estado": "Publicada"}, {"pos": 9, "seleccion": "Noruega", "cuota": "26.00", "estado": "Publicada"}, {"pos": 10, "seleccion": "Bélgica", "cuota": "34.00", "estado": "Publicada"}, {"pos": 11, "seleccion": "Colombia", "cuota": "34.00", "estado": "Publicada"}, {"pos": 12, "seleccion": "Marruecos", "cuota": "51.00", "estado": "Publicada"}, {"pos": 13, "seleccion": "Japón", "cuota": "51.00", "estado": "Publicada"}, {"pos": 14, "seleccion": "Estados Unidos", "cuota": "67.00", "estado": "Publicada"}, {"pos": 15, "seleccion": "Uruguay", "cuota": "67.00", "estado": "Publicada"}, {"pos": 16, "seleccion": "Croacia", "cuota": "81.00", "estado": "Publicada"}, {"pos": 17, "seleccion": "México", "cuota": "81.00", "estado": "Publicada"}, {"pos": 18, "seleccion": "Suiza", "cuota": "81.00", "estado": "Publicada"}, {"pos": 19, "seleccion": "Turquía", "cuota": "81.00", "estado": "Publicada"}, {"pos": 20, "seleccion": "Senegal", "cuota": "101.00", "estado": "Publicada"}, {"pos": 21, "seleccion": "Ecuador", "cuota": "101.00", "estado": "Publicada"}, {"pos": 22, "seleccion": "Suecia", "cuota": "126.00", "estado": "Publicada"}, {"pos": 23, "seleccion": "Dinamarca", "cuota": "~150", "estado": "Estimada"}, {"pos": 24, "seleccion": "Austria", "cuota": "~175", "estado": "Estimada"}, {"pos": 25, "seleccion": "Paraguay", "cuota": "~200", "estado": "Estimada"}, {"pos": 26, "seleccion": "Canadá", "cuota": "~200", "estado": "Estimada"}, {"pos": 27, "seleccion": "República Checa", "cuota": "~250", "estado": "Estimada"}, {"pos": 28, "seleccion": "Bosnia y Herzegovina", "cuota": "~250", "estado": "Estimada"}, {"pos": 29, "seleccion": "Escocia", "cuota": "~300", "estado": "Estimada"}, {"pos": 30, "seleccion": "Corea del Sur", "cuota": "~300", "estado": "Estimada"}, {"pos": 31, "seleccion": "Uzbekistán", "cuota": "~350", "estado": "Estimada"}, {"pos": 32, "seleccion": "Malí", "cuota": "~350", "estado": "Estimada"}, {"pos": 33, "seleccion": "Costa de Marfil", "cuota": "~400", "estado": "Estimada"}, {"pos": 34, "seleccion": "Panamá", "cuota": "~400", "estado": "Estimada"}, {"pos": 35, "seleccion": "Australia", "cuota": "~400", "estado": "Estimada"}, {"pos": 36, "seleccion": "Arabia Saudí", "cuota": "~500", "estado": "Estimada"}, {"pos": 37, "seleccion": "Ghana", "cuota": "~500", "estado": "Estimada"}, {"pos": 38, "seleccion": "Nigeria", "cuota": "~500", "estado": "Estimada"}, {"pos": 39, "seleccion": "Cabo Verde", "cuota": "~600", "estado": "Estimada"}, {"pos": 40, "seleccion": "Irán", "cuota": "~600", "estado": "Estimada"}, {"pos": 41, "seleccion": "Jordania", "cuota": "~750", "estado": "Estimada"}, {"pos": 42, "seleccion": "Haití", "cuota": "~1000", "estado": "Estimada"}, {"pos": 43, "seleccion": "Irak", "cuota": "~1000", "estado": "Estimada"}, {"pos": 44, "seleccion": "Surinam", "cuota": "~1000", "estado": "Estimada"}, {"pos": 45, "seleccion": "R.D. del Congo", "cuota": "~1500", "estado": "Estimada"}, {"pos": 46, "seleccion": "Jamaica", "cuota": "~1500", "estado": "Estimada"}, {"pos": 47, "seleccion": "Curazao", "cuota": "~2000", "estado": "Estimada"}, {"pos": 48, "seleccion": "Nueva Caledonia", "cuota": "~5000", "estado": "Estimada"}], "apuestas": [{"participante": "FRANCESC", "apuesta": "ESPAÑA"}, {"participante": "ALEJANDRO", "apuesta": "PORTUGAL"}, {"participante": "GERMÁN", "apuesta": "FRANCIA"}, {"participante": "IGNASI", "apuesta": "INGLATERRA"}, {"participante": "SERGI", "apuesta": "ESPAÑA"}, {"participante": "BÀRBARA", "apuesta": "ARGENTINA"}, {"participante": "XAVI", "apuesta": "ESPAÑA"}, {"participante": "EDI", "apuesta": "FRANCIA"}, {"participante": "ROGER.P", "apuesta": "PORTUGAL"}, {"participante": "DAVID.T", "apuesta": "FRANCIA"}], "ranking": [{"pais": "FRANCIA", "votos": 3}, {"pais": "ESPAÑA", "votos": 3}, {"pais": "PORTUGAL", "votos": 2}, {"pais": "INGLATERRA", "votos": 1}, {"pais": "ARGENTINA", "votos": 1}]}, "APUESTA-GRUPOS": {"participants": ["FRANCESC", "ALEJANDRO", "GERMÁN", "IGNASI", "SERGI", "BÀRBARA", "XAVI", "EDI", "ROGER.P", "DAVID.T"], "jornadas": [{"nombre": "JORNADA 1", "partidos": [{"local": "MEXICO", "visitante": "SUDAFRICA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "COREA DEL SUR", "visitante": "CHEQUIA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "CANADA", "visitante": "BOSNIA-HERZ.", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}]}, {"local": "QATAR", "visitante": "SUIZA", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "BRASIL", "visitante": "MARRUECOS", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "HAITI", "visitante": "ESCOCIA", "preds": [{"local": "0", "visit": "4", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "ESTADOS UNIDOS", "visitante": "PARAGUAY", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "AUSTRALIA", "visitante": "TURQUIA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "ALEMANIA", "visitante": "CURAZAO", "preds": [{"local": "5", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "6", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}]}, {"local": "COSTA DE MARFIL", "visitante": "ECUADOR", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "PAISES BAJOS", "visitante": "JAPON", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "TUNEZ", "visitante": "SUECIA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "BELGICA", "visitante": "EGIPTO", "preds": [{"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "IRAN", "visitante": "NUEVA ZELANDA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "ESPAÑA", "visitante": "CABO VERDE", "preds": [{"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}]}, {"local": "ARABIA SAUDI", "visitante": "URUGUAY", "preds": [{"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "FRANCIA", "visitante": "SENEGAL", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}]}, {"local": "NORUEGA", "visitante": "IRAQ", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}]}, {"local": "ARGENTINA", "visitante": "ARGELIA", "preds": [{"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "AUSTRIA", "visitante": "JORDANIA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}]}, {"local": "PORTUGAL", "visitante": "DR CONGO", "preds": [{"local": "3", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}]}, {"local": "UZBEKISTAN", "visitante": "COLOMBIA", "preds": [{"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}]}, {"local": "PANAMA", "visitante": "GHANA", "preds": [{"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "CROACIA", "visitante": "INGLATERRA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "3", "visit": "3", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}]}]}, {"nombre": "JORNADA 2", "partidos": [{"local": "MEXICO", "visitante": "COREA DEL SUR", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "SUDAFRICA", "visitante": "CHEQUIA", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "CANADA", "visitante": "QATAR", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "SUIZA", "visitante": "BOSNIA-HERZ.", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "BRASIL", "visitante": "HAITI", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "6", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}]}, {"local": "ESCOCIA", "visitante": "MARRUECOS", "preds": [{"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "ESTADOS UNIDOS", "visitante": "AUSTRALIA", "preds": [{"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "PARAGUAY", "visitante": "TURQUIA", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}]}, {"local": "ALEMANIA", "visitante": "COSTA DE MARFIL", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "5", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "4", "visit": "0", "quiniela": "1"}]}, {"local": "CURAZAO", "visitante": "ECUADOR", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "PAISES BAJOS", "visitante": "SUECIA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "JAPON", "visitante": "TUNEZ", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "BELGICA", "visitante": "IRAN", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "EGIPTO", "visitante": "NUEVA ZELANDA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "ESPAÑA", "visitante": "ARABIA SAUDI", "preds": [{"local": "2", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}]}, {"local": "CABO VERDE", "visitante": "URUGUAY", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "FRANCIA", "visitante": "IRAQ", "preds": [{"local": "4", "visit": "1", "quiniela": "1"}, {"local": "6", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "7", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}]}, {"local": "SENEGAL", "visitante": "NORUEGA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "ARGENTINA", "visitante": "AUSTRIA", "preds": [{"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}]}, {"local": "ARGELIA", "visitante": "JORDANIA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "PORTUGAL", "visitante": "UZBEKISTAN", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}]}, {"local": "DR CONGO", "visitante": "COLOMBIA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "PANAMA", "visitante": "CROACIA", "preds": [{"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "INGLATERRA", "visitante": "GHANA", "preds": [{"local": "4", "visit": "2", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}]}, {"nombre": "JORNADA 3", "partidos": [{"local": "CHEQUIA", "visitante": "MEXICO", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "COREA DEL SUR", "visitante": "SUDAFRICA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "BOSNIA-HERZ.", "visitante": "QATAR", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "CANADA", "visitante": "SUIZA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "2", "quiniela": "1"}]}, {"local": "MARRUECOS", "visitante": "HAITI", "preds": [{"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "6", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "6", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "ESCOCIA", "visitante": "BRASIL", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "4", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "TURQUIA", "visitante": "ESTADOS UNIDOS", "preds": [{"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "AUSTRALIA", "visitante": "PARAGUAY", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "ECUADOR", "visitante": "ALEMANIA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "4", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "4", "quiniela": "2"}]}, {"local": "COSTA DE MARFIL", "visitante": "CURAZAO", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "SUECIA", "visitante": "JAPON", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "TUNEZ", "visitante": "PAISES BAJOS", "preds": [{"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "NUEVA ZELANDA", "visitante": "BELGICA", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "5", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "IRAN", "visitante": "EGIPTO", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "URUGUAY", "visitante": "ESPAÑA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "CABO VERDE", "visitante": "ARABIA SAUDI", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "IRAQ", "visitante": "SENEGAL", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}]}, {"local": "NORUEGA", "visitante": "FRANCIA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "4", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "4", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "JORDANIA", "visitante": "ARGENTINA", "preds": [{"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "4", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "6", "quiniela": "2"}, {"local": "0", "visit": "5", "quiniela": "2"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "1", "visit": "4", "quiniela": "2"}]}, {"local": "AUSTRIA", "visitante": "ARGELIA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}]}, {"local": "COLOMBIA", "visitante": "PORTUGAL", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "DR CONGO", "visitante": "UZBEKISTAN", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "INGLATERRA", "visitante": "PANAMA", "preds": [{"local": "3", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "CROACIA", "visitante": "GHANA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}]}]}]}, "RESULTADO-GRUPOS": {"jornadas": [{"nombre": "JORNADA 1", "partidos": [{"local": "MEXICO", "visitante": "SUDAFRICA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "COREA DEL SUR", "visitante": "CHEQUIA", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "CANADA", "visitante": "BOSNIA-HERZ.", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "QATAR", "visitante": "SUIZA", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "BRASIL", "visitante": "MARRUECOS", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "HAITI", "visitante": "ESCOCIA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "ESTADOS UNIDOS", "visitante": "PARAGUAY", "golesL": "4", "golesV": "1", "quiniela": "1"}, {"local": "AUSTRALIA", "visitante": "TURQUIA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "ALEMANIA", "visitante": "CURAZAO", "golesL": "7", "golesV": "1", "quiniela": "1"}, {"local": "COSTA DE MARFIL", "visitante": "ECUADOR", "golesL": "1", "golesV": "0", "quiniela": "1"}, {"local": "PAISES BAJOS", "visitante": "JAPON", "golesL": "2", "golesV": "2", "quiniela": "X"}, {"local": "TUNEZ", "visitante": "SUECIA", "golesL": "1", "golesV": "5", "quiniela": "2"}, {"local": "BELGICA", "visitante": "EGIPTO", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "IRAN", "visitante": "NUEVA ZELANDA", "golesL": "2", "golesV": "2", "quiniela": "X"}, {"local": "ESPAÑA", "visitante": "CABO VERDE", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "ARABIA SAUDI", "visitante": "URUGUAY", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "FRANCIA", "visitante": "SENEGAL", "golesL": "3", "golesV": "1", "quiniela": "1"}, {"local": "NORUEGA", "visitante": "IRAQ", "golesL": "4", "golesV": "1", "quiniela": "1"}, {"local": "ARGENTINA", "visitante": "ARGELIA", "golesL": "3", "golesV": "0", "quiniela": "1"}, {"local": "AUSTRIA", "visitante": "JORDANIA", "golesL": "3", "golesV": "1", "quiniela": "1"}, {"local": "PORTUGAL", "visitante": "DR CONGO", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "UZBEKISTAN", "visitante": "COLOMBIA", "golesL": "1", "golesV": "3", "quiniela": "2"}, {"local": "PANAMA", "visitante": "GHANA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "CROACIA", "visitante": "INGLATERRA", "golesL": "2", "golesV": "4", "quiniela": "2"}]}, {"nombre": "JORNADA 2", "partidos": [{"local": "MEXICO", "visitante": "COREA DEL SUR", "golesL": "1", "golesV": "0", "quiniela": "1"}, {"local": "SUDAFRICA", "visitante": "CHEQUIA", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "CANADA", "visitante": "QATAR", "golesL": "6", "golesV": "0", "quiniela": "1"}, {"local": "SUIZA", "visitante": "BOSNIA-HERZ.", "golesL": "4", "golesV": "1", "quiniela": "1"}, {"local": "BRASIL", "visitante": "HAITI", "golesL": "3", "golesV": "0", "quiniela": "1"}, {"local": "ESCOCIA", "visitante": "MARRUECOS", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "ESTADOS UNIDOS", "visitante": "AUSTRALIA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "PARAGUAY", "visitante": "TURQUIA", "golesL": "1", "golesV": "0", "quiniela": "1"}, {"local": "ALEMANIA", "visitante": "COSTA DE MARFIL", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "CURAZAO", "visitante": "ECUADOR", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "PAISES BAJOS", "visitante": "SUECIA", "golesL": "5", "golesV": "1", "quiniela": "1"}, {"local": "JAPON", "visitante": "TUNEZ", "golesL": "4", "golesV": "0", "quiniela": "1"}, {"local": "BELGICA", "visitante": "IRAN", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "EGIPTO", "visitante": "NUEVA ZELANDA", "golesL": "3", "golesV": "1", "quiniela": "1"}, {"local": "ESPAÑA", "visitante": "ARABIA SAUDI", "golesL": "4", "golesV": "0", "quiniela": "1"}, {"local": "CABO VERDE", "visitante": "URUGUAY", "golesL": "2", "golesV": "2", "quiniela": "X"}, {"local": "FRANCIA", "visitante": "IRAQ", "golesL": "3", "golesV": "0", "quiniela": "1"}, {"local": "SENEGAL", "visitante": "NORUEGA", "golesL": "2", "golesV": "3", "quiniela": "2"}, {"local": "ARGENTINA", "visitante": "AUSTRIA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "ARGELIA", "visitante": "JORDANIA", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "PORTUGAL", "visitante": "UZBEKISTAN", "golesL": "5", "golesV": "0", "quiniela": "1"}, {"local": "DR CONGO", "visitante": "COLOMBIA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "PANAMA", "visitante": "CROACIA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "INGLATERRA", "visitante": "GHANA", "golesL": "0", "golesV": "0", "quiniela": "X"}]}, {"nombre": "JORNADA 3", "partidos": [{"local": "CHEQUIA", "visitante": "MEXICO", "golesL": "0", "golesV": "3", "quiniela": "2"}, {"local": "COREA DEL SUR", "visitante": "SUDAFRICA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "BOSNIA-HERZ.", "visitante": "QATAR", "golesL": "3", "golesV": "1", "quiniela": "1"}, {"local": "CANADA", "visitante": "SUIZA", "golesL": "1", "golesV": "2", "quiniela": "2"}, {"local": "MARRUECOS", "visitante": "HAITI", "golesL": "4", "golesV": "2", "quiniela": "1"}, {"local": "ESCOCIA", "visitante": "BRASIL", "golesL": "0", "golesV": "3", "quiniela": "2"}, {"local": "TURQUIA", "visitante": "ESTADOS UNIDOS", "golesL": "3", "golesV": "2", "quiniela": "1"}, {"local": "AUSTRALIA", "visitante": "PARAGUAY", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "ECUADOR", "visitante": "ALEMANIA", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "COSTA DE MARFIL", "visitante": "CURAZAO", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "SUECIA", "visitante": "JAPON", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "TUNEZ", "visitante": "PAISES BAJOS", "golesL": "1", "golesV": "3", "quiniela": "2"}, {"local": "NUEVA ZELANDA", "visitante": "BELGICA", "golesL": "1", "golesV": "5", "quiniela": "2"}, {"local": "IRAN", "visitante": "EGIPTO", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "URUGUAY", "visitante": "ESPAÑA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "CABO VERDE", "visitante": "ARABIA SAUDI", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "IRAQ", "visitante": "SENEGAL", "golesL": "0", "golesV": "5", "quiniela": "2"}, {"local": "NORUEGA", "visitante": "FRANCIA", "golesL": "1", "golesV": "4", "quiniela": "2"}, {"local": "JORDANIA", "visitante": "ARGENTINA", "golesL": "1", "golesV": "3", "quiniela": "2"}, {"local": "AUSTRIA", "visitante": "ARGELIA", "golesL": "3", "golesV": "3", "quiniela": "X"}, {"local": "COLOMBIA", "visitante": "PORTUGAL", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "DR CONGO", "visitante": "UZBEKISTAN", "golesL": "3", "golesV": "1", "quiniela": "1"}, {"local": "INGLATERRA", "visitante": "PANAMA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "CROACIA", "visitante": "GHANA", "golesL": "2", "golesV": "1", "quiniela": "1"}]}]}, "PUNTOS-GRUPOS": {"participants": ["FRANCESC", "ALEJANDRO", "GERMÁN", "IGNASI", "SERGI", "BÀRBARA", "XAVI", "EDI", "ROGER.P", "DAVID.T"], "jornadas": [{"nombre": "JORNADA 1", "subtotales": ["12", "18", "13", "16", "16", "20", "12", "17", "21", "9"], "partidos": [{"local": "MEXICO", "visitante": "SUDAFRICA", "vals": ["1", "3", "0", "1", "3", "0", "3", "1", "1", "1"]}, {"local": "COREA DEL SUR", "visitante": "CHEQUIA", "vals": ["0", "0", "0", "3", "1", "1", "0", "1", "0", "1"]}, {"local": "CANADA", "visitante": "BOSNIA-HERZ.", "vals": ["0", "0", "0", "0", "0", "0", "0", "1", "3", "0"]}, {"local": "QATAR", "visitante": "SUIZA", "vals": ["0", "0", "0", "0", "0", "3", "0", "0", "0", "0"]}, {"local": "BRASIL", "visitante": "MARRUECOS", "vals": ["0", "1", "3", "1", "0", "1", "0", "0", "3", "0"]}, {"local": "HAITI", "visitante": "ESCOCIA", "vals": ["1", "1", "1", "1", "1", "3", "1", "1", "3", "1"]}, {"local": "ESTADOS UNIDOS", "visitante": "PARAGUAY", "vals": ["0", "1", "1", "1", "0", "0", "1", "1", "1", "1"]}, {"local": "AUSTRALIA", "visitante": "TURQUIA", "vals": ["0", "0", "0", "0", "1", "1", "0", "0", "0", "0"]}, {"local": "ALEMANIA", "visitante": "CURAZAO", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "COSTA DE MARFIL", "visitante": "ECUADOR", "vals": ["1", "0", "0", "0", "1", "0", "0", "0", "1", "0"]}, {"local": "PAISES BAJOS", "visitante": "JAPON", "vals": ["0", "0", "0", "0", "3", "0", "0", "0", "1", "0"]}, {"local": "TUNEZ", "visitante": "SUECIA", "vals": ["0", "1", "0", "1", "1", "1", "1", "1", "1", "0"]}, {"local": "BELGICA", "visitante": "EGIPTO", "vals": ["0", "0", "0", "0", "0", "3", "0", "0", "0", "0"]}, {"local": "IRAN", "visitante": "NUEVA ZELANDA", "vals": ["1", "1", "1", "1", "0", "0", "0", "1", "0", "0"]}, {"local": "ESPAÑA", "visitante": "CABO VERDE", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]}, {"local": "ARABIA SAUDI", "visitante": "URUGUAY", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]}, {"local": "FRANCIA", "visitante": "SENEGAL", "vals": ["1", "1", "1", "0", "0", "0", "1", "3", "1", "1"]}, {"local": "NORUEGA", "visitante": "IRAQ", "vals": ["0", "1", "1", "1", "1", "1", "1", "1", "1", "0"]}, {"local": "ARGENTINA", "visitante": "ARGELIA", "vals": ["3", "1", "1", "1", "1", "1", "0", "3", "1", "1"]}, {"local": "AUSTRIA", "visitante": "JORDANIA", "vals": ["1", "1", "1", "1", "1", "0", "1", "0", "1", "1"]}, {"local": "PORTUGAL", "visitante": "DR CONGO", "vals": ["0", "0", "0", "0", "0", "3", "0", "0", "0", "0"]}, {"local": "UZBEKISTAN", "visitante": "COLOMBIA", "vals": ["1", "3", "1", "1", "1", "0", "1", "1", "1", "1"]}, {"local": "PANAMA", "visitante": "GHANA", "vals": ["1", "1", "0", "1", "0", "0", "1", "0", "0", "0"]}, {"local": "CROACIA", "visitante": "INGLATERRA", "vals": ["0", "1", "1", "1", "0", "1", "0", "1", "1", "0"]}]}, {"nombre": "JORNADA 2", "subtotales": ["17", "26", "22", "20", "14", "17", "21", "17", "11", "22"], "partidos": [{"local": "MEXICO", "visitante": "COREA DEL SUR", "vals": ["0", "3", "1", "0", "0", "1", "3", "1", "0", "1"]}, {"local": "SUDAFRICA", "visitante": "CHEQUIA", "vals": ["0", "3", "0", "0", "3", "0", "0", "0", "0", "0"]}, {"local": "CANADA", "visitante": "QATAR", "vals": ["1", "1", "1", "1", "0", "1", "0", "1", "0", "1"]}, {"local": "SUIZA", "visitante": "BOSNIA-HERZ.", "vals": ["0", "1", "1", "1", "1", "0", "1", "0", "0", "1"]}, {"local": "BRASIL", "visitante": "HAITI", "vals": ["1", "1", "1", "1", "1", "3", "1", "1", "1", "3"]}, {"local": "ESCOCIA", "visitante": "MARRUECOS", "vals": ["1", "1", "1", "1", "1", "0", "1", "1", "1", "1"]}, {"local": "ESTADOS UNIDOS", "visitante": "AUSTRALIA", "vals": ["1", "3", "1", "3", "0", "1", "1", "3", "1", "3"]}, {"local": "PARAGUAY", "visitante": "TURQUIA", "vals": ["0", "0", "0", "0", "1", "1", "0", "0", "0", "0"]}, {"local": "ALEMANIA", "visitante": "COSTA DE MARFIL", "vals": ["3", "1", "1", "1", "1", "0", "1", "1", "0", "1"]}, {"local": "CURAZAO", "visitante": "ECUADOR", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]}, {"local": "PAISES BAJOS", "visitante": "SUECIA", "vals": ["0", "1", "1", "0", "0", "0", "0", "0", "0", "1"]}, {"local": "JAPON", "visitante": "TUNEZ", "vals": ["1", "1", "1", "1", "1", "0", "1", "1", "1", "0"]}, {"local": "BELGICA", "visitante": "IRAN", "vals": ["0", "0", "0", "0", "1", "0", "0", "0", "0", "0"]}, {"local": "EGIPTO", "visitante": "NUEVA ZELANDA", "vals": ["0", "1", "1", "1", "0", "0", "1", "1", "1", "0"]}, {"local": "ESPAÑA", "visitante": "ARABIA SAUDI", "vals": ["1", "3", "1", "1", "1", "1", "1", "0", "1", "1"]}, {"local": "CABO VERDE", "visitante": "URUGUAY", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]}, {"local": "FRANCIA", "visitante": "IRAQ", "vals": ["1", "1", "1", "1", "1", "1", "3", "1", "1", "1"]}, {"local": "SENEGAL", "visitante": "NORUEGA", "vals": ["0", "1", "1", "1", "0", "1", "0", "1", "0", "1"]}, {"local": "ARGENTINA", "visitante": "AUSTRIA", "vals": ["3", "1", "3", "3", "0", "3", "3", "1", "1", "1"]}, {"local": "ARGELIA", "visitante": "JORDANIA", "vals": ["1", "0", "3", "1", "0", "0", "1", "1", "0", "3"]}, {"local": "PORTUGAL", "visitante": "UZBEKISTAN", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "DR CONGO", "visitante": "COLOMBIA", "vals": ["1", "1", "1", "1", "1", "3", "1", "1", "1", "1"]}, {"local": "PANAMA", "visitante": "CROACIA", "vals": ["1", "1", "1", "1", "0", "0", "1", "1", "1", "1"]}, {"local": "INGLATERRA", "visitante": "GHANA", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]}]}, {"nombre": "JORNADA 3", "subtotales": ["13", "17", "17", "16", "20", "18", "23", "17", "26", "21"], "partidos": [{"local": "CHEQUIA", "visitante": "MEXICO", "vals": ["0", "1", "1", "1", "1", "1", "0", "0", "0", "1"]}, {"local": "COREA DEL SUR", "visitante": "SUDAFRICA", "vals": ["0", "0", "1", "0", "0", "0", "0", "0", "0", "0"]}, {"local": "BOSNIA-HERZ.", "visitante": "QATAR", "vals": ["0", "0", "1", "1", "0", "1", "1", "1", "0", "1"]}, {"local": "CANADA", "visitante": "SUIZA", "vals": ["0", "0", "0", "0", "0", "0", "1", "0", "0", "0"]}, {"local": "MARRUECOS", "visitante": "HAITI", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "ESCOCIA", "visitante": "BRASIL", "vals": ["1", "1", "1", "1", "1", "1", "0", "1", "1", "1"]}, {"local": "TURQUIA", "visitante": "ESTADOS UNIDOS", "vals": ["0", "0", "0", "1", "0", "0", "1", "0", "0", "0"]}, {"local": "AUSTRALIA", "visitante": "PARAGUAY", "vals": ["0", "1", "1", "0", "1", "0", "1", "0", "0", "0"]}, {"local": "ECUADOR", "visitante": "ALEMANIA", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "3", "0"]}, {"local": "COSTA DE MARFIL", "visitante": "CURAZAO", "vals": ["1", "3", "3", "1", "1", "3", "3", "3", "1", "3"]}, {"local": "SUECIA", "visitante": "JAPON", "vals": ["0", "0", "0", "0", "0", "0", "3", "0", "0", "0"]}, {"local": "TUNEZ", "visitante": "PAISES BAJOS", "vals": ["1", "1", "1", "1", "3", "1", "3", "1", "3", "3"]}, {"local": "NUEVA ZELANDA", "visitante": "BELGICA", "vals": ["1", "1", "1", "1", "0", "1", "1", "1", "1", "1"]}, {"local": "IRAN", "visitante": "EGIPTO", "vals": ["0", "0", "0", "1", "3", "3", "0", "0", "3", "3"]}, {"local": "URUGUAY", "visitante": "ESPAÑA", "vals": ["1", "1", "1", "1", "1", "1", "0", "0", "1", "1"]}, {"local": "CABO VERDE", "visitante": "ARABIA SAUDI", "vals": ["0", "0", "0", "1", "1", "0", "0", "0", "3", "0"]}, {"local": "IRAQ", "visitante": "SENEGAL", "vals": ["1", "1", "1", "1", "1", "0", "1", "1", "1", "1"]}, {"local": "NORUEGA", "visitante": "FRANCIA", "vals": ["1", "1", "1", "1", "1", "1", "1", "3", "1", "1"]}, {"local": "JORDANIA", "visitante": "ARGENTINA", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "AUSTRIA", "visitante": "ARGELIA", "vals": ["0", "1", "0", "0", "1", "1", "1", "0", "0", "1"]}, {"local": "COLOMBIA", "visitante": "PORTUGAL", "vals": ["1", "0", "0", "0", "1", "0", "0", "1", "1", "0"]}, {"local": "DR CONGO", "visitante": "UZBEKISTAN", "vals": ["1", "1", "1", "1", "0", "0", "1", "1", "1", "1"]}, {"local": "INGLATERRA", "visitante": "PANAMA", "vals": ["1", "1", "1", "1", "1", "1", "3", "1", "3", "1"]}, {"local": "CROACIA", "visitante": "GHANA", "vals": ["1", "1", "0", "0", "1", "1", "0", "1", "1", "0"]}]}], "resumen": [{"label": "TOTAL", "sub": "", "vals": ["42", "61", "52", "52", "50", "55", "56", "51", "58", "52"]}, {"label": "MARCADOR", "sub": "3 J1", "vals": ["1", "2", "1", "1", "2", "4", "1", "2", "3", "0"]}, {"label": "", "sub": "3 J2", "vals": ["2", "4", "2", "2", "1", "3", "3", "1", "0", "3"]}, {"label": "", "sub": "3 J3", "vals": ["0", "1", "1", "0", "2", "2", "4", "2", "5", "3"]}, {"label": "", "sub": "3 TOTAL", "vals": ["3", "7", "4", "3", "5", "9", "8", "5", "8", "6"]}, {"label": "QUINIELA", "sub": "XJ1", "vals": ["9", "12", "10", "13", "10", "8", "9", "11", "12", "9"]}, {"label": "", "sub": "XJ2", "vals": ["11", "14", "16", "14", "11", "8", "12", "14", "11", "13"]}, {"label": "", "sub": "XJ3", "vals": ["13", "14", "14", "16", "14", "12", "11", "11", "11", "12"]}, {"label": "", "sub": "X TOTAL", "vals": ["33", "40", "40", "43", "35", "28", "32", "36", "34", "34"]}]}, "QUALY-GRUPOS": [], "_META": {"fecha": "28 de junio de 2026", "jugados": 72, "total_partidos": 72, "scoring": {"signo": 1, "exacto": 3}, "totals": {"FRANCESC": {"pts": 42, "exactos": 3, "signos": 33}, "ALEJANDRO": {"pts": 61, "exactos": 7, "signos": 40}, "GERMÁN": {"pts": 52, "exactos": 4, "signos": 40}, "IGNASI": {"pts": 52, "exactos": 3, "signos": 43}, "SERGI": {"pts": 50, "exactos": 5, "signos": 35}, "BÀRBARA": {"pts": 55, "exactos": 9, "signos": 28}, "XAVI": {"pts": 56, "exactos": 8, "signos": 32}, "EDI": {"pts": 51, "exactos": 5, "signos": 36}, "ROGER.P": {"pts": 58, "exactos": 8, "signos": 34}, "DAVID.T": {"pts": 52, "exactos": 6, "signos": 34}}}};
+const DATA_KO = {"APUESTA-GRUPOS": {"participants": ["FRANCESC", "ALEJANDRO", "GERMÁN", "IGNASI", "SERGI", "BÀRBARA", "XAVI", "EDI", "ROGER.P", "DAVID.T"], "jornadas": [{"nombre": "Dieciseisavos", "partidos": [{"local": "SUDAFRICA", "visitante": "CANADA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "ALEMANIA", "visitante": "PARAGUAY", "preds": [{"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "PAISES BAJOS", "visitante": "MARRUECOS", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "BRASIL", "visitante": "JAPON", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "FRANCIA", "visitante": "SUECIA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "4", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "COSTA DE MARFIL", "visitante": "NORUEGA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}]}, {"local": "MEXICO", "visitante": "ECUADOR", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}]}, {"local": "INGLATERRA", "visitante": "DR CONGO", "preds": [{"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "4", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}]}, {"local": "ESTADOS UNIDOS", "visitante": "BOSNIA-HERZ.", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "BELGICA", "visitante": "SENEGAL", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "PORTUGAL", "visitante": "CROACIA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "ESPAÑA", "visitante": "AUSTRIA", "preds": [{"local": "3", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "SUIZA", "visitante": "ARGELIA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "ARGENTINA", "visitante": "CABO VERDE", "preds": [{"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "5", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}]}, {"local": "COLOMBIA", "visitante": "GHANA", "preds": [{"local": "1", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "AUSTRALIA", "visitante": "EGIPTO", "preds": [{"local": "0", "visit": "0", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "0", "quiniela": "1"}]}]}, {"nombre": "Octavos", "partidos": [{"local": "CANADA", "visitante": "MARRUECOS", "preds": [{"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "PARAGUAY", "visitante": "FRANCIA", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "4", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}]}, {"local": "BRASIL", "visitante": "NORUEGA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "MEXICO", "visitante": "INGLATERRA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "PORTUGAL", "visitante": "ESPAÑA", "preds": [{"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "EEUU", "visitante": "BELGICA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}]}, {"local": "SUIZA", "visitante": "COLOMBIA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}]}, {"local": "ARGENTINA", "visitante": "EGIPTO", "preds": [{"local": "2", "visit": "0", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}]}, {"nombre": "Cuartos", "partidos": [{"local": "FRANCIA", "visitante": "MARRUECOS", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}]}, {"local": "NORUEGA", "visitante": "INGLATERRA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "1", "visit": "2", "quiniela": "2"}]}, {"local": "BELGICA", "visitante": "ESPAÑA", "preds": [{"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "1", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "3", "visit": "0", "quiniela": "1"}]}, {"local": "ARGENTINA", "visitante": "SUIZA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "3", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "0", "quiniela": "X"}, {"local": "2", "visit": "0", "quiniela": "1"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}]}]}, {"nombre": "Semifinales", "partidos": [{"local": "ESPAÑA", "visitante": "FRANCIA", "preds": [{"local": "2", "visit": "1", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "0", "visit": "3", "quiniela": "2"}, {"local": "0", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "3", "visit": "2", "quiniela": "1"}]}, {"local": "ARGENTINA", "visitante": "INGLATERRA", "preds": [{"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "3", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "2", "visit": "2", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "1", "quiniela": "X"}, {"local": "1", "visit": "2", "quiniela": "2"}, {"local": "3", "visit": "2", "quiniela": "1"}, {"local": "2", "visit": "1", "quiniela": "1"}]}]}, {"nombre": "3.º y 4.º puesto", "partidos": [{"local": "Perdedor M101", "visitante": "Perdedor M102", "preds": [{"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}]}]}, {"nombre": "Final", "partidos": [{"local": "Ganador M101", "visitante": "Ganador M102", "preds": [{"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}, {"local": "", "visit": "", "quiniela": ""}]}]}]}, "RESULTADO-GRUPOS": {"jornadas": [{"nombre": "Dieciseisavos", "partidos": [{"local": "SUDAFRICA", "visitante": "CANADA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "ALEMANIA", "visitante": "PARAGUAY", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "PAISES BAJOS", "visitante": "MARRUECOS", "golesL": "1", "golesV": "1", "quiniela": "X"}, {"local": "BRASIL", "visitante": "JAPON", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "FRANCIA", "visitante": "SUECIA", "golesL": "3", "golesV": "0", "quiniela": "1"}, {"local": "COSTA DE MARFIL", "visitante": "NORUEGA", "golesL": "1", "golesV": "2", "quiniela": "2"}, {"local": "MEXICO", "visitante": "ECUADOR", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "INGLATERRA", "visitante": "DR CONGO", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "ESTADOS UNIDOS", "visitante": "BOSNIA-HERZ.", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "BELGICA", "visitante": "SENEGAL", "golesL": "3", "golesV": "2", "quiniela": "1"}, {"local": "PORTUGAL", "visitante": "CROACIA", "golesL": "2", "golesV": "1", "quiniela": "1"}, {"local": "ESPAÑA", "visitante": "AUSTRIA", "golesL": "3", "golesV": "0", "quiniela": "1"}, {"local": "SUIZA", "visitante": "ARGELIA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "ARGENTINA", "visitante": "CABO VERDE", "golesL": "3", "golesV": "2", "quiniela": "1"}, {"local": "COLOMBIA", "visitante": "GHANA", "golesL": "1", "golesV": "0", "quiniela": "1"}, {"local": "AUSTRALIA", "visitante": "EGIPTO", "golesL": "1", "golesV": "1", "quiniela": "X"}]}, {"nombre": "Octavos", "partidos": [{"local": "CANADA", "visitante": "MARRUECOS", "golesL": "0", "golesV": "3", "quiniela": "2"}, {"local": "PARAGUAY", "visitante": "FRANCIA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "BRASIL", "visitante": "NORUEGA", "golesL": "1", "golesV": "2", "quiniela": "2"}, {"local": "MEXICO", "visitante": "INGLATERRA", "golesL": "2", "golesV": "3", "quiniela": "2"}, {"local": "PORTUGAL", "visitante": "ESPAÑA", "golesL": "0", "golesV": "1", "quiniela": "2"}, {"local": "EEUU", "visitante": "BELGICA", "golesL": "1", "golesV": "4", "quiniela": "2"}, {"local": "SUIZA", "visitante": "COLOMBIA", "golesL": "0", "golesV": "0", "quiniela": "X"}, {"local": "ARGENTINA", "visitante": "EGIPTO", "golesL": "3", "golesV": "2", "quiniela": "1"}]}, {"nombre": "Cuartos", "partidos": [{"local": "FRANCIA", "visitante": "MARRUECOS", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "NORUEGA", "visitante": "INGLATERRA", "golesL": "1", "golesV": "2", "quiniela": "2"}, {"local": "BELGICA", "visitante": "ESPAÑA", "golesL": "1", "golesV": "2", "quiniela": "2"}, {"local": "ARGENTINA", "visitante": "SUIZA", "golesL": "3", "golesV": "1", "quiniela": "1"}]}, {"nombre": "Semifinales", "partidos": [{"local": "ESPAÑA", "visitante": "FRANCIA", "golesL": "2", "golesV": "0", "quiniela": "1"}, {"local": "ARGENTINA", "visitante": "INGLATERRA", "golesL": "", "golesV": "", "quiniela": ""}]}, {"nombre": "3.º y 4.º puesto", "partidos": [{"local": "Perdedor M101", "visitante": "Perdedor M102", "golesL": "", "golesV": "", "quiniela": ""}]}, {"nombre": "Final", "partidos": [{"local": "Ganador M101", "visitante": "Ganador M102", "golesL": "", "golesV": "", "quiniela": ""}]}]}, "PUNTOS-GRUPOS": {"participants": ["FRANCESC", "ALEJANDRO", "GERMÁN", "IGNASI", "SERGI", "BÀRBARA", "XAVI", "EDI", "ROGER.P", "DAVID.T"], "jornadas": [{"nombre": "Dieciseisavos", "subtotales": ["11", "19", "22", "14", "11", "20", "18", "18", "14", "8"], "partidos": [{"local": "SUDAFRICA", "visitante": "CANADA", "vals": ["0", "1", "1", "1", "0", "1", "0", "1", "0", "0"]}, {"local": "ALEMANIA", "visitante": "PARAGUAY", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]}, {"local": "PAISES BAJOS", "visitante": "MARRUECOS", "vals": ["0", "3", "0", "0", "0", "0", "1", "0", "0", "0"]}, {"local": "BRASIL", "visitante": "JAPON", "vals": ["0", "3", "3", "0", "0", "3", "3", "1", "1", "1"]}, {"local": "FRANCIA", "visitante": "SUECIA", "vals": ["1", "1", "3", "1", "1", "3", "3", "1", "1", "1"]}, {"local": "COSTA DE MARFIL", "visitante": "NORUEGA", "vals": ["0", "1", "1", "3", "0", "0", "1", "1", "3", "1"]}, {"local": "MEXICO", "visitante": "ECUADOR", "vals": ["1", "1", "0", "1", "0", "1", "1", "3", "0", "0"]}, {"local": "INGLATERRA", "visitante": "DR CONGO", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "ESTADOS UNIDOS", "visitante": "BOSNIA-HERZ.", "vals": ["1", "1", "3", "3", "3", "1", "3", "3", "1", "0"]}, {"local": "BELGICA", "visitante": "SENEGAL", "vals": ["0", "0", "1", "0", "0", "1", "1", "0", "0", "1"]}, {"local": "PORTUGAL", "visitante": "CROACIA", "vals": ["0", "1", "3", "1", "0", "3", "1", "1", "3", "1"]}, {"local": "ESPAÑA", "visitante": "AUSTRIA", "vals": ["1", "3", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "SUIZA", "visitante": "ARGELIA", "vals": ["1", "1", "3", "0", "3", "3", "0", "0", "1", "0"]}, {"local": "ARGENTINA", "visitante": "CABO VERDE", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "COLOMBIA", "visitante": "GHANA", "vals": ["3", "1", "1", "1", "1", "1", "0", "1", "1", "0"]}, {"local": "AUSTRALIA", "visitante": "EGIPTO", "vals": ["1", "0", "0", "0", "0", "0", "1", "3", "0", "0"]}]}, {"nombre": "Octavos", "subtotales": ["8", "8", "2", "4", "4", "8", "5", "5", "6", "7"], "partidos": [{"local": "CANADA", "visitante": "MARRUECOS", "vals": ["1", "1", "0", "1", "1", "1", "3", "1", "1", "0"]}, {"local": "PARAGUAY", "visitante": "FRANCIA", "vals": ["3", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}, {"local": "BRASIL", "visitante": "NORUEGA", "vals": ["0", "0", "0", "0", "0", "3", "0", "0", "1", "3"]}, {"local": "MEXICO", "visitante": "INGLATERRA", "vals": ["0", "3", "0", "0", "0", "0", "0", "1", "1", "0"]}, {"local": "PORTUGAL", "visitante": "ESPAÑA", "vals": ["3", "1", "0", "1", "1", "1", "0", "1", "1", "1"]}, {"local": "EEUU", "visitante": "BELGICA", "vals": ["0", "1", "0", "0", "0", "1", "0", "0", "0", "0"]}, {"local": "SUIZA", "visitante": "COLOMBIA", "vals": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "1"]}, {"local": "ARGENTINA", "visitante": "EGIPTO", "vals": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]}]}, {"nombre": "Cuartos", "subtotales": ["7", "5", "2", "2", "1", "5", "5", "7", "1", "4"], "partidos": [{"local": "FRANCIA", "visitante": "MARRUECOS", "vals": ["0", "1", "0", "1", "0", "3", "3", "3", "0", "1"]}, {"local": "NORUEGA", "visitante": "INGLATERRA", "vals": ["3", "0", "0", "0", "0", "0", "1", "0", "0", "3"]}, {"local": "BELGICA", "visitante": "ESPAÑA", "vals": ["3", "1", "1", "0", "1", "1", "1", "3", "1", "0"]}, {"local": "ARGENTINA", "visitante": "SUIZA", "vals": ["1", "3", "1", "1", "0", "1", "0", "1", "0", "0"]}]}, {"nombre": "Semifinales", "subtotales": ["1", "1", "0", "0", "0", "0", "0", "0", "1", "1"], "partidos": [{"local": "ESPAÑA", "visitante": "FRANCIA", "vals": ["1", "1", "0", "0", "0", "0", "0", "0", "1", "1"]}, {"local": "ARGENTINA", "visitante": "INGLATERRA", "vals": ["", "", "", "", "", "", "", "", "", ""]}]}, {"nombre": "3.º y 4.º puesto", "subtotales": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"], "partidos": [{"local": "Perdedor M101", "visitante": "Perdedor M102", "vals": ["", "", "", "", "", "", "", "", "", ""]}]}, {"nombre": "Final", "subtotales": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"], "partidos": [{"local": "Ganador M101", "visitante": "Ganador M102", "vals": ["", "", "", "", "", "", "", "", "", ""]}]}], "resumen": [{"label": "TOTAL", "sub": "", "vals": ["27", "33", "26", "20", "16", "33", "28", "30", "22", "20"]}, {"label": "MARCADOR", "sub": "3 TOTAL", "vals": ["5", "5", "5", "2", "2", "6", "5", "5", "2", "2"]}, {"label": "QUINIELA", "sub": "X TOTAL", "vals": ["12", "18", "11", "14", "10", "15", "13", "15", "16", "14"]}]}, "QUALY-GRUPOS": [], "CAMPEON": {"apuestas": [{"participante": "FRANCESC", "apuesta": "ARGENTINA", "previa": "ESPAÑA"}, {"participante": "ALEJANDRO", "apuesta": "PORTUGAL", "previa": null}, {"participante": "GERMÁN", "apuesta": "ARGENTINA", "previa": "FRANCIA"}, {"participante": "IGNASI", "apuesta": "ALEMANIA", "previa": "INGLATERRA"}, {"participante": "SERGI", "apuesta": "ESPAÑA", "previa": null}, {"participante": "BÀRBARA", "apuesta": "FRANCIA", "previa": "ARGENTINA"}, {"participante": "XAVI", "apuesta": "FRANCIA", "previa": "ESPAÑA"}, {"participante": "EDI", "apuesta": "FRANCIA", "previa": null}, {"participante": "ROGER.P", "apuesta": "COLOMBIA", "previa": "PORTUGAL"}, {"participante": "DAVID.T", "apuesta": "FRANCIA", "previa": null}], "cuotas": [{"seleccion": "España", "cuota": "5.50"}, {"seleccion": "Francia", "cuota": "6.00"}, {"seleccion": "Inglaterra", "cuota": "7.00"}, {"seleccion": "Argentina", "cuota": "9.00"}, {"seleccion": "Brasil", "cuota": "9.00"}, {"seleccion": "Portugal", "cuota": "11.00"}, {"seleccion": "Alemania", "cuota": "15.00"}, {"seleccion": "Países Bajos", "cuota": "21.00"}, {"seleccion": "Noruega", "cuota": "26.00"}, {"seleccion": "Bélgica", "cuota": "34.00"}, {"seleccion": "Colombia", "cuota": "34.00"}, {"seleccion": "Marruecos", "cuota": "51.00"}, {"seleccion": "Japón", "cuota": "51.00"}, {"seleccion": "Estados Unidos", "cuota": "67.00"}, {"seleccion": "Uruguay", "cuota": "67.00"}, {"seleccion": "Croacia", "cuota": "81.00"}, {"seleccion": "México", "cuota": "81.00"}, {"seleccion": "Suiza", "cuota": "81.00"}, {"seleccion": "Turquía", "cuota": "81.00"}, {"seleccion": "Senegal", "cuota": "101.00"}, {"seleccion": "Ecuador", "cuota": "101.00"}, {"seleccion": "Suecia", "cuota": "126.00"}, {"seleccion": "Dinamarca", "cuota": "~150"}, {"seleccion": "Austria", "cuota": "~175"}, {"seleccion": "Paraguay", "cuota": "~200"}, {"seleccion": "Canadá", "cuota": "~200"}, {"seleccion": "República Checa", "cuota": "~250"}, {"seleccion": "Bosnia y Herzegovina", "cuota": "~250"}, {"seleccion": "Escocia", "cuota": "~300"}, {"seleccion": "Corea del Sur", "cuota": "~300"}, {"seleccion": "Uzbekistán", "cuota": "~350"}, {"seleccion": "Malí", "cuota": "~350"}, {"seleccion": "Costa de Marfil", "cuota": "~400"}, {"seleccion": "Panamá", "cuota": "~400"}, {"seleccion": "Australia", "cuota": "~400"}, {"seleccion": "Arabia Saudí", "cuota": "~500"}, {"seleccion": "Ghana", "cuota": "~500"}, {"seleccion": "Nigeria", "cuota": "~500"}, {"seleccion": "Cabo Verde", "cuota": "~600"}, {"seleccion": "Irán", "cuota": "~600"}, {"seleccion": "Jordania", "cuota": "~750"}, {"seleccion": "Haití", "cuota": "~1000"}, {"seleccion": "Irak", "cuota": "~1000"}, {"seleccion": "Surinam", "cuota": "~1000"}, {"seleccion": "R.D. del Congo", "cuota": "~1500"}, {"seleccion": "Jamaica", "cuota": "~1500"}, {"seleccion": "Curazao", "cuota": "~2000"}, {"seleccion": "Nueva Caledonia", "cuota": "~5000"}], "ranking": []}, "_META": {"fecha": "14 de julio de 2026", "jugados": 29, "total_partidos": 32, "scoring": {"signo": 1, "exacto": 3}, "fase": "eliminatoria", "totals": {"FRANCESC": {"pts": 27, "exactos": 5, "signos": 12}, "ALEJANDRO": {"pts": 33, "exactos": 5, "signos": 18}, "GERMÁN": {"pts": 26, "exactos": 5, "signos": 11}, "IGNASI": {"pts": 20, "exactos": 2, "signos": 14}, "SERGI": {"pts": 16, "exactos": 2, "signos": 10}, "BÀRBARA": {"pts": 33, "exactos": 6, "signos": 15}, "XAVI": {"pts": 28, "exactos": 5, "signos": 13}, "EDI": {"pts": 30, "exactos": 5, "signos": 15}, "ROGER.P": {"pts": 22, "exactos": 2, "signos": 16}, "DAVID.T": {"pts": 20, "exactos": 2, "signos": 14}}}};
+let PHASE='grupos';
+let DATA=DATA_GRUPOS;
+const isKO=()=>PHASE==='ko';
+const SEGSHORT={'Dieciseisavos':'16avos','Octavos':'8vos','Cuartos':'4tos','Semifinales':'Semis','3.º y 4.º puesto':'3.º/4.º','Final':'Final'};
+function segLabel(nm){return SEGSHORT[nm]||nm.replace("JORNADA","J");}
+
+
+/* ===== FLAGS ===== */
+const FLAGS = {
+ "ESPANA":"🇪🇸","FRANCIA":"🇫🇷","INGLATERRA":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","ARGENTINA":"🇦🇷","BRASIL":"🇧🇷","PORTUGAL":"🇵🇹",
+ "ALEMANIA":"🇩🇪","PAISESBAJOS":"🇳🇱","NORUEGA":"🇳🇴","BELGICA":"🇧🇪","COLOMBIA":"🇨🇴","MARRUECOS":"🇲🇦",
+ "JAPON":"🇯🇵","ESTADOSUNIDOS":"🇺🇸","URUGUAY":"🇺🇾","CROACIA":"🇭🇷","MEXICO":"🇲🇽","SUIZA":"🇨🇭",
+ "TURQUIA":"🇹🇷","SENEGAL":"🇸🇳","ECUADOR":"🇪🇨","SUECIA":"🇸🇪","DINAMARCA":"🇩🇰","AUSTRIA":"🇦🇹",
+ "PARAGUAY":"🇵🇾","CANADA":"🇨🇦","REPUBLICACHECA":"🇨🇿","CHEQUIA":"🇨🇿","BOSNIAYHERZEGOVINA":"🇧🇦","BOSNIAHERZ":"🇧🇦",
+ "ESCOCIA":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","COREADELSUR":"🇰🇷","UZBEKISTAN":"🇺🇿","MALI":"🇲🇱","COSTADEMARFIL":"🇨🇮","PANAMA":"🇵🇦",
+ "AUSTRALIA":"🇦🇺","ARABIASAUDI":"🇸🇦","GHANA":"🇬🇭","NIGERIA":"🇳🇬","CABOVERDE":"🇨🇻","IRAN":"🇮🇷",
+ "JORDANIA":"🇯🇴","HAITI":"🇭🇹","IRAK":"🇮🇶","IRAQ":"🇮🇶","SURINAM":"🇸🇷","RDDELCONGO":"🇨🇩","DRCONGO":"🇨🇩",
+ "JAMAICA":"🇯🇲","CURAZAO":"🇨🇼","NUEVACALEDONIA":"🇳🇨","SUDAFRICA":"🇿🇦","QATAR":"🇶🇦","NUEVAZELANDA":"🇳🇿",
+ "EGIPTO":"🇪🇬","TUNEZ":"🇹🇳","ARGELIA":"🇩🇿"
+};
+function norm(s){return (s||"").toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^A-Z]/g,"");}
+function flag(name){return FLAGS[norm(name)]||"🏳️";}
+const ISO2={MEXICO:'mx',SUDAFRICA:'za',COREADELSUR:'kr',CHEQUIA:'cz',CANADA:'ca',BOSNIAHERZ:'ba',QATAR:'qa',SUIZA:'ch',BRASIL:'br',MARRUECOS:'ma',HAITI:'ht',ESCOCIA:'gb-sct',ESTADOSUNIDOS:'us',PARAGUAY:'py',AUSTRALIA:'au',TURQUIA:'tr',ALEMANIA:'de',CURAZAO:'cw',COSTADEMARFIL:'ci',ECUADOR:'ec',PAISESBAJOS:'nl',JAPON:'jp',SUECIA:'se',TUNEZ:'tn',BELGICA:'be',EGIPTO:'eg',IRAN:'ir',NUEVAZELANDA:'nz',ESPANA:'es',CABOVERDE:'cv',ARABIASAUDI:'sa',URUGUAY:'uy',FRANCIA:'fr',SENEGAL:'sn',IRAQ:'iq',NORUEGA:'no',ARGENTINA:'ar',ARGELIA:'dz',AUSTRIA:'at',JORDANIA:'jo',PORTUGAL:'pt',COLOMBIA:'co',UZBEKISTAN:'uz',DRCONGO:'cd',INGLATERRA:'gb-eng',CROACIA:'hr',GHANA:'gh',PANAMA:'pa'};
+function flagImg(name){const c=ISO2[norm(name)];if(!c)return '';return '<img class="fimg" src="https://flagcdn.com/w160/'+c+'.png" alt="" loading="lazy" onerror="this.remove()">';}
+function teamHTML(name){return '<span class="flag">'+flag(name)+'</span><span class="team">'+title(name)+'</span>';}
+function title(s){return (s||"").toString().toLowerCase().replace(/(^|\s|-)\S/g,c=>c.toUpperCase()).replace(/\bDe\b/g,"de").replace(/\bDel\b/g,"del").replace(/\bY\b/g,"y").replace(/Herz\./i,"Herz.");}
+function person(s){return title(s).replace(/\.([a-z])/i,(m,c)=>"."+c.toUpperCase());}
+
+/* ===== HELPERS ===== */
+const $=(s,r=document)=>r.querySelector(s);
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function qChip(v){
+  const opts=["1","X","2"];
+  return '<span class="q">'+opts.map(o=>'<b data-s="'+o+'" class="'+(String(v)===o?"on":"")+'">'+o+'</b>').join("")+'</span>';
+}
+function scoreHTML(l,v){
+  if(l===""&&v==="")return '<span class="dash">—</span>';
+  return '<span class="score">'+(l||"·")+'<span class="sep">-</span>'+(v||"·")+'</span>';
+}
+
+/* ===== STATS HEADER ===== */
+function leaderInfo(){
+  const m=DATA._META;
+  if(!m)return null;
+  const arr=Object.entries(m.totals).map(([n,o])=>({n,pts:o.pts}));
+  const max=Math.max(...arr.map(a=>a.pts));
+  if(max<=0)return null;
+  const tied=arr.filter(a=>a.pts===max).map(a=>person(a.n));
+  return {names:tied,pts:max};
+}
+function renderStats(){
+  const parts=DATA["APUESTA-GRUPOS"].participants.length;
+  const partidos=DATA["RESULTADO-GRUPOS"].jornadas.reduce((a,j)=>a+j.partidos.length,0);
+  const jugados=(DATA._META&&DATA._META.jugados)||0;
+  const fav=DATA["CAMPEON"].cuotas[0];
+  const ld=leaderInfo();
+  const grpFinal = PHASE==='grupos' && !!ld;
+  const ldHtml = ld ? (grpFinal?'🏆 ':'')+(ld.names.length>1?'Empate':person(ld.names[0]))+' <small>'+ld.pts+' pts</small>' : '<small>por empezar</small>';
+  const ldLabel = !ld ? 'Líder provisional' : (grpFinal ? 'Ganador' : (ld.names.length>1 ? 'Líderes ('+ld.names.join(' · ')+')' : 'Líder provisional'));
+  const html=[
+    ["Participantes",parts,""],
+    ["Partidos jugados",jugados+' <small>/ '+partidos+'</small>',""],
+    [ldLabel,ldHtml,""],
+    ["Favorito (bet365)",flag(fav.seleccion)+" "+title(fav.seleccion),"<small>"+fav.cuota+"</small>"]
+  ].map(([k,v,x])=>'<div class="stat"><div class="k">'+k+'</div><div class="v">'+v+' '+x+'</div></div>').join("");
+  $("#stats").innerHTML=html;
+}
+
+/* lookup de resultados jugados por partido */
+let RESULT_BY_MATCH={};
+function rebuildResults(){RESULT_BY_MATCH={};DATA["RESULTADO-GRUPOS"].jornadas.forEach(j=>j.partidos.forEach(m=>{
+  if(m.golesL!==""||m.golesV!==""){RESULT_BY_MATCH[m.local+"|"+m.visitante]={l:m.golesL,v:m.golesV,s:m.quiniela};}
+}));}
+function matchResult(local,visit){return RESULT_BY_MATCH[local+"|"+visit]||null;}
+function evalPred(pred,real){
+  if(!real)return null;
+  if(pred.local===""&&pred.visit===""&&pred.quiniela==="")return "vacio";
+  const exact=(pred.local!==""&&pred.visit!==""&&pred.local===String(real.l)&&pred.visit===String(real.v));
+  if(exact)return "exacto";
+  let ps=(["1","X","2"].includes(pred.quiniela))?pred.quiniela:"";
+  if(ps===""&&pred.local!==""&&pred.visit!==""){const a=+pred.local,b=+pred.visit;ps=a>b?"1":(b>a?"2":"X");}
+  return ps===real.s?"signo":"fallo";
+}
+
+/* ===== TABS ===== */
+const TABS_GRUPOS=[
+  {id:"campeon",ico:"🏆",label:"Campeón",fn:renderCampeon},
+  {id:"apuestas",ico:"📝",label:"Apuestas",fn:renderApuestas},
+  {id:"resultados",ico:"⚽",label:"Resultados",fn:renderResultados},
+  {id:"puntos",ico:"🔢",label:"Puntos",fn:renderPuntos},
+  {id:"jornadas",ico:"📅",label:"Por jornada",fn:renderJornadas},
+  {id:"clasificacion",ico:"🥇",label:"Clasificación",fn:renderClasificacion},
+];
+const TABS_KO=[
+  {id:"cuadro",ico:"🏟️",label:"Cuadro",fn:renderEliminatorias},
+  {id:"apuestas",ico:"📝",label:"Apuestas",fn:renderApuestas},
+  {id:"resultados",ico:"⚽",label:"Resultados",fn:renderResultados},
+  {id:"puntos",ico:"🔢",label:"Puntos",fn:renderPuntos},
+  {id:"evolucion",ico:"📈",label:"Gráficas",fn:renderJornadas},
+  {id:"clasificacion",ico:"🥇",label:"Clasificación",fn:renderClasificacion},
+];
+let TABS=TABS_GRUPOS;
+let active="campeon";
+function buildTabs(){
+  const row=$("#tabsRow"); row.innerHTML="";
+  TABS.forEach(t=>{
+    const b=el("button","tab"+(t.id===active?" active":""),'<span class="ico">'+t.ico+'</span>'+t.label);
+    b.onclick=()=>setTab(t.id);
+    b.id="tab-"+t.id;
+    row.appendChild(b);
+  });
+}
+function setTab(id){
+  if(!TABS.some(t=>t.id===id))id=TABS[0].id;
+  active=id;
+  TABS.forEach(t=>{const b=$("#tab-"+t.id);if(b)b.classList.toggle("active",t.id===id);});
+  const p=$("#panel"); p.innerHTML="";
+  TABS.find(t=>t.id===id).fn(p);
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(history.replaceState)history.replaceState(null,"","#"+PHASE+"-"+id);
+}
+function setPhase(ph){
+  PHASE=ph;
+  DATA=(ph==='ko')?DATA_KO:DATA_GRUPOS;
+  TABS=(ph==='ko')?TABS_KO:TABS_GRUPOS;
+  rebuildResults();
+  const bg=$("#ph-grupos"),bk=$("#ph-ko");
+  if(bg)bg.classList.toggle("on",ph==='grupos');
+  if(bk)bk.classList.toggle("on",ph==='ko');
+  const sub=$("#subtitle"); if(sub)sub.textContent=(ph==='ko')?'La Peña · Fase eliminatoria':'La Peña · Fase de grupos';
+  active=TABS[0].id;
+  buildTabs();
+  renderStats();
+  setTab(TABS[0].id);
+}
+
+/* ===== 1. CAMPEÓN ===== */
+function renderCampeon(p){
+  p.innerHTML='<div class="eyebrow">Hoja · Campeón</div><h2>Apuestas al campeón</h2>'+
+    '<p class="lead">Cuotas de bet365 para levantar la copa y la quiniela de cada participante. '+
+    'Cinco selecciones reparten todos los votos de la peña.</p>';
+
+  // picks
+  const picks=el("div","card");
+  picks.innerHTML='<div class="card-h"><h3>🎯 La apuesta de cada uno</h3><span class="tag">'+DATA.CAMPEON.apuestas.length+' participantes</span></div>';
+  const grid=el("div","picks");grid.style.padding="16px";
+  DATA.CAMPEON.apuestas.forEach(a=>{
+    grid.appendChild(el("div","pick",
+      '<div class="bigflag">'+flag(a.apuesta)+'</div>'+
+      '<div><div class="who">'+person(a.participante)+'</div><div class="what">'+title(a.apuesta)+'</div></div>'));
+  });
+  picks.appendChild(grid);
+  p.appendChild(picks);
+
+  // votes
+  const votes=el("div","card");
+  votes.innerHTML='<div class="card-h"><h3>📊 Selecciones más votadas</h3></div>';
+  const vbox=el("div","votes");vbox.style.padding="18px";
+  const max=Math.max(...DATA.CAMPEON.ranking.map(r=>r.votos));
+  [...DATA.CAMPEON.ranking].sort((a,b)=>b.votos-a.votos).forEach(r=>{
+    vbox.appendChild(el("div","vote",
+      '<div class="lbl"><span class="flag">'+flag(r.pais)+'</span>'+title(r.pais)+'</div>'+
+      '<div class="bar"><i style="width:'+(r.votos/max*100)+'%"></i></div>'+
+      '<div class="cnt">'+r.votos+'</div>'));
+  });
+  votes.appendChild(vbox);
+  p.appendChild(votes);
+
+  // odds table
+  const oc=el("div","card");
+  oc.innerHTML='<div class="card-h"><h3>💷 Cuotas al campeón · bet365</h3>'+
+    '<div class="search"><span class="mag">🔍</span><input id="oddsSearch" placeholder="Buscar selección…" aria-label="Buscar selección"></div></div>';
+  const sc=el("div","scroll");
+  const tb=el("table");
+  tb.innerHTML='<thead><tr><th class="pos">#</th><th>Selección</th><th>Cuota</th><th>Estado</th></tr></thead><tbody></tbody>';
+  const body=tb.querySelector("tbody");
+  function fillOdds(q){
+    body.innerHTML="";
+    const f=norm(q);
+    const rows=DATA.CAMPEON.cuotas.filter(c=>!f||norm(c.seleccion).includes(f));
+    if(!rows.length){body.innerHTML='<tr><td colspan="4"><div class="empty"><span class="em-ico">🔍</span>Sin resultados para «'+q+'»</div></td></tr>';return;}
+    rows.forEach(c=>{
+      const est=/Estim/i.test(c.estado);
+      body.appendChild(el("tr",null,
+        '<td class="pos">'+c.pos+'</td>'+
+        '<td>'+teamHTML(c.seleccion)+'</td>'+
+        '<td><span class="odds'+(est?' est':'')+'">'+c.cuota+'</span></td>'+
+        '<td>'+(est?'<span class="est-badge">Estimada</span>':'<span class="pub-badge">Publicada</span>')+'</td>'));
+    });
+  }
+  fillOdds("");
+  sc.appendChild(tb);oc.appendChild(sc);p.appendChild(oc);
+  $("#oddsSearch").addEventListener("input",e=>fillOdds(e.target.value));
+}
+
+/* ===== 2. APUESTAS GRUPOS ===== */
+function renderApuestas(p){
+  const A=DATA["APUESTA-GRUPOS"];
+  p.innerHTML='<div class="eyebrow">Hoja · '+(isKO()?'Apuesta-Eliminatoria':'Apuesta-Grupos')+'</div><h2>Pronósticos de la fase '+(isKO()?'eliminatoria':'de grupos')+'</h2>'+
+    '<p class="lead">El marcador y la quiniela (1·X·2) que firmó cada participante para '+(isKO()?'el cuadro de eliminatorias':'los 72 partidos')+'. '+
+    'Elige '+(isKO()?'ronda':'jornada')+' y, si quieres, céntrate en una sola persona.</p>';
+
+  const st={jor:0,who:"__all__",q:""};
+  const tools=el("div","toolbar");
+  tools.innerHTML=
+    '<div class="seg" id="jorSeg">'+A.jornadas.map((j,i)=>'<button class="'+(i===0?'on':'')+'" data-j="'+i+'">'+segLabel(j.nombre)+'</button>').join("")+'</div>'+
+    '<select class="pick" id="whoPick"><option value="__all__">Todos los participantes</option>'+
+      A.participants.map(n=>'<option value="'+n+'">'+person(n)+'</option>').join("")+'</select>'+
+    '<div class="search"><span class="mag">🔍</span><input id="apSearch" placeholder="Buscar selección…" aria-label="Buscar"></div>';
+  p.appendChild(tools);
+
+  const card=el("div","card bleed");
+  card.appendChild(el("div","card-h",'<h3 id="apTitle"></h3><span class="tag" id="apTag"></span>'));
+  const sc=el("div","scroll scroll-frozen");const tbl=el("table");sc.appendChild(tbl);card.appendChild(sc);
+  p.appendChild(card);
+
+  // contenedor "épico" para las rondas finales (semis · 3.º/4.º · final)
+  const epicWrap=el("div","epic-wrap bleed");epicWrap.style.display="none";
+  p.appendChild(epicWrap);
+
+  const legend=el("div","legend",
+    '<span><i style="background:var(--grass)"></i>1 · gana local</span>'+
+    '<span><i style="background:var(--gold-deep)"></i>X · empate</span>'+
+    '<span><i style="background:var(--red)"></i>2 · gana visitante</span>'+
+    '<span>🎯 marcador exacto</span>'+
+    '<span>✅ signo acertado</span>');
+  p.appendChild(legend);
+
+  function tierOf(nombre){
+    if(/semi/i.test(nombre))return 'semi';
+    if(/puesto|tercer|3\.|3º/i.test(nombre))return 'third';
+    if(/final/i.test(nombre))return 'final';
+    return null;
+  }
+  function koResolve(label){const g=/^Ganador M(\d+)$/.exec(label);if(g&&typeof KO_WINNERS!=='undefined'&&KO_WINNERS[+g[1]])return KO_WINNERS[+g[1]];return label;}
+  function isTeam(label){return !/^(Ganador|Perdedor) M\d+$/.test(label);}
+  function esc0(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function epicQ(v){
+    if(v!=='1'&&v!=='X'&&v!=='2')return '<span class="ep-q ep-q-none">·</span>';
+    const map={'1':['var(--grass)','#fff'],'X':['var(--gold)','#241a00'],'2':['var(--red)','#fff']};
+    return '<span class="ep-q" style="background:'+map[v][0]+';color:'+map[v][1]+'">'+v+'</span>';
+  }
+  function teamBlock(label){
+    if(isTeam(label))return flagImg(label)+'<span class="et-name">'+title(label)+'</span>';
+    return '<span class="et-q">?</span><span class="et-tbd">'+esc0(label)+'</span>';
+  }
+  function drawEpic(J,matches,cols){
+    const tier=tierOf(J.nombre);
+    const crown=tier==='final'?'🏆':(tier==='third'?'🥉':'⚔️');
+    const lab=tier==='final'?'La gran final':(tier==='third'?'Tercer y cuarto puesto':'Semifinal');
+    let html='<div class="epic-head">✨ '+J.nombre+' · pronósticos de la peña</div>';
+    matches.forEach(m=>{
+      const real=matchResult(m.local,m.visitante);
+      const L=koResolve(m.local),V=koResolve(m.visitante);
+      html+='<div class="epic epic-'+tier+'">';
+      html+='<div class="epic-glow"></div>';
+      html+='<div class="epic-top"><span class="epic-crown">'+crown+'</span><span class="epic-label">'+lab+'</span></div>';
+      html+='<div class="epic-mu"><div class="epic-team">'+teamBlock(L)+'</div><div class="epic-vs">VS</div><div class="epic-team">'+teamBlock(V)+'</div></div>';
+      html+= real?('<div class="epic-real">🏟️ Resultado final · <b>'+real.l+' – '+real.v+'</b></div>')
+                 :('<div class="epic-pending">◷ Aún por jugarse — así lo ve cada uno</div>');
+      html+='<div class="epic-grid">';
+      cols.forEach(n=>{
+        const i=A.participants.indexOf(n);
+        const pr=m.preds[i]||{local:"",visit:"",quiniela:""};
+        const ev=evalPred(pr,real);
+        let cls='epic-pred',badge='';
+        if(ev==='exacto'){cls+=' e-exact';badge='🎯';}
+        else if(ev==='signo'){cls+=' e-ok';badge='✅';}
+        else if(ev==='fallo'){cls+=' e-miss';}
+        const has=(pr.local!==''||pr.visit!=='');
+        const scr=has?((pr.local||'·')+'-'+(pr.visit||'·')):'—';
+        html+='<div class="'+cls+'"><div class="ep-name">'+person(n)+(badge?' '+badge:'')+'</div>'+
+              '<div class="ep-sc">'+scr+'</div>'+epicQ(pr.quiniela)+'</div>';
+      });
+      html+='</div></div>';
+    });
+    return html;
+  }
+
+  function draw(){
+    const J=A.jornadas[st.jor];
+    const single=st.who!=="__all__";
+    const idx=single?A.participants.indexOf(st.who):-1;
+    const f=norm(st.q);
+    const matches=J.partidos.filter(m=>!f||norm(m.local).includes(f)||norm(m.visitante).includes(f));
+    const cols=single?[st.who]:A.participants;
+    $("#apTitle").innerHTML='📝 '+J.nombre+(single?' · '+person(st.who):'');
+    $("#apTag").textContent=matches.length+" partidos";
+
+    if(isKO()&&tierOf(J.nombre)){
+      card.style.display="none";epicWrap.style.display="";
+      epicWrap.innerHTML=matches.length?drawEpic(J,matches,cols):'<div class="empty" style="padding:34px"><span class="em-ico">🔍</span>Sin partidos para «'+st.q+'»</div>';
+      return;
+    }
+    card.style.display="";epicWrap.style.display="none";
+
+    let head='<thead><tr><th class="sticky-l">Partido</th>';
+    cols.forEach(n=>head+='<th style="text-align:center">'+person(n)+'</th>');
+    head+='</tr></thead>';
+
+    let rows="";
+    if(!matches.length){
+      rows='<tbody><tr><td class="sticky-l" colspan="'+(cols.length+1)+'"><div class="empty"><span class="em-ico">🔍</span>Sin partidos para «'+st.q+'»</div></td></tr></tbody>';
+    }else{
+      rows='<tbody>';
+      matches.forEach(m=>{
+        const real=matchResult(m.local,m.visitante);
+        rows+='<tr><td class="sticky-l">'+
+          '<div style="display:flex;flex-direction:column;gap:2px;font-size:13px">'+
+          '<span>'+teamHTML(m.local)+'</span><span class="muted">'+teamHTML(m.visitante)+'</span>'+
+          (real?'<span class="score" style="font-size:12px;margin-top:2px;color:var(--grass-deep)">Real '+real.l+'-'+real.v+'</span>':'')+
+          '</div></td>';
+        cols.forEach(n=>{
+          const i=single?idx:A.participants.indexOf(n);
+          const pr=m.preds[i]||{local:"",visit:"",quiniela:""};
+          const ev=evalPred(pr,real);
+          let cls="cell",badge="";
+          if(ev==="exacto"){cls+=" exact";badge='<span class="hit">🎯</span>';}
+          else if(ev==="signo"){cls+=" ok";badge='<span class="hit">✅</span>';}
+          else if(ev==="fallo"){cls+=" miss";}
+          rows+='<td style="text-align:center"><div class="'+cls+'">'+badge+
+            scoreHTML(pr.local,pr.visit)+qChip(pr.quiniela)+'</div></td>';
+        });
+        rows+='</tr>';
+      });
+      rows+='</tbody>';
+    }
+    tbl.innerHTML=head+rows;
+  }
+  draw();
+  $("#jorSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    $("#jorSeg").querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");st.jor=+b.dataset.j;draw();});
+  $("#whoPick").addEventListener("change",e=>{st.who=e.target.value;draw();});
+  $("#apSearch").addEventListener("input",e=>{st.q=e.target.value;draw();});
+}
+
+/* ===== 3. RESULTADOS ===== */
+function renderResultados(p){
+  const R=DATA["RESULTADO-GRUPOS"];
+  const playedMatches=R.jornadas.flatMap(j=>j.partidos).filter(m=>m.golesL!==""||m.golesV!=="");
+  const played=playedMatches.length;
+  p.innerHTML='<div class="eyebrow">Hoja · '+(isKO()?'Resultado-Eliminatoria':'Resultado-Grupos')+'</div><h2>Resultados de los partidos</h2>'+
+    '<p class="lead">Marcador real y resultado 1·X·2 de cada encuentro, actualizado a '+((DATA._META&&DATA._META.fecha)||'hoy')+'. '+
+    (played===0?'Aún no se ha jugado ningún partido.':'Partidos finalizados: <b>'+played+' de '+
+      R.jornadas.flatMap(j=>j.partidos).length+'</b>.')+'</p>';
+
+  if(played){
+    const strip=el("div","results-strip");
+    playedMatches.forEach(m=>{
+      strip.appendChild(el("div","rcard",
+        '<div><div class="side"><span class="flag">'+flag(m.local)+'</span>'+title(m.local)+'</div>'+
+        '<div class="side" style="margin-top:5px"><span class="flag">'+flag(m.visitante)+'</span>'+title(m.visitante)+'</div></div>'+
+        '<div style="text-align:right"><div class="sc">'+m.golesL+' – '+m.golesV+'</div><div class="ft">Final</div></div>'));
+    });
+    p.appendChild(strip);
+    p.appendChild(el("div","note-card",
+      '<span class="ni">⏳</span><div>El resto de partidos de la Jornada 1 se juegan del 12 al 17 de junio. '+
+      'La tabla se irá completando con cada resultado <b>confirmado</b> — los marcadores en juego no se cargan hasta el pitido final.</div>'));
+  }
+
+  const st={jor:0,q:""};
+  const tools=el("div","toolbar");
+  tools.innerHTML='<div class="seg" id="rJorSeg">'+R.jornadas.map((j,i)=>'<button class="'+(i===0?'on':'')+'" data-j="'+i+'">'+segLabel(j.nombre)+'</button>').join("")+'</div>'+
+    '<div class="search"><span class="mag">🔍</span><input id="rSearch" placeholder="Buscar selección…" aria-label="Buscar"></div>';
+  p.appendChild(tools);
+
+  const card=el("div","card");
+  card.appendChild(el("div","card-h",'<h3 id="rTitle"></h3><span class="tag" id="rTag"></span>'));
+  const sc=el("div","scroll");const tbl=el("table");sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  function draw(){
+    const J=R.jornadas[st.jor];const f=norm(st.q);
+    const ms=J.partidos.filter(m=>!f||norm(m.local).includes(f)||norm(m.visitante).includes(f));
+    $("#rTitle").innerHTML='⚽ '+J.nombre;$("#rTag").textContent=ms.length+" partidos";
+    let h='<thead><tr><th>Local</th><th style="text-align:center">Resultado</th><th>Visitante</th><th style="text-align:center">1·X·2</th></tr></thead><tbody>';
+    if(!ms.length){h+='<tr><td colspan="4"><div class="empty"><span class="em-ico">🔍</span>Sin partidos para «'+st.q+'»</div></td></tr>';}
+    ms.forEach(m=>{
+      const jugado=m.golesL!==""||m.golesV!=="";
+      h+='<tr><td style="text-align:right">'+title(m.local)+' <span class="flag">'+flag(m.local)+'</span></td>'+
+        '<td style="text-align:center">'+scoreHTML(m.golesL,m.golesV)+'</td>'+
+        '<td><span class="flag">'+flag(m.visitante)+'</span> '+title(m.visitante)+'</td>'+
+        '<td style="text-align:center">'+(jugado?qChip(m.quiniela):'<span class="dash">—</span>')+'</td></tr>';
+    });
+    h+='</tbody>';tbl.innerHTML=h;
+  }
+  draw();
+  $("#rJorSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    $("#rJorSeg").querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");st.jor=+b.dataset.j;draw();});
+  $("#rSearch").addEventListener("input",e=>{st.q=e.target.value;draw();});
+}
+
+/* ===== 4. PUNTOS ===== */
+function renderPuntos(p){
+  const P=DATA["PUNTOS-GRUPOS"];
+  p.innerHTML='<div class="eyebrow">Hoja · '+(isKO()?'Puntos-Eliminatoria':'Puntos-Grupos')+'</div><h2>Puntos por partido</h2>'+
+    '<p class="lead">Lo que suma cada participante partido a partido, con los subtotales por '+(isKO()?'ronda':'jornada')+' y el marcador global. '+
+    'Actualizado a '+((DATA._META&&DATA._META.fecha)||'hoy')+'.</p>';
+  const scn=DATA._META&&DATA._META.scoring;
+  if(scn){p.appendChild(el("div","note-card",
+    '<span class="ni">📐</span><div><b>MARCADOR</b> = marcadores exactos ('+scn.exacto+' pts c/u) · <b>QUINIELA</b> = signos 1·X·2 acertados ('+scn.signo+' pt c/u). '+
+    'En el detalle de cada jornada verás los puntos por partido.</div>'));}
+
+  // summary scoreboard first
+  const sumCard=el("div","card");
+  sumCard.innerHTML='<div class="card-h"><h3>🧮 Marcador global</h3><span class="tag">Resumen</span></div>';
+  const ssc=el("div","scroll");const stb=el("table");
+  let sh='<thead><tr><th class="sticky-l">Concepto</th>'+P.participants.map(n=>'<th style="text-align:center">'+person(n)+'</th>').join("")+'</tr></thead><tbody>';
+  P.resumen.forEach(r=>{
+    const label=(r.label?r.label+' ':'')+(r.sub||'');
+    const isTotal=/TOTAL/i.test(r.label)||/TOTAL/i.test(r.sub);
+    sh+='<tr'+(isTotal?' style="background:#fbf6e6"':'')+'><td class="sticky-l"'+(isTotal?' style="background:#fbf6e6;font-weight:800"':'')+'>'+label.trim()+'</td>'+
+      r.vals.map(v=>'<td class="num"'+(isTotal?' style="color:var(--gold-deep)"':'')+'>'+(v||'0')+'</td>').join("")+'</tr>';
+  });
+  sh+='</tbody>';stb.innerHTML=sh;ssc.appendChild(stb);sumCard.appendChild(ssc);p.appendChild(sumCard);
+
+  // per-jornada detail
+  const st={jor:0};
+  const tools=el("div","toolbar");
+  tools.innerHTML='<div class="seg" id="ptSeg">'+P.jornadas.map((j,i)=>'<button class="'+(i===0?'on':'')+'" data-j="'+i+'">'+segLabel(j.nombre)+'</button>').join("")+'</div>';
+  p.appendChild(tools);
+  const card=el("div","card");
+  card.appendChild(el("div","card-h",'<h3 id="ptTitle"></h3><span class="tag" id="ptTag"></span>'));
+  const sc=el("div","scroll");const tbl=el("table");sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  function draw(){
+    const J=P.jornadas[st.jor];
+    $("#ptTitle").innerHTML='🔢 '+J.nombre+' · detalle';
+    $("#ptTag").textContent="Subtotal incluido";
+    let h='<thead><tr><th class="sticky-l">Partido</th>'+P.participants.map(n=>'<th style="text-align:center">'+person(n)+'</th>').join("")+'</tr></thead><tbody>';
+    h+='<tr style="background:#fbf6e6"><td class="sticky-l" style="background:#fbf6e6;font-weight:800">Subtotal jornada</td>'+
+      J.subtotales.map(v=>'<td class="num" style="color:var(--gold-deep)">'+(v||'0')+'</td>').join("")+'</tr>';
+    J.partidos.forEach(m=>{
+      const real=matchResult(m.local,m.visitante);
+      h+='<tr><td class="sticky-l"><div style="display:flex;flex-direction:column;gap:1px;font-size:12.5px"><span>'+teamHTML(m.local)+'</span><span class="muted">'+teamHTML(m.visitante)+'</span>'+
+        (real?'<span class="muted" style="font-size:11px">'+real.l+'-'+real.v+'</span>':'')+'</div></td>'+
+        m.vals.map(v=>{
+          if(v==="")return '<td class="num"><span class="dash">·</span></td>';
+          const cls=v==="3"?"p3":(v==="1"?"p1":"p0");
+          return '<td style="text-align:center"><span class="pts-pill '+cls+'">'+v+'</span></td>';
+        }).join("")+'</tr>';
+    });
+    h+='</tbody>';tbl.innerHTML=h;
+  }
+  draw();
+  $("#ptSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    $("#ptSeg").querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");st.jor=+b.dataset.j;draw();});
+}
+
+/* ===== PUNTOS POR JORNADA ===== */
+function renderJornadas(p){
+  const P=DATA["PUNTOS-GRUPOS"];
+  const parts=P.participants;
+  const J=P.jornadas;
+  const toi=x=>{const n=parseInt(x,10);return isNaN(n)?0:n;};
+  const rows=parts.map((n,i)=>({n,j:J.map(jr=>toi(jr.subtotales[i])),tot:J.reduce((a,jr)=>a+toi(jr.subtotales[i]),0)}));
+  rows.sort((a,b)=>b.tot-a.tot||a.n.localeCompare(b.n));
+  const maxJ=J.map((jr)=>Math.max(...parts.map((_,i)=>toi(jr.subtotales[i]))));
+  const playedJ=J.map(jr=>jr.partidos.some(m=>m.vals.some(v=>v!=="")));
+  const started=rows.some(r=>r.tot>0);
+
+  p.innerHTML='<div class="eyebrow">Resumen · '+(isKO()?'Evolución':'Por jornada')+'</div><h2>'+(isKO()?'Evolución de la eliminatoria':'Puntos por jornada')+'</h2>'+
+    '<p class="lead">La evolución de las posiciones y de los puntos acumulados tras cada partido, y el desglose por '+(isKO()?'ronda':'jornada')+'. '+
+    'En los gráficos, pasa el ratón por encima de un nombre para seguir su recorrido.</p>';
+
+  // ---- Gráfico de evolución de posiciones (por partido jugado) ----
+  const nP=parts.length;
+  const seq=[];           // puntos por participante en cada partido jugado, en orden
+  const jcounts=[];       // {ji,start,end} en nº de partidos jugados acumulados
+  let acc=0;
+  J.forEach((jr,ji)=>{
+    let c=0;
+    jr.partidos.forEach(m=>{ if(m.vals.some(v=>v!=="")){ seq.push(m.vals.map(v=>toi(v))); c++; } });
+    if(c>0){ jcounts.push({ji,start:acc,end:acc+c}); acc+=c; }
+  });
+  const nM=seq.length;
+  // acumulado y ranking ESTABLE tras cada partido (los empates conservan el orden previo → líneas suaves)
+  const cumByMatch=[]; let run=parts.map(()=>0); let order=parts.map((_,i)=>i);
+  const rankByMatch=[];
+  for(let k=0;k<nM;k++){
+    run=run.map((v,i)=>v+seq[k][i]); cumByMatch.push(run.slice());
+    order=order.slice().sort((a,b)=>cumByMatch[k][b]-cumByMatch[k][a]);
+    const rk=[]; order.forEach((idx,pos)=>rk[idx]=pos+1); rankByMatch.push(rk);
+  }
+  const finalCum = nM?cumByMatch[nM-1]:parts.map(()=>0);
+  const COLORS=['#e5483d','#2f7df0','#15b86a','#c98a06','#7c3aed','#0891b2','#db2777','#65a30d','#ea580c','#475569'];
+  const W=900,H=440,padL=42,padR=150,padT=26,padB=44;
+  const plotW=W-padL-padR,plotH=H-padT-padB;
+  const xFor=k=> nM<=1?padL+plotW:padL+(k/(nM-1))*plotW;   // k 0-based
+  const yFor=rk=> padT+(rk-1)/(nP-1)*plotH;
+  let svg='<svg class="bump" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+  for(let rk=1;rk<=nP;rk++){const y=yFor(rk);
+    svg+='<line class="grid" x1="'+padL+'" y1="'+y+'" x2="'+(padL+plotW)+'" y2="'+y+'"/>';
+    svg+='<text class="axlbl" x="'+(padL-9)+'" y="'+(y+4)+'" text-anchor="end">'+rk+'º</text>';}
+  // divisorias y etiquetas de jornada
+  jcounts.forEach((jc,idx)=>{
+    if(idx<jcounts.length-1){const xd=xFor(jc.end-0.5);
+      svg+='<line x1="'+xd.toFixed(1)+'" y1="'+padT+'" x2="'+xd.toFixed(1)+'" y2="'+(padT+plotH)+'" stroke="var(--paper-line)" stroke-width="1" stroke-dasharray="3 3"/>';}
+    const xc=xFor((jc.start+jc.end-1)/2);
+    svg+='<text class="xlbl" x="'+xc.toFixed(1)+'" y="'+(padT+plotH+30)+'" text-anchor="middle">'+(isKO()?segLabel(J[jc.ji].nombre):('Jornada '+(jc.ji+1)))+'</text>';
+  });
+  parts.forEach((nm,i)=>{
+    const col=COLORS[i%COLORS.length];
+    const pts=[]; for(let k=0;k<nM;k++)pts.push([xFor(k),yFor(rankByMatch[k][i])]);
+    const ps=pts.map(q=>q[0].toFixed(1)+','+q[1].toFixed(1)).join(' ');
+    svg+='<g class="series">';
+    svg+='<polyline points="'+ps+'" fill="none" stroke="transparent" stroke-width="12"/>';
+    svg+='<polyline class="ln" points="'+ps+'" fill="none" stroke="'+col+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    const last=pts[nM-1];
+    svg+='<circle cx="'+last[0].toFixed(1)+'" cy="'+last[1].toFixed(1)+'" r="4" fill="'+col+'" stroke="#fff" stroke-width="1.5"/>';
+    svg+='<text class="nm" x="'+(last[0]+12)+'" y="'+(last[1]-1)+'" fill="'+col+'">'+person(nm)+'</text>';
+    svg+='<text class="pt" x="'+(last[0]+12)+'" y="'+(last[1]+11)+'">'+finalCum[i]+' pts</text>';
+    svg+='</g>';
+  });
+  svg+='</svg>';
+  const chartCard=el("div","card");
+  chartCard.innerHTML='<div class="card-h"><h3>📈 Evolución de las posiciones</h3><span class="tag">'+nM+' partidos jugados</span></div>'+
+    '<div class="bumpwrap">'+svg+'</div>'+
+    '<div style="padding:0 16px 14px;color:var(--txt-soft);font-size:12px">Posición en la clasificación tras cada partido jugado. La última es la actual.</div>';
+  p.appendChild(chartCard);
+
+  // ---- Gráfico de PUNTOS ACUMULADOS (eje y = puntos) ----
+  if(nM>0){
+    const yTop=Math.max(10,Math.ceil(Math.max(...finalCum)/10)*10);
+    const yForP=v=> padT+plotH-(v/yTop)*plotH;
+    let svg2='<svg class="bump" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+    for(let v=0;v<=yTop;v+=10){const y=yForP(v);
+      svg2+='<line class="grid" x1="'+padL+'" y1="'+y.toFixed(1)+'" x2="'+(padL+plotW)+'" y2="'+y.toFixed(1)+'"/>';
+      svg2+='<text class="axlbl" x="'+(padL-9)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end">'+v+'</text>';}
+    jcounts.forEach((jc,idx)=>{
+      if(idx<jcounts.length-1){const xd=xFor(jc.end-0.5);
+        svg2+='<line x1="'+xd.toFixed(1)+'" y1="'+padT+'" x2="'+xd.toFixed(1)+'" y2="'+(padT+plotH)+'" stroke="var(--paper-line)" stroke-width="1" stroke-dasharray="3 3"/>';}
+      const xc=xFor((jc.start+jc.end-1)/2);
+      svg2+='<text class="xlbl" x="'+xc.toFixed(1)+'" y="'+(padT+plotH+30)+'" text-anchor="middle">'+(isKO()?segLabel(J[jc.ji].nombre):('Jornada '+(jc.ji+1)))+'</text>';
+    });
+    // anti-solape de etiquetas finales
+    const gap=23,minY=padT+8,maxY=H-12;
+    const ends=parts.map((nm,i)=>({i,y:yForP(finalCum[i])})).sort((a,b)=>a.y-b.y);
+    for(let a=1;a<ends.length;a++) if(ends[a].y-ends[a-1].y<gap) ends[a].y=ends[a-1].y+gap;
+    if(ends[ends.length-1].y>maxY){ends[ends.length-1].y=maxY; for(let a=ends.length-2;a>=0;a--) if(ends[a+1].y-ends[a].y<gap)ends[a].y=ends[a+1].y-gap;}
+    if(ends[0].y<minY){ends[0].y=minY; for(let a=1;a<ends.length;a++) if(ends[a].y-ends[a-1].y<gap)ends[a].y=ends[a-1].y+gap;}
+    const labY={}; ends.forEach(e=>labY[e.i]=e.y);
+    parts.forEach((nm,i)=>{
+      const col=COLORS[i%COLORS.length];
+      const pts=[]; for(let k=0;k<nM;k++)pts.push([xFor(k),yForP(cumByMatch[k][i])]);
+      const ps=pts.map(q=>q[0].toFixed(1)+','+q[1].toFixed(1)).join(' ');
+      const last=pts[nM-1], ly=labY[i];
+      svg2+='<g class="series">';
+      svg2+='<polyline points="'+ps+'" fill="none" stroke="transparent" stroke-width="12"/>';
+      svg2+='<polyline class="ln" points="'+ps+'" fill="none" stroke="'+col+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+      svg2+='<circle cx="'+last[0].toFixed(1)+'" cy="'+last[1].toFixed(1)+'" r="4" fill="'+col+'" stroke="#fff" stroke-width="1.5"/>';
+      if(Math.abs(ly-last[1])>2) svg2+='<line x1="'+(last[0]+4).toFixed(1)+'" y1="'+last[1].toFixed(1)+'" x2="'+(last[0]+13)+'" y2="'+ly.toFixed(1)+'" stroke="'+col+'" stroke-width="1" opacity=".45"/>';
+      svg2+='<text class="nm" x="'+(last[0]+15)+'" y="'+(ly-1).toFixed(1)+'" fill="'+col+'">'+person(nm)+'</text>';
+      svg2+='<text class="pt" x="'+(last[0]+15)+'" y="'+(ly+10).toFixed(1)+'">'+finalCum[i]+' pts</text>';
+      svg2+='</g>';
+    });
+    svg2+='</svg>';
+    const chartCard2=el("div","card");
+    chartCard2.innerHTML='<div class="card-h"><h3>📈 Puntos acumulados</h3><span class="tag">'+nM+' partidos jugados</span></div>'+
+      '<div class="bumpwrap">'+svg2+'</div>'+
+      '<div style="padding:0 16px 14px;color:var(--txt-soft);font-size:12px">Puntos totales acumulados tras cada partido jugado (eje vertical = puntos).</div>';
+    p.appendChild(chartCard2);
+  }
+
+  const card=el("div","card");
+  card.innerHTML='<div class="card-h"><h3>📅 Puntos por '+(isKO()?'ronda':'jornada')+'</h3><span class="tag">'+parts.length+' participantes</span></div>';
+  const sc=el("div","scroll");const tbl=el("table");
+  const medals=["🥇","🥈","🥉"];
+  let h='<thead><tr><th class="pos">#</th><th>Participante</th>'+
+    J.map((jr,ji)=>'<th style="text-align:center">'+(isKO()?segLabel(jr.nombre):jr.nombre.replace("JORNADA","J"))+(playedJ[ji]?'':' <span style="font-weight:400;opacity:.7">(por jugar)</span>')+'</th>').join("")+
+    '<th style="text-align:center">Total</th></tr></thead><tbody>';
+  rows.forEach((t,idx)=>{
+    h+='<tr><td class="pos">'+((started&&idx<3)?'<span class="medal">'+medals[idx]+'</span>':(idx+1))+'</td>'+
+      '<td><span style="font-family:Archivo,sans-serif;font-weight:800">'+person(t.n)+'</span></td>'+
+      t.j.map((v,ji)=>{
+        if(!playedJ[ji])return '<td class="num"><span class="dash">·</span></td>';
+        const best=(maxJ[ji]>0&&v===maxJ[ji]);
+        return '<td class="num"'+(best?' style="color:var(--grass-deep);font-weight:800"':'')+'>'+v+'</td>';
+      }).join("")+
+      '<td class="num" style="font-size:16px;font-weight:800;color:'+(idx===0&&started?'var(--gold-deep)':'var(--txt)')+'">'+t.tot+'</td></tr>';
+  });
+  h+='</tbody>';tbl.innerHTML=h;sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  const note=el("div","legend");
+  note.innerHTML='<span><i style="background:var(--grass)"></i>mejor puntuación de la jornada</span>'+
+    '<span>· las jornadas sin jugar aparecen con «·»</span>';
+  p.appendChild(note);
+}
+
+/* ===== 5. CLASIFICACIÓN ===== */
+function renderClasificacion(p){
+  const P=DATA["PUNTOS-GRUPOS"];
+  const totalRow=P.resumen.find(r=>/TOTAL/i.test(r.label)&&!r.sub)||P.resumen.find(r=>/TOTAL/i.test(r.label));
+  const totals=P.participants.map((n,i)=>({n,pts:parseInt((totalRow?totalRow.vals[i]:"0")||"0",10)}));
+  const champ=Object.fromEntries(DATA.CAMPEON.apuestas.map(a=>[norm(a.participante),a.apuesta]));
+  const champPrev=Object.fromEntries(DATA.CAMPEON.apuestas.map(a=>[norm(a.participante),a.previa||null]));
+  const champCell=(name)=>{const cp=champ[norm(name)];if(!cp)return '<span class="muted">—</span>';
+    const pv=champPrev[norm(name)];
+    return '<span class="flag">'+flag(cp)+'</span>'+title(cp)+(pv?' <span class="chg">🔁 antes '+title(pv)+'</span>':'');};
+  totals.sort((a,b)=>b.pts-a.pts||a.n.localeCompare(b.n));
+
+  p.innerHTML='<div class="eyebrow">'+(isKO()?'Hoja · Clasificación':'Hoja · Qualy-Grupos')+'</div><h2>Clasificación '+(isKO()?'de la eliminatoria':'general')+'</h2>'+
+    '<p class="lead">La tabla de la liga: participantes ordenados por puntos totales. '+
+    (DATA._META&&DATA._META.jugados? 'Provisional tras '+DATA._META.jugados+' partidos jugados.':'Aún sin partidos jugados.')+'</p>';
+  const scfg=DATA._META&&DATA._META.scoring;
+  if(scfg){
+    p.appendChild(el("div","note-card",
+      '<span class="ni">📐</span><div><b>Puntuación aplicada:</b> signo 1·X·2 acertado = <b>'+scfg.signo+' punto</b>; '+
+      'marcador exacto = <b>'+scfg.exacto+' puntos</b> (no se suman). '+
+      'Si en vuestra peña puntúa distinto, dímelo y recalculo la tabla.</div>'));
+  }
+
+  // ---- Podio top 3 ----
+  const hasPts=totals.some(t=>t.pts>0);
+  if(hasPts && totals.length>=3){
+    const podWho=(t,medal)=>{const cp=champ[norm(t.n)];
+      return '<div class="who"><span class="medal2">'+medal+'</span><div class="pname">'+person(t.n)+'</div>'+
+        '<div class="ppts">'+t.pts+'</div><div class="pchamp">'+(cp?'<span class="flag">'+flag(cp)+'</span>'+title(cp):'')+'</div></div>';};
+    const pod=el("div","card");
+    pod.innerHTML='<div class="card-h"><h3>🏆 Podio</h3><span class="tag">Los 3 primeros</span></div>'+
+      '<div class="podium">'+
+        '<div class="pod p2">'+podWho(totals[1],"🥈")+'<div class="stand">2</div></div>'+
+        '<div class="pod p1">'+podWho(totals[0],"🥇")+'<div class="stand">1</div></div>'+
+        '<div class="pod p3">'+podWho(totals[2],"🥉")+'<div class="stand">3</div></div>'+
+      '</div>';
+    p.appendChild(pod);
+  }
+
+  const card=el("div","card");
+  card.innerHTML='<div class="card-h"><h3>🥇 Clasificación de la peña</h3><span class="tag">'+totals.length+' jugadores</span></div>';
+  const sc=el("div","scroll");const tbl=el("table");
+  const medals=["🥇","🥈","🥉"];
+  const started=totals.some(t=>t.pts>0);
+  const meta=(DATA._META&&DATA._META.totals)||{};
+  let h='<thead><tr><th class="pos">#</th><th>Participante</th><th style="text-align:center">Puntos</th><th style="text-align:center">Aciertos</th><th>Su campeón</th></tr></thead><tbody>';
+  totals.forEach((t,i)=>{
+    const cp=champ[norm(t.n)];
+    const mt=meta[t.n]||{exactos:0,signos:0};
+    const ac=(mt.exactos||mt.signos)?('<span class="muted" style="font-size:12.5px">'+(mt.exactos?mt.exactos+'×🎯 ':'')+(mt.signos?mt.signos+'×✅':'')+'</span>'):'<span class="dash">—</span>';
+    h+='<tr><td class="pos">'+((started&&i<3)?'<span class="medal">'+medals[i]+'</span>':(i+1))+'</td>'+
+      '<td><span class="team" style="font-family:Archivo,sans-serif;font-weight:800">'+person(t.n)+'</span></td>'+
+      '<td class="num" style="font-size:16px;color:'+(i===0&&started?'var(--gold-deep)':'var(--txt)')+'">'+t.pts+'</td>'+
+      '<td style="text-align:center">'+ac+'</td>'+
+      '<td>'+champCell(t.n)+'</td></tr>';
+  });
+  h+='</tbody>';tbl.innerHTML=h;sc.appendChild(tbl);card.appendChild(sc);p.appendChild(card);
+
+  const note=el("div","legend");
+  note.innerHTML=isKO()
+    ? '<span>ℹ️ Los puntos salen de la hoja <b>Puntos-Eliminatoria</b>. En «Su campeón» se muestra la <b>2.ª apuesta</b> (la de la fase final); <b>🔁</b> indica quién la cambió respecto a la primera.</span>'
+    : '<span>ℹ️ Los puntos se calculan en la hoja <b>Puntos-Grupos</b> y se reflejan aquí automáticamente.</span>';
+  p.appendChild(note);
+}
+
+/* ===== HELPERS DATOS (duelos/récords) ===== */
+function getPlayedDetail(){
+  const A=DATA["APUESTA-GRUPOS"],P=DATA["PUNTOS-GRUPOS"],R=DATA["RESULTADO-GRUPOS"];
+  const parts=A.participants, predIdx={}, ptsIdx={};
+  A.jornadas.forEach((j,ji)=>j.partidos.forEach(m=>{predIdx[ji+'|'+m.local+'|'+m.visitante]=m.preds;}));
+  P.jornadas.forEach((j,ji)=>j.partidos.forEach(m=>{ptsIdx[ji+'|'+m.local+'|'+m.visitante]=m.vals;}));
+  const toi=v=>{const n=parseInt(v,10);return isNaN(n)?0:n;};
+  const out=[];
+  R.jornadas.forEach((j,ji)=>j.partidos.forEach(m=>{
+    if(m.golesL===""&&m.golesV==="")return;
+    const key=ji+'|'+m.local+'|'+m.visitante;
+    out.push({ji,jn:j.nombre,local:m.local,visit:m.visitante,gl:m.golesL,gv:m.golesV,s:m.quiniela,preds:predIdx[key]||[],pts:(ptsIdx[key]||[]).map(toi)});
+  }));
+  return {parts,matches:out};
+}
+function standingsOrder(){
+  const t=(DATA._META&&DATA._META.totals)||{}, parts=DATA["PUNTOS-GRUPOS"].participants;
+  return parts.map((n,i)=>({n,i,pts:(t[n]&&t[n].pts)||0})).sort((a,b)=>b.pts-a.pts||a.n.localeCompare(b.n));
+}
+
+/* ===== CARA A CARA ===== */
+function renderDuelos(p){
+  const {parts,matches}=getPlayedDetail();
+  const ord=standingsOrder();
+  const st={a:ord[0].i,b:ord[1].i};
+  p.innerHTML='<div class="eyebrow">Extra · Cara a cara</div><h2>Duelos entre participantes</h2>'+
+    '<p class="lead">Elige a dos miembros de la peña y compara sus pronósticos partido a partido: quién ha sumado más y quién gana el mano a mano.</p>';
+  const head=el("div","duelhead");
+  const opts=i=>parts.map((n,j)=>'<option value="'+j+'"'+(j===i?' selected':'')+'>'+person(n)+'</option>').join("");
+  head.innerHTML='<select class="pick" id="duA">'+opts(st.a)+'</select><span class="vs">VS</span><select class="pick" id="duB">'+opts(st.b)+'</select>';
+  p.appendChild(head);
+  const sumCard=el("div","card");p.appendChild(sumCard);
+  const tblCard=el("div","card");tblCard.appendChild(el("div","card-h",'<h3>⚔️ Comparativa partido a partido</h3><span class="tag" id="duTag"></span>'));
+  const sc=el("div","scroll");const tbl=el("table");sc.appendChild(tbl);tblCard.appendChild(sc);p.appendChild(tblCard);
+  function cell(m,idx){
+    const pr=m.preds[idx]||{local:'',visit:'',quiniela:''};const pt=m.pts[idx]||0;
+    const cls=pt===3?'p3':(pt===1?'p1':'p0');
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:5px">'+scoreHTML(pr.local,pr.visit)+'<span class="pts-pill '+cls+'">'+pt+'</span></div>';
+  }
+  function draw(){
+    const a=st.a,b=st.b;let pa=0,pb=0,wa=0,wb=0,tie=0;
+    matches.forEach(m=>{const xa=m.pts[a]||0,xb=m.pts[b]||0;pa+=xa;pb+=xb;if(xa>xb)wa++;else if(xb>xa)wb++;else tie++;});
+    const lead=pa>pb?'a':(pb>pa?'b':'');
+    sumCard.innerHTML='<div class="card-h"><h3>🆚 Resultado del duelo</h3><span class="tag">a los puntos</span></div>'+
+      '<div class="duelbar"><div class="side"><div class="nm2'+(lead==='a'?' win':'')+'">'+person(parts[a])+'</div><div class="big'+(lead==='a'?' win':'')+'">'+pa+'</div><div class="sub2">'+wa+' partidos ganados</div></div>'+
+      '<div class="vs">—</div><div class="side"><div class="nm2'+(lead==='b'?' win':'')+'">'+person(parts[b])+'</div><div class="big'+(lead==='b'?' win':'')+'">'+pb+'</div><div class="sub2">'+wb+' partidos ganados</div></div></div>'+
+      '<div style="padding:0 16px 14px;text-align:center;color:var(--txt-soft);font-size:13px">'+(lead===''?'Empate total a puntos':'<b>'+person(parts[lead==='a'?a:b])+'</b> va por delante por '+Math.abs(pa-pb)+' puntos')+' · empataron en '+tie+' partidos</div>';
+    $("#duTag").textContent=matches.length+' partidos';
+    let h='<thead><tr><th class="sticky-l">Partido</th><th style="text-align:center">'+person(parts[a])+'</th><th style="text-align:center">Real</th><th style="text-align:center">'+person(parts[b])+'</th><th style="text-align:center">Gana</th></tr></thead><tbody>';
+    matches.forEach(m=>{
+      const xa=m.pts[a]||0,xb=m.pts[b]||0;const w=xa>xb?person(parts[a]):(xb>xa?person(parts[b]):'—');
+      const wcol=(xa!==xb)?'var(--grass-deep)':'var(--txt-soft)';
+      h+='<tr><td class="sticky-l"><div style="font-size:12.5px"><span>'+teamHTML(m.local)+'</span><br><span class="muted">'+teamHTML(m.visit)+'</span></div></td>'+
+        '<td>'+cell(m,a)+'</td>'+
+        '<td style="text-align:center"><span class="score">'+m.gl+'-'+m.gv+'</span></td>'+
+        '<td>'+cell(m,b)+'</td>'+
+        '<td style="text-align:center;font-weight:700;font-size:12px;color:'+wcol+'">'+w+'</td></tr>';
+    });
+    h+='</tbody>';tbl.innerHTML=h;
+  }
+  draw();
+  $("#duA").addEventListener('change',e=>{st.a=+e.target.value;draw();});
+  $("#duB").addEventListener('change',e=>{st.b=+e.target.value;draw();});
+}
+
+/* ===== RÉCORDS ===== */
+function renderRecords(p){
+  const {parts,matches}=getPlayedDetail();
+  const P=DATA["PUNTOS-GRUPOS"],meta=(DATA._META&&DATA._META.totals)||{};
+  const toi=x=>{const n=parseInt(x,10);return isNaN(n)?0:n;};
+  const ord=standingsOrder();
+  let exTop={n:'',v:-1};parts.forEach(n=>{const e=(meta[n]&&meta[n].exactos)||0;if(e>exTop.v)exTop={n,v:e};});
+  let bestJ={n:'',v:-1,j:''};P.jornadas.forEach(jr=>{if(!jr.partidos.some(m=>m.vals.some(v=>v!=="")))return;parts.forEach((n,i)=>{const s=toi(jr.subtotales[i]);if(s>bestJ.v)bestJ={n,v:s,j:jr.nombre};});});
+  const playedJor=P.jornadas.map(jr=>jr.partidos.some(m=>m.vals.some(v=>v!=="")));
+  const stages=[];P.jornadas.forEach((jr,ji)=>{if(playedJor[ji])stages.push(ji);});
+  const rankAtStage=stages.map(s=>{const cum=parts.map((_,i)=>P.jornadas.slice(0,s+1).reduce((a,jr)=>a+toi(jr.subtotales[i]),0));const o=parts.map((n,i)=>({i,n,c:cum[i]})).sort((a,b)=>b.c-a.c||a.n.localeCompare(b.n));const r=[];o.forEach((x,idx)=>r[x.i]=idx+1);return r;});
+  let up={n:'',v:0},down={n:'',v:0};
+  for(let s=1;s<stages.length;s++){parts.forEach((n,i)=>{const d=rankAtStage[s-1][i]-rankAtStage[s][i];if(d>up.v)up={n,v:d};if(d<down.v)down={n,v:d};});}
+  let easy={t:'',v:-1},hard={t:'',v:99};
+  matches.forEach(m=>{const ac=m.pts.filter(x=>x>0).length;const t=title(m.local)+' '+m.gl+'-'+m.gv+' '+title(m.visit);if(ac>easy.v)easy={t,v:ac};if(ac<hard.v)hard={t,v:ac};});
+  let gol={n:'',v:-1};parts.forEach((n,i)=>{let g=0;matches.forEach(m=>{const pr=m.preds[i];if(pr){const a=parseInt(pr.local,10),b=parseInt(pr.visit,10);if(!isNaN(a))g+=a;if(!isNaN(b))g+=b;}});if(g>gol.v)gol={n,v:g};});
+  const lastN=Math.min(6,matches.length);let strk={n:'',v:-1};parts.forEach((n,i)=>{let s=0;for(let k=matches.length-lastN;k<matches.length;k++)s+=matches[k].pts[i]||0;if(s>strk.v)strk={n,v:s};});
+
+  p.innerHTML='<div class="eyebrow">Extra · Récords</div><h2>Récords y estadísticas</h2>'+
+    '<p class="lead">Las curiosidades de la peña tras '+matches.length+' partidos: rachas, récords y los partidos que más quebraderos de cabeza dieron.</p>';
+  const cards=[
+    ['🥇','Líder',person(ord[0].n),ord[0].pts+' puntos'],
+    ['🎯','Más marcadores exactos',person(exTop.n),exTop.v+' exactos'],
+    ['🔥','Mejor jornada',person(bestJ.n),bestJ.v+' pts en '+bestJ.j.replace('JORNADA','J')],
+    ['⚽','Más goleador (pronósticos)',person(gol.n),gol.v+' goles puestos'],
+    ['📈','Mayor subida',up.v>0?person(up.n):'—',up.v>0?'+'+up.v+' puestos':'sin cambios aún'],
+    ['📉','Mayor caída',down.v<0?person(down.n):'—',down.v<0?down.v+' puestos':'sin cambios aún'],
+    ['💪','En racha (últimos '+lastN+')',person(strk.n),strk.v+' puntos'],
+    ['✅','Partido más acertado',easy.t,easy.v+' de 10 acertaron'],
+    ['🎲','Partido más difícil',hard.t,hard.v+' de 10 acertaron'],
+  ];
+  const card=el("div","card");
+  card.innerHTML='<div class="card-h"><h3>📊 Tablón de récords</h3><span class="tag">'+matches.length+' partidos</span></div>';
+  const grid=el("div","statgrid");grid.style.padding="16px";
+  cards.forEach(c=>grid.appendChild(el("div","statcard",'<div class="ic">'+c[0]+'</div><div class="lb">'+c[1]+'</div><div class="vl">'+c[2]+'</div><div class="sub2">'+c[3]+'</div>')));
+  card.appendChild(grid);p.appendChild(card);
+}
+
+/* ===== ELIMINATORIAS (cuadro oficial FIFA, predeterminado) ===== */
+const KO_R32=[
+ {m:73,a:'2º Grupo A',b:'2º Grupo B'},
+ {m:74,a:'1º Grupo E',b:'3º (A/B/C/D/F)'},
+ {m:75,a:'1º Grupo F',b:'2º Grupo C'},
+ {m:76,a:'1º Grupo C',b:'2º Grupo F'},
+ {m:77,a:'1º Grupo I',b:'3º (C/D/F/G/H)'},
+ {m:78,a:'2º Grupo E',b:'2º Grupo I'},
+ {m:79,a:'1º Grupo A',b:'3º (C/E/F/H/I)'},
+ {m:80,a:'1º Grupo L',b:'3º (E/H/I/J/K)'},
+ {m:81,a:'1º Grupo D',b:'3º (B/E/F/I/J)'},
+ {m:82,a:'1º Grupo G',b:'3º (A/E/H/I/J)'},
+ {m:83,a:'2º Grupo K',b:'2º Grupo L'},
+ {m:84,a:'1º Grupo H',b:'2º Grupo J'},
+ {m:85,a:'1º Grupo B',b:'3º (E/F/G/I/J)'},
+ {m:86,a:'1º Grupo J',b:'2º Grupo H'},
+ {m:87,a:'1º Grupo K',b:'3º (D/E/I/J/L)'},
+ {m:88,a:'2º Grupo D',b:'2º Grupo G'},
+];
+const KO_R16=[
+ {m:89,a:'Ganador M74',b:'Ganador M77'},
+ {m:90,a:'Ganador M73',b:'Ganador M75'},
+ {m:91,a:'Ganador M76',b:'Ganador M78'},
+ {m:92,a:'Ganador M79',b:'Ganador M80'},
+ {m:93,a:'Ganador M83',b:'Ganador M84'},
+ {m:94,a:'Ganador M81',b:'Ganador M82'},
+ {m:95,a:'Ganador M86',b:'Ganador M88'},
+ {m:96,a:'Ganador M85',b:'Ganador M87'},
+];
+const KO_QF=[
+ {m:97,a:'Ganador M89',b:'Ganador M90'},
+ {m:98,a:'Ganador M93',b:'Ganador M94'},
+ {m:99,a:'Ganador M91',b:'Ganador M92'},
+ {m:100,a:'Ganador M95',b:'Ganador M96'},
+];
+const KO_SF=[
+ {m:101,a:'Ganador M97',b:'Ganador M98'},
+ {m:102,a:'Ganador M99',b:'Ganador M100'},
+];
+const KO_3RD={m:103,a:'Perdedor M101',b:'Perdedor M102'};
+const KO_FINAL={m:104,a:'Ganador M101',b:'Ganador M102'};
+function koSlot(txt,first){
+  let cls='gan';
+  if(/^1º/.test(txt))cls='p1pos'; else if(/^2º/.test(txt))cls='p2pos'; else if(/^3º/.test(txt))cls='p3pos';
+  return '<div class="ko-slot'+(first?' first':'')+'"><span class="ko-dot '+cls+'"></span><span>'+txt+'</span></div>';
+}
+const KO_WINNERS={73:'CANADA',74:'PARAGUAY',75:'MARRUECOS',76:'BRASIL',77:'FRANCIA',78:'NORUEGA',79:'MEXICO',80:'INGLATERRA',81:'ESTADOS UNIDOS',82:'BELGICA',83:'PORTUGAL',84:'ESPAÑA',85:'SUIZA',86:'ARGENTINA',87:'COLOMBIA',88:'EGIPTO',89:'FRANCIA',90:'MARRUECOS',91:'NORUEGA',92:'INGLATERRA',93:'ESPAÑA',94:'BELGICA',95:'ARGENTINA',96:'SUIZA',97:'FRANCIA',98:'ESPAÑA',99:'INGLATERRA',100:'ARGENTINA',101:'ESPAÑA'};
+function renderEliminatorias(p){
+  const KO_TEAMS={
+    '1º Grupo A':'MEXICO','2º Grupo A':'SUDAFRICA',
+    '1º Grupo B':'SUIZA','2º Grupo B':'CANADA',
+    '1º Grupo C':'BRASIL','2º Grupo C':'MARRUECOS',
+    '1º Grupo D':'ESTADOS UNIDOS','2º Grupo D':'AUSTRALIA',
+    '1º Grupo E':'ALEMANIA','2º Grupo E':'COSTA DE MARFIL',
+    '1º Grupo F':'PAISES BAJOS','2º Grupo F':'JAPON',
+    '1º Grupo G':'BELGICA','2º Grupo G':'EGIPTO',
+    '1º Grupo H':'ESPAÑA','2º Grupo H':'CABO VERDE',
+    '1º Grupo I':'FRANCIA','2º Grupo I':'NORUEGA',
+    '1º Grupo J':'ARGENTINA','2º Grupo J':'AUSTRIA',
+    '1º Grupo K':'COLOMBIA','2º Grupo K':'PORTUGAL',
+    '1º Grupo L':'INGLATERRA','2º Grupo L':'CROACIA',
+    '3º (A/B/C/D/F)':'PARAGUAY',   // M74
+    '3º (C/D/F/G/H)':'SUECIA',     // M77
+    '3º (C/E/F/H/I)':'ECUADOR',    // M79
+    '3º (E/H/I/J/K)':'DR CONGO',   // M80
+    '3º (B/E/F/I/J)':'BOSNIA-HERZ.', // M81
+    '3º (A/E/H/I/J)':'SENEGAL',    // M82
+    '3º (E/F/G/I/J)':'ARGELIA',    // M85
+    '3º (D/E/I/J/L)':'GHANA'       // M87
+  };
+  // Equipos que han pasado de ronda (se actualiza según resultados; los penaltis no se ven en el marcador)
+  const WINNERS=KO_WINNERS;
+  const all=[...KO_R32,...KO_R16,...KO_QF,...KO_SF,KO_3RD,KO_FINAL];
+  const M={}; all.forEach(t=>M[t.m]=t);
+  const r32ord=[74,77,73,75,83,84,81,82,76,78,79,80,86,88,85,87];
+  const r16ord=[89,90,93,94,91,92,95,96];
+  const qford=[97,98,99,100], sford=[101,102];
+
+  p.innerHTML='<div class="eyebrow">Fase final · Cuadro</div><h2>Cuadro de eliminatorias</h2>'+
+    '<p class="lead">El cuadro oficial del Mundial 2026, de los dieciseisavos a la final. La fase de grupos ha terminado: los <b>16 cruces de dieciseisavos ya están definidos</b> con sus selecciones (incluidos los ocho mejores terceros). A partir de octavos, cada cruce se resolverá con los ganadores. Cuadro oficial de la FIFA, sin sorteo.</p>';
+
+  const colW=200,gapX=52,boxH=58,slotV=70,topY=58,cols=5;
+  const x=[]; for(let c=0;c<cols;c++)x[c]=10+c*(colW+gapX);
+  const cyR32=i=>topY+i*slotV+boxH/2;
+  const cy16=j=>(cyR32(2*j)+cyR32(2*j+1))/2;
+  const cy8=k=>(cy16(2*k)+cy16(2*k+1))/2;
+  const cy4=k=>(cy8(2*k)+cy8(2*k+1))/2;
+  const cyF=(cy4(0)+cy4(1))/2;
+  const W=x[4]+colW+14, H=cyR32(r32ord.length-1)+boxH/2+28;
+  function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function teamOf(label){
+    if(KO_TEAMS[label])return KO_TEAMS[label];
+    const gm=/^Ganador M(\d+)$/.exec(label);
+    return (gm&&WINNERS[+gm[1]])||null;
+  }
+  function seedColor(label){
+    if(/^1º/.test(label))return 'var(--grass)';
+    if(/^2º/.test(label))return 'var(--blue)';
+    if(/^3º/.test(label))return '#c98a06';
+    return null;
+  }
+  const nk=s=>{let n=norm(s);return n==='EEUU'?'ESTADOSUNIDOS':n;};
+  const RESN={}; Object.keys(RESULT_BY_MATCH).forEach(k=>{const kk=k.split('|');RESN[nk(kk[0])+'|'+nk(kk[1])]=RESULT_BY_MATCH[k];});
+  function resultFor(tA,tB){
+    if(!tA||!tB)return null;
+    let r=RESN[nk(tA)+'|'+nk(tB)]; if(r&&(r.l!==''||r.v!==''))return {a:r.l,b:r.v};
+    r=RESN[nk(tB)+'|'+nk(tA)]; if(r&&(r.l!==''||r.v!==''))return {a:r.v,b:r.l};
+    return null;
+  }
+  function rowSVG(m,label,goal,bx,rowTop,h){
+    const team=teamOf(label);
+    const winName=WINNERS[m], decided=!!winName;
+    const isWin=decided&&team===winName;
+    const isLose=decided&&team&&team!==winName;
+    let s='';
+    if(isWin)s+='<rect x="'+(bx+3)+'" y="'+(rowTop+3)+'" width="'+(colW-6)+'" height="'+(h-6)+'" rx="9" fill="rgba(0,166,81,.10)"/>';
+    let sc=seedColor(label); if(!sc&&team)sc='var(--grass-deep)';
+    if(sc)s+='<rect x="'+(bx+7)+'" y="'+(rowTop+7)+'" width="3.5" height="'+(h-14)+'" rx="1.75" fill="'+sc+'"'+(isLose?' opacity=".45"':'')+'/>';
+    const ty=(rowTop+h/2+3.8).toFixed(1);
+    if(team){
+      s+='<text x="'+(bx+17)+'" y="'+ty+'" font-size="11.5" font-weight="'+(isWin?'800':'700')+'" fill="var(--txt)" font-family="Archivo,sans-serif"'+(isLose?' opacity=".45"':'')+'>'+esc(flag(team)+' '+title(team))+'</text>';
+    }else{
+      s+='<text x="'+(bx+17)+'" y="'+ty+'" font-size="10.5" font-weight="600" fill="var(--txt-soft)" font-family="Archivo,sans-serif">'+esc(label)+'</text>';
+    }
+    if(goal!=null&&goal!==''){
+      s+='<rect x="'+(bx+colW-31)+'" y="'+(rowTop+(h-19)/2).toFixed(1)+'" width="23" height="19" rx="6" fill="'+(isWin?'var(--grass)':'rgba(13,16,48,.06)')+'"/>'+
+         '<text x="'+(bx+colW-19.5)+'" y="'+(rowTop+h/2+3.6).toFixed(1)+'" text-anchor="middle" font-size="11" font-weight="800" fill="'+(isWin?'#fff':'var(--txt-soft)')+'" font-family="JetBrains Mono,monospace">'+esc(String(goal))+'</text>';
+    }
+    return s;
+  }
+  function boxSVG(m,bx,cy,final){
+    const t=M[m],by=cy-boxH/2,h=boxH/2;
+    const tA=teamOf(t.a),tB=teamOf(t.b);
+    const res=resultFor(tA,tB);
+    let s='<rect x="'+bx+'" y="'+by+'" width="'+colW+'" height="'+boxH+'" rx="13" fill="var(--paper-2)" stroke="'+(final?'var(--gold-deep)':'var(--paper-line)')+'"'+(final?' stroke-width="2" filter="url(#koGold)"':' filter="url(#koShadow)"')+'/>';
+    s+='<line x1="'+(bx+12)+'" y1="'+cy.toFixed(1)+'" x2="'+(bx+colW-12)+'" y2="'+cy.toFixed(1)+'" stroke="var(--paper-line)" stroke-width="1"/>';
+    s+='<rect x="'+(bx+colW-36)+'" y="'+(by-8)+'" width="32" height="15" rx="7.5" fill="'+(final?'var(--gold)':'var(--ink)')+'"/>'+
+       '<text x="'+(bx+colW-20)+'" y="'+(by+3.2)+'" text-anchor="middle" font-size="8.5" font-weight="700" fill="'+(final?'#3a2c08':'#cdd4f0')+'" font-family="JetBrains Mono,monospace">M'+m+'</text>';
+    s+=rowSVG(m,t.a,res?res.a:null,bx,by,h)+rowSVG(m,t.b,res?res.b:null,bx,cy,h);
+    return s;
+  }
+  function conn(col,srcCy,dstCy,played){
+    const xr=x[col]+colW,xl=x[col+1],xm=xr+gapX/2;
+    let d;
+    if(Math.abs(dstCy-srcCy)<1){d='M'+xr+' '+srcCy.toFixed(1)+' H'+xl;}
+    else{
+      const dir=dstCy>srcCy?1:-1, r=Math.min(10,Math.abs(dstCy-srcCy)/2);
+      d='M'+xr+' '+srcCy.toFixed(1)+' H'+(xm-r).toFixed(1)+
+        ' Q'+xm.toFixed(1)+' '+srcCy.toFixed(1)+' '+xm.toFixed(1)+' '+(srcCy+dir*r).toFixed(1)+
+        ' V'+(dstCy-dir*r).toFixed(1)+
+        ' Q'+xm.toFixed(1)+' '+dstCy.toFixed(1)+' '+(xm+r).toFixed(1)+' '+dstCy.toFixed(1)+
+        ' H'+xl;
+    }
+    return '<path d="'+d+'" fill="none" stroke="'+(played?'var(--grass)':'var(--paper-line)')+'" stroke-width="'+(played?'2.4':'1.6')+'"'+(played?' opacity=".75"':'')+' stroke-linecap="round"/>';
+  }
+  let svg='<svg class="brk" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+  svg+='<defs>'+
+    '<linearGradient id="koTri" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="var(--red)"/><stop offset=".5" stop-color="var(--grass)"/><stop offset="1" stop-color="var(--blue)"/></linearGradient>'+
+    '<filter id="koShadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0d1030" flood-opacity="0.10"/></filter>'+
+    '<filter id="koGold" x="-30%" y="-50%" width="160%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#cf9a00" flood-opacity="0.35"/></filter>'+
+    '</defs>';
+  let cGray='',cGreen='';
+  const addConn=(col,sc,dc,ok)=>{const seg=conn(col,sc,dc,ok);if(ok)cGreen+=seg;else cGray+=seg;};
+  r32ord.forEach((m,i)=>addConn(0,cyR32(i),cy16(Math.floor(i/2)),!!WINNERS[m]));
+  r16ord.forEach((m,j)=>addConn(1,cy16(j),cy8(Math.floor(j/2)),!!WINNERS[m]));
+  qford.forEach((m,k)=>addConn(2,cy8(k),cy4(Math.floor(k/2)),!!WINNERS[m]));
+  sford.forEach((m,k)=>addConn(3,cy4(k),cyF,!!WINNERS[m]));
+  svg+=cGray+cGreen;
+  r32ord.forEach((m,i)=>svg+=boxSVG(m,x[0],cyR32(i)));
+  r16ord.forEach((m,j)=>svg+=boxSVG(m,x[1],cy16(j)));
+  qford.forEach((m,k)=>svg+=boxSVG(m,x[2],cy8(k)));
+  sford.forEach((m,k)=>svg+=boxSVG(m,x[3],cy4(k)));
+  svg+='<text x="'+(x[4]+colW/2)+'" y="'+(cyF-boxH/2-16).toFixed(1)+'" text-anchor="middle" font-size="24">🏆</text>';
+  svg+=boxSVG(104,x[4],cyF,true);
+  [['DIECISEISAVOS',0],['OCTAVOS',1],['CUARTOS',2],['SEMIFINALES',3],['FINAL',4]].forEach(h=>{
+    const cx=x[h[1]]+colW/2;
+    svg+='<text x="'+cx+'" y="24" text-anchor="middle" font-size="14" letter-spacing="1.5" fill="var(--txt)" font-family="Anton,sans-serif">'+h[0]+'</text>'+
+         '<rect x="'+(cx-18)+'" y="31" width="36" height="4" rx="2" fill="url(#koTri)"/>';
+  });
+  svg+='</svg>';
+
+  const card=el("div","card bleed");
+  card.innerHTML='<div class="card-h"><h3>🏟️ Cuadro · camino a la final</h3><span class="tag">Final 19 jul · MetLife, NJ</span></div>';
+  const sc=el("div");sc.style.cssText='overflow:auto;padding:8px 8px 16px';sc.innerHTML=svg;
+  card.appendChild(sc);p.appendChild(card);
+
+  const extra=el("div","card");
+  extra.innerHTML='<div class="card-h"><h3>🥉 Tercer y cuarto puesto</h3><span class="tag">18 jul</span></div>'+
+    '<div class="kogrid" style="padding:14px"><div class="ko-tie"><div class="ko-mno">M103</div>'+koSlot(KO_3RD.a,true)+koSlot(KO_3RD.b,false)+'</div></div>';
+  p.appendChild(extra);
+
+  const note=el("div","legend");
+  note.innerHTML='<span><i style="background:var(--grass)"></i>1º de grupo</span><span><i style="background:var(--blue)"></i>2º de grupo</span><span><i style="background:#c98a06"></i>mejor 3º</span><span><i style="background:rgba(0,166,81,.25);border:1px solid var(--grass)"></i>pasa de ronda</span><span><i style="background:var(--grass);height:4px;border-radius:99px"></i>camino ya jugado</span>'+
+    '<span>· Cruce oficial de la FIFA (sin sorteo). A medida que se juegan los partidos, el marcador aparece en cada cruce y el ganador avanza a la siguiente ronda (los penaltis no se reflejan en el marcador).</span>';
+  p.appendChild(note);
+}
+
+/* ===== INIT ===== */
+const hash=(location.hash||"").replace("#","");
+const startPhase=hash.indexOf("ko-")===0?'ko':'grupos';
+setPhase(startPhase);
+const startTab=hash.replace(/^(grupos|ko)-/,"");
+if(TABS.some(t=>t.id===startTab))setTab(startTab);
+</script>
+</body>
+</html>
